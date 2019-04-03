@@ -4,6 +4,7 @@ const route = {
     'ww3': 'worldwar3'
     , 'bblood': 'bblood'
 }
+window['_c_'] = new cc.Node('_c_')
 @ccclass
 export default class NewClass extends cc.Component {
 
