@@ -1,6 +1,7 @@
 import { conf, testAvt, WSEvent } from '../api';
 import { setText } from '../__c';
 import { ccType } from './../__c';
+import { loadImg64 } from '../web';
 const { ccclass } = cc._decorator;
 declare let io;
 declare let axios;
@@ -29,37 +30,14 @@ export default class Worldwar3 extends cc.Component {
         let img64 = testAvt
         setText(nm.txt_player_left, 'Tade wade')
         _c_.emit(ccType.Sprite, { name: nm.sp_avt_L, img64: img64 })
-        this.loadAvt()
-        // let url = '/proxy?url=http://rtmp.icassi.us:8092/img/player/0323/p1.png'
-        // cc.loader.load({ url: url }, res => {
-        //     cc.log('cc loader....', res)
-        // })
-    }
 
-    loadAvt() {
-        let url = 'http://127.0.0.1:80/proxy?url=http://rtmp.icassi.us:8092/img/player/0323/p1.png'
-        // let url = '/proxy?url=http://rtmp.icassi.us:8092/img/player/0323/p1.png'
         setTimeout(() => {
-            axios.get(url)
-                .then(function (res) {
-                    console.log('axios loaded----', res.data)
-                    _c_.emit(ccType.Sprite, { name: nm.sp_avt_L, img64: res.data })
-                })
+            let url = 'http://rtmp.icassi.us:8092/img/player/0323/p1.png'
+            loadImg64(nm.sp_avt_L, url)
         }, 2000);
 
-
-        // axios.get(url)
-        //     .then(function (res) {
-        //         console.log('axios loaded----', res.data)
-        //         // let sp1 = cc.find(nm.sp_avt_L).getComponent(cc.Sprite)
-        //         // setSp64(sp1, res.data)
-        //         imgLoader.emit('img', { name: 'avt_L', img64:  res.data })
-
-        //     })
-        // cc.loader.load(url, (type, res) => {
-        //     console.log('loaded----', type, res)
-        // });
     }
+
     initWS() {
         io(conf.localWS)
             .on('connect', function (msg) {

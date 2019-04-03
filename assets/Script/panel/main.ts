@@ -13,11 +13,16 @@ export default class NewClass extends cc.Component {
         //get url query
         const urlParams = new URLSearchParams(window.location.search);
         const panel = urlParams.get('panel');
-        for (const k in route) {
-            if (panel==k) {
-                const scene = route[k];
-                cc.director.loadScene(scene);
+        // cc.log('panel ', panel)
+        if (panel)
+            for (const k in route) {
+                if (panel == k) {
+                    const scene = route[k];
+                    cc.director.loadScene(scene);
+                }
             }
+        else if(!CC_BUILD) {
+            cc.director.loadScene(route.ww3);
         }
     }
 
