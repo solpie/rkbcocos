@@ -40,7 +40,9 @@ export default class Worldwar3 extends cc.Component {
             })
 
     }
-
+    resetTeamScore() {
+        this.setText("txt_team_score", "00")
+    }
     setText(txtName, text) {
         var c = this.node.getChildByName(txtName);
         if (c) {
