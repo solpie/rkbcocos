@@ -6,7 +6,8 @@ from requests_toolbelt import MultipartEncoder
 import requests
 from engineio import async_eventlet
 from flask_socketio import SocketIO, emit, disconnect
-from flask import Flask, render_template, session, request, make_response, redirect, jsonify
+from flask import Flask, render_template, session, request, make_response, redirect, jsonify, send_file
+from urllib.parse import urlparse
 import configparser
 import os
 import json
@@ -47,18 +48,30 @@ def loadConf():
         config.get('server', 'resHeaders')).split(",")
     serverConf["db"] = str(
         config.get('db', 'path')).split(",")
-    print("serverConf:", serverConf)
     serverConf["views"] = ["admin", "panel", 'dmk', 'webDB']
+
+    # app route
+    app_list = config.get('app', 'entry').split(',')
+    views = {}
+    for app in app_list:
+        route = config.get(app, 'path')
+        views[app] = route
+        print(app, route)
+    serverConf["views"] = app_list
+    serverConf['route'] = views
+    # print(app_list)
 
 
 loadConf()
-
+print("serverConf:", serverConf)
+# exit(0)
 # web server
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
 # the best option based on installed packages.
 async_mode = "eventlet"
-app = Flask(__name__, static_folder=serverConf["static_folder"] , static_url_path='')
+app = Flask(
+    __name__, static_folder=serverConf["static_folder"], static_url_path='')
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 
@@ -75,7 +88,9 @@ def index():
 @app.route('/<viewname>/')
 def view(viewname):
     if viewname in serverConf["views"]:
-        return render_template(viewname + '.html', time=int(time.time()))
+        params = urlparse(request.url).query
+        return redirect(serverConf["route"][viewname]+'?'+params)
+        # return send_file(serverConf["static_folder"]+serverConf["route"][viewname])
     return viewname
 
 
