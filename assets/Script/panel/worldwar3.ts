@@ -37,12 +37,42 @@ export default class Worldwar3 extends cc.Component {
             loadImg64(nm.sp_avt_L, url)
             setText(nm.txt_team_score, '0 - 0')
 
-            _c_.emit(ccType.Animation, { name: nm.player_dot_off_R1, play: 'player_dot_off' })
-
+            // _c_.emit(ccType.Animation, { name: nm.player_dot_off_R1, play: 'player_dot_off' })
+            this.setPlayerDot(true, 3)
+            this.setPlayerDot(false, 3, true)
         }, 2000);
 
-    }
 
+    }
+    setPlayerDot(isRight, count, isOn?) {
+        let side = isRight ? 'R' : 'L'
+        let prefix = 'player_dot_off_' + side;
+        let total = 5
+        let clipName = isOn ? 'player_dot_on' : 'player_dot_off'
+        function delayEmitOff(time, idx) {
+            let compName = prefix + idx
+            setTimeout(() => {
+                _c_.emit(ccType.Animation, { name: compName, play: clipName })
+            }, time);
+        }
+        for (let i = 0; i < total - count; i++) {
+            let idx = isOn ? total - i : i + 1
+            delayEmitOff(250 * i, idx)
+        }
+    }
+    testPlayerDot() {
+        cc.log('testPlayerDot..')
+        setTimeout(() => {
+            //all on
+            this.setPlayerDot(false, 0, false)
+            this.setPlayerDot(true, 0, false)
+        }, 1);
+        setTimeout(() => {
+            //all on
+            this.setPlayerDot(false, 0, true)
+            this.setPlayerDot(true, 0, true)
+        }, 3000);
+    }
     initWS() {
         io(conf.localWS)
             .on('connect', function (msg) {
