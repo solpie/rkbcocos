@@ -18,11 +18,13 @@ export const ccType = {
     Sprite: 'Sprite'
     , Label: 'Label'
     , Animation: 'Animation'
+    , ProgressBar: 'ProgressBar'
 }
 let map = {
     'Sprite': cc.Sprite
     , 'Label': cc.Label
     , 'Animation': cc.Animation
+    , 'ProgressBar': cc.ProgressBar
 }
 
 @ccclass
@@ -36,7 +38,7 @@ export default class __sp extends cc.Component {
     cc_type: string = '';
     onLoad() {
         if (this.cc_type) {
-            cc.log('speci type', this.cc_type,this.node['_components'][0])
+            cc.log('speci type', this.cc_type, this.node['_components'][0])
             this.cls = this.cc_type
             this.comp = this.node.getComponent(map[this.cls])
         }
@@ -77,10 +79,24 @@ export default class __sp extends cc.Component {
             }
         })
         handle(ccType.Animation, data => {
-            let anim: cc.Animation =  this.node.getComponent(cc.Animation)
+            let anim: cc.Animation = this.node.getComponent(cc.Animation)
             // cc.log('ccType.Animation', data,anim)
             if (data.play) {
                 anim.play(data.play)
+            }
+        })
+        handle(ccType.ProgressBar, data => {
+            let pb: cc.ProgressBar = this.node.getComponent(cc.ProgressBar)
+            if (data.progress != null) {
+                pb.progress = data.progress
+                for (let i = 0; i < data.callbackMap.length; i++) {
+                    let callbackProgress = data.callbackMap[i];
+                    let p = callbackProgress[0]
+                    if (pb.progress >= p) {
+                        callbackProgress[1](this.node)
+                        break;
+                    }
+                }
             }
         })
     }

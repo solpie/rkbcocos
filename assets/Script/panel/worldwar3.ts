@@ -12,8 +12,9 @@ const nm = {//value is the name in creator
     txt_team_right: 'txt_team_right',
     txt_player_left: 'txt_player_left',
     txt_player_right: 'txt_player_right',
+    txt_blood_L: 'txt_blood_L',
+    txt_blood_R: 'txt_blood_R',
     sp_avt_L: 'avt_L',
-    player_dot_off_R1: 'player_dot_off_R1',
 }
 @ccclass
 export default class Worldwar3 extends cc.Component {
@@ -36,8 +37,9 @@ export default class Worldwar3 extends cc.Component {
             let url = 'http://rtmp.icassi.us:8092/img/player/0323/p1.png'
             loadImg64(nm.sp_avt_L, url)
             setText(nm.txt_team_score, '0 - 0')
+            setText(nm.txt_blood_L, '2')
+            setText(nm.txt_player_right, '马克')
 
-            // _c_.emit(ccType.Animation, { name: nm.player_dot_off_R1, play: 'player_dot_off' })
             this.setPlayerDot(true, 3)
             this.setPlayerDot(false, 3, true)
         }, 2000);
@@ -71,8 +73,54 @@ export default class Worldwar3 extends cc.Component {
             //all on
             this.setPlayerDot(false, 0, true)
             this.setPlayerDot(true, 0, true)
-        }, 3000);
+        }, 2000);
+
+        function testBloodText(time, text) {
+            setTimeout(() => {
+                setText(nm.txt_blood_L, text)
+                setText(nm.txt_blood_R, text)
+            }, time);
+        }
+        for (let i = 0; i < 11; i++) {
+            testBloodText(i * 80, i)
+        }
+
+
+        let testFoulBar = (time, p) => {
+            setTimeout(() => {
+                this.setFoulBar(true, p)
+                this.setFoulBar(false, p)
+            }, time);
+        }
+
+        for (let i = 0; i < 6; i++) {
+            let p = i / 5
+            testFoulBar(i * 280, p)
+        }
+
     }
+
+    setFoulBar(isRight, progress) {
+        let foulBar = isRight ? 'foulBar_R' : 'foulBar_L'
+        cc.log('setFoulBar', foulBar, progress)
+        _c_.emit(ccType.ProgressBar, {
+            name: foulBar, progress: progress, callbackMap: [
+                [1, (node) => {
+                    cc.log('on progress', node)
+                    let anim: cc.Animation = node.getComponent(cc.Animation)
+                    anim.play('foul_bar_max')
+                }],
+                [0, (node) => {
+                    cc.log('on progress', node)
+                    let anim: cc.Animation = node.getComponent(cc.Animation)
+                    anim.stop('foul_bar_max')
+                    anim.play('foul_bar_normal')
+                }],
+            ]
+
+        })
+    }
+
     initWS() {
         io(conf.localWS)
             .on('connect', function (msg) {
