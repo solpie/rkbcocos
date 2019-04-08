@@ -1,4 +1,4 @@
-const { ccclass } = cc._decorator;
+const { ccclass, property } = cc._decorator;
 declare let _c_: cc.Node;
 
 
@@ -17,52 +17,71 @@ export function setText(txtName, text) {
 export const ccType = {
     Sprite: 'Sprite'
     , Label: 'Label'
+    , Animation: 'Animation'
 }
 let map = {
     'Sprite': cc.Sprite
     , 'Label': cc.Label
+    , 'Animation': cc.Animation
 }
+
 @ccclass
 export default class __sp extends cc.Component {
     _name: string
     sp: cc.Sprite
     cls: string
     comp: any
-    
+
+    @property
+    cc_type: string = '';
     onLoad() {
-        for (const k in map) {
-            let cls = map[k]
-            let isCls = this.node.getComponent(cls) instanceof cls
-            if (isCls) {
-                this.comp = this.node.getComponent(cls)
-                this.cls = k
-                break;
+        if (this.cc_type) {
+            cc.log('speci type', this.cc_type,this.node['_components'][0])
+            this.cls = this.cc_type
+            this.comp = this.node.getComponent(map[this.cls])
+        }
+        else {//only one component
+            for (const k in map) {
+                let cls = map[k]
+                let firstComp = this.node['_components'][0]
+                let isCls = firstComp instanceof cls
+                if (isCls) {
+                    this.comp = firstComp
+                    this.cls = k
+                    break;
+                }
             }
         }
-        this._name = this.node.getComponent(map[this.cls]).node.name;
-        // console.log(this._name, 'is', this.cls)
-        cc.log(this._name, 'is', this.cls)
-        if (this.cls == ccType.Sprite) {
-            this.sp = this.node.getComponent(cc.Sprite);
-            _c_.on(ccType.Sprite, data => {
-                // console.log('img loaded', data)
-                if (data.name == this._name) {
-                    setSp64(this.sp, data.img64)
-                }
-            })
-        }
-        else if (this.cls == ccType.Label) {
-            _c_.on(ccType.Label, data => {
-                if (data.name == this._name) {
-                    let label: cc.Label = this.comp
-                    for (const key in data) {
-                        if (key != 'name' && label[key] != null) {
-                            label[key] = data[key];
-                        }
-                    }
-                }
-            })
-        }
 
+        this._name = this.node.getComponent(map[this.cls]).node.name;
+        cc.log(this._name, 'is', this.cls)
+
+        let handle = (type, callback) => {
+            if (this.cls == type) {
+                this.sp = this.node.getComponent(map[type]);
+                _c_.on(type, data => {
+                    if (data.name == this._name)
+                        callback(data)
+                })
+            }
+        }
+        handle(ccType.Sprite, data => {
+            setSp64(this.sp, data.img64)
+        })
+        handle(ccType.Label, data => {
+            let label: cc.Label = this.comp
+            for (const key in data) {
+                if (key != 'name' && label[key] != null) {
+                    label[key] = data[key];
+                }
+            }
+        })
+        handle(ccType.Animation, data => {
+            let anim: cc.Animation =  this.node.getComponent(cc.Animation)
+            cc.log('ccType.Animation', data,anim)
+            if (data.play) {
+                anim.play(data.play)
+            }
+        })
     }
 }

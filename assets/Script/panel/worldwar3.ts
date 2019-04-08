@@ -13,6 +13,7 @@ const nm = {//value is the name in creator
     txt_player_left: 'txt_player_left',
     txt_player_right: 'txt_player_right',
     sp_avt_L: 'avt_L',
+    player_dot_off_R1: 'player_dot_off_R1',
 }
 @ccclass
 export default class Worldwar3 extends cc.Component {
@@ -34,7 +35,9 @@ export default class Worldwar3 extends cc.Component {
         setTimeout(() => {
             let url = 'http://rtmp.icassi.us:8092/img/player/0323/p1.png'
             loadImg64(nm.sp_avt_L, url)
-        setText(nm.txt_team_score, '0 - 0')
+            setText(nm.txt_team_score, '0 - 0')
+
+            _c_.emit(ccType.Animation, { name: nm.player_dot_off_R1, play: 'player_dot_off' })
 
         }, 2000);
 
