@@ -34,6 +34,8 @@ export default class Worldwar3 extends cc.Component {
         setTimeout(() => {
             let url = 'http://rtmp.icassi.us:8092/img/player/0323/p1.png'
             loadImg64(nm.sp_avt_L, url)
+        setText(nm.txt_team_score, '0 - 0')
+
         }, 2000);
 
     }

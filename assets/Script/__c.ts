@@ -28,6 +28,7 @@ export default class __sp extends cc.Component {
     sp: cc.Sprite
     cls: string
     comp: any
+    
     onLoad() {
         for (const k in map) {
             let cls = map[k]
