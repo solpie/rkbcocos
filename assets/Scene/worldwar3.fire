@@ -50,8 +50,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.353288881168747,
-      "y": 1.353288881168747,
+      "x": 0.4223379629629625,
+      "y": 0.4223379629629625,
       "z": 1
     },
     "_quat": {
@@ -1192,7 +1192,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 129.82,
+      "width": 250,
       "height": 34
     },
     "_anchorPoint": {
@@ -1291,7 +1291,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 129.82,
+      "width": 250,
       "height": 34
     },
     "_anchorPoint": {
@@ -1334,8 +1334,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "player 1",
-    "_N$string": "player 1",
+    "_string": "player1",
+    "_N$string": "player1",
     "_fontSize": 36,
     "_lineHeight": 36,
     "_enableWrapText": true,
@@ -1401,7 +1401,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -438,
-      "y": -465,
+      "y": -467,
       "z": 0
     },
     "_scale": {
@@ -1502,7 +1502,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 438,
-      "y": -465,
+      "y": -467,
       "z": 0
     },
     "_scale": {

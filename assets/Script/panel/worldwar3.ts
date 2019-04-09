@@ -2,6 +2,7 @@ import { conf, testAvt, WSEvent } from '../api';
 import { setText } from '../__c';
 import { ccType } from './../__c';
 import { loadImg64 } from '../web';
+import { Timer } from '../com/timer';
 const { ccclass } = cc._decorator;
 declare let io;
 declare let axios;
@@ -18,8 +19,10 @@ const nm = {//value is the name in creator
 }
 @ccclass
 export default class Worldwar3 extends cc.Component {
+    gameTimer:Timer = new Timer()
     onLoad() {
         console.log('onLoad Worldwar3')
+        this.gameTimer.initTimer(this,'txt_timer')
     }
 
     start() {
@@ -28,9 +31,15 @@ export default class Worldwar3 extends cc.Component {
         this.initWS()
         this.test()
     }
+
+    initTimer() {
+        this.schedule(_ => {
+            setText('1',"1")
+        }, 1, Infinity)
+    }
     test() {
         let img64 = testAvt
-        setText(nm.txt_player_left, 'Tade wade')
+        // setText(nm.txt_player_left, 'Tade wade')
         _c_.emit(ccType.Sprite, { name: nm.sp_avt_L, img64: img64 })
 
         setTimeout(() => {
@@ -43,13 +52,11 @@ export default class Worldwar3 extends cc.Component {
             this.setPlayerDot(true, 3)
             this.setPlayerDot(false, 3, true)
         }, 2000);
-
-
     }
     setPlayerDot(isRight, count, isOn?) {
         let side = isRight ? 'R' : 'L'
         let prefix = 'player_dot_off_' + side;
-        let total = 5
+        let total = this.foulToFT
         let clipName = isOn ? 'player_dot_on' : 'player_dot_off'
         function delayEmitOff(time, idx) {
             let compName = prefix + idx
@@ -88,18 +95,33 @@ export default class Worldwar3 extends cc.Component {
 
         let testFoulBar = (time, p) => {
             setTimeout(() => {
-                this.setFoulBar(true, p)
-                this.setFoulBar(false, p)
+                this.setLeftFoul(p)
+                this.setRightFoul(p)
+                // this.setFoulBar(true, p)
+                // this.setFoulBar(false, p)
             }, time);
         }
 
         for (let i = 0; i < 6; i++) {
-            let p = i / 5
-            testFoulBar(i * 280, p)
+            testFoulBar(i * 280, i)
         }
-
     }
 
+    foulToFT: number = 5
+    setLeftFoul(foul, foulToFT?) {
+        if (foulToFT)
+            this.foulToFT = foulToFT
+        setText('txt_foul_L', foul)
+        let progress = foul / this.foulToFT
+        this.setFoulBar(false, progress)
+    }
+    setRightFoul(foul, foulToFT?) {
+        if (foulToFT)
+            this.foulToFT = foulToFT
+        setText('txt_foul_R', foul)
+        let progress = foul / this.foulToFT
+        this.setFoulBar(true, progress)
+    }
     setFoulBar(isRight, progress) {
         let foulBar = isRight ? 'foulBar_R' : 'foulBar_L'
         cc.log('setFoulBar', foulBar, progress)
