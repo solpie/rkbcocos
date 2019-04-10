@@ -6,6 +6,7 @@ export const WSEvent = {
     sc_ww3_team_score: '',
     sc_teamScore:'',
     sc_timerEvent:'',
+    sc_setFoul:'',
 }
 
 

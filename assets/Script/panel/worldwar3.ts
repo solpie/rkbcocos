@@ -101,27 +101,40 @@ export default class Worldwar3 extends cc.Component {
 
         let testFoulBar = (time, p) => {
             setTimeout(() => {
-                this.setLeftFoul(p)
-                this.setRightFoul(p)
+                this.setFoul_L(p)
+                this.setFoul_R(p)
                 // this.setFoulBar(true, p)
                 // this.setFoulBar(false, p)
+                this.setBloodBar(false, p * 15 / 100)
+                this.setBloodBar(true, (p+1) * 15 / 100)
             }, time);
         }
 
         for (let i = 0; i < 6; i++) {
             testFoulBar(i * 280, i)
         }
+        //test blood bar
+        // _c_.emit(ccType.Sprite, { name: 'blood_bar_cursor_L', x: -200 })
     }
 
     foulToFT: number = 5
-    setLeftFoul(foul, foulToFT?) {
+    setFoul_L(foul, foulToFT?) {
         if (foulToFT)
             this.foulToFT = foulToFT
         setText('txt_foul_L', foul)
         let progress = foul / this.foulToFT
         this.setFoulBar(false, progress)
     }
-    setRightFoul(foul, foulToFT?) {
+    setBloodBar(isR, perc) {
+        //-495 -100
+        let flag = isR ? -1 : 1
+        let nm = isR ? 'blood_bar_cursor_R' : 'blood_bar_cursor_L'
+        let max = -495//see left bar curso position in editor
+        let min = -100
+        let offs = (max - (max - min) * perc) * flag
+        _c_.emit(ccType.Sprite, { name: nm, x: offs })
+    }
+    setFoul_R(foul, foulToFT?) {
         if (foulToFT)
             this.foulToFT = foulToFT
         setText('txt_foul_R', foul)
@@ -145,7 +158,6 @@ export default class Worldwar3 extends cc.Component {
                     anim.play('foul_bar_normal')
                 }],
             ]
-
         })
     }
 
@@ -153,15 +165,20 @@ export default class Worldwar3 extends cc.Component {
         let ws = CC_BUILD ? conf.localWS : 'http://127.0.0.1/rkb';
         io(ws)
             .on('connect', function (msg) {
-                console.log('socketio.....localWS')
+                cc.log('socketio.....localWS')
             })
             .on(WSEvent.sc_teamScore, data => {
-                console.log('sc_teamScore', data)
+                cc.log('sc_teamScore', data)
                 setText(nm.txt_team_score, data.lScore + ' - ' + data.rScore)
             })
             .on(WSEvent.sc_timerEvent, data => {
-                console.log('sc_timerEvent', data)
+                cc.log('sc_timerEvent', data)
                 this.gameTimer.setTimerEvent(data)
+            })
+            .on(WSEvent.sc_setFoul, data => {
+                cc.log('sc_setFoul', data)
+                this.setFoul_L(data.lFoul)
+                this.setFoul_R(data.rFoul)
             })
     }
 

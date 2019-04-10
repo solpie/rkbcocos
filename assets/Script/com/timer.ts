@@ -59,10 +59,12 @@ export class Timer {
         this.timeInSec = sec;
         setText(this._textName, formatSecond(this.timeInSec, this.isSecOnly))
     }
+
     resetTimer() {
         this.timerState = TimerState.PAUSE;
         this.setTimeBySec(this.resetTime)
     }
+    
     setTimerEvent(data) {
         if (data.event == TimerEvent.PAUSE) {
             this.pauseTimer()

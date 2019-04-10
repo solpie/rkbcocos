@@ -30,7 +30,6 @@ let map = {
 @ccclass
 export default class __sp extends cc.Component {
     _name: string
-    sp: cc.Sprite
     cls: string
     comp: any
 
@@ -60,15 +59,24 @@ export default class __sp extends cc.Component {
 
         let handle = (type, callback) => {
             if (this.cls == type) {
-                this.sp = this.node.getComponent(map[type]);
                 _c_.on(type, data => {
-                    if (data.name == this._name)
+                    if (data.name == this._name) {
                         callback(data)
+                    }
                 })
             }
         }
         handle(ccType.Sprite, data => {
-            setSp64(this.sp, data.img64)
+            let sp: cc.Sprite = this.comp
+            if (data.img64)
+                setSp64(sp, data.img64)
+            let nodeKey = ['x', 'y', 'opacity']
+            // cc.log('handle sprite', data['x'], data)
+            for (let k of nodeKey) {
+                if (data[k] != null) {
+                    this.node[k] = data[k]
+                }
+            }
         })
         handle(ccType.Label, data => {
             let label: cc.Label = this.comp
@@ -79,14 +87,14 @@ export default class __sp extends cc.Component {
             }
         })
         handle(ccType.Animation, data => {
-            let anim: cc.Animation = this.node.getComponent(cc.Animation)
+            let anim: cc.Animation = this.comp
             // cc.log('ccType.Animation', data,anim)
             if (data.play) {
                 anim.play(data.play)
             }
         })
         handle(ccType.ProgressBar, data => {
-            let pb: cc.ProgressBar = this.node.getComponent(cc.ProgressBar)
+            let pb: cc.ProgressBar = this.comp
             if (data.progress != null) {
                 pb.progress = data.progress
                 for (let i = 0; i < data.callbackMap.length; i++) {
