@@ -1,4 +1,4 @@
-import { conf, testAvt, WSEvent } from '../api';
+import { conf, WSEvent } from '../api';
 import { setText } from '../__c';
 import { ccType } from './../__c';
 import { loadImg64 } from '../web';
@@ -19,28 +19,34 @@ const nm = {//value is the name in creator
 }
 @ccclass
 export default class Worldwar3 extends cc.Component {
-    gameTimer:Timer = new Timer()
+    gameTimer: Timer = new Timer()
     onLoad() {
         console.log('onLoad Worldwar3')
-        this.gameTimer.initTimer(this,'txt_timer')
+        this.gameTimer.initTimer(this, 'txt_timer')
     }
 
     start() {
         // init logic
-        console.log('start', this)
+        console.log('start worldwar3')
+
+        //init game timer
+        this.gameTimer.isMin = false
+        this.gameTimer.resetTimer()
+
+
         this.initWS()
         this.test()
+
     }
 
     initTimer() {
         this.schedule(_ => {
-            setText('1',"1")
+            setText('1', "1")
         }, 1, Infinity)
     }
     test() {
-        let img64 = testAvt
         // setText(nm.txt_player_left, 'Tade wade')
-        _c_.emit(ccType.Sprite, { name: nm.sp_avt_L, img64: img64 })
+        // _c_.emit(ccType.Sp   rite, { name: nm.sp_avt_L, img64: img64 })
 
         setTimeout(() => {
             let url = 'http://rtmp.icassi.us:8092/img/player/0323/p1.png'
@@ -144,13 +150,18 @@ export default class Worldwar3 extends cc.Component {
     }
 
     initWS() {
-        io(conf.localWS)
+        let ws = CC_BUILD ? conf.localWS : 'http://127.0.0.1/rkb';
+        io(ws)
             .on('connect', function (msg) {
                 console.log('socketio.....localWS')
             })
             .on(WSEvent.sc_teamScore, data => {
                 console.log('sc_teamScore', data)
                 setText(nm.txt_team_score, data.lScore + ' - ' + data.rScore)
+            })
+            .on(WSEvent.sc_timerEvent, data => {
+                console.log('sc_timerEvent', data)
+                this.gameTimer.setTimerEvent(data)
             })
     }
 
