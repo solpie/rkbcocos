@@ -7,6 +7,8 @@ export const WSEvent = {
     sc_teamScore:'',
     sc_timerEvent:'',
     sc_setFoul:'',
+    sc_setBlood:'',
+    sc_setPlayer:'',
 }
 
 

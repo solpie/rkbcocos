@@ -9,7 +9,11 @@ function _proxy(url) {
     return 'http://127.0.0.1:80/proxy?url=' + url
 }
 export function loadImg64(sp, url) {
-    axios.get(_proxy(url))
+    let pUrl = _proxy(url)
+    // cc.loader.load(pUrl, res => {
+    //     cc.log(res)
+    // })
+    axios.get(pUrl)
         .then(function (res) {
             // console.log('axios loaded----', res.data)
             _c_.emit(ccType.Sprite, { name: sp, img64: res.data })
