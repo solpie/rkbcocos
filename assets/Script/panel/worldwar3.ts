@@ -66,12 +66,12 @@ export default class Worldwar3 extends cc.Component {
             setText(_nm_.txt_blood_L, '2')
             setText(_nm_.txt_player_right, '马克')
 
-            this.setPlayerDot(true, 3)
-            this.setPlayerDot(false, 3, true)
+            this.setPlayerDot(1, 3,false)
+            this.setPlayerDot(0, 3, true)
         }, 2000);
     }
-    setPlayerDot(isRight, count, isOn?) {
-        let side = isRight ? 'R' : 'L'
+    setPlayerDot(isR, count, isOn?) {
+        let side = isR ? 'R' : 'L'
         let prefix = 'player_dot_off_' + side;
         let total = this.foulToFT
         let clipName = isOn ? 'player_dot_on' : 'player_dot_off'
@@ -88,16 +88,17 @@ export default class Worldwar3 extends cc.Component {
     }
     testPlayerDot() {
         cc.log('testPlayerDot..')
-        setTimeout(() => {
-            //all on
-            this.setPlayerDot(false, 0, false)
-            this.setPlayerDot(true, 0, false)
-        }, 1);
-        setTimeout(() => {
-            //all on
-            this.setPlayerDot(false, 0, true)
-            this.setPlayerDot(true, 0, true)
-        }, 2000);
+        // setTimeout(() => {
+        //     //all off
+        //     this.setPlayerDot(false, 0, false)
+        //     this.setPlayerDot(true, 0, false)
+        // }, 1);
+        // setTimeout(() => {
+        //     //all on
+        //     this.setPlayerDot(false, 0, true)
+        //     this.setPlayerDot(true, 0, true)
+        // }, 2000);
+        this.setPlayerDot(1, 2,false)
 
         function testBloodText(time, text) {
             setTimeout(() => {
@@ -124,6 +125,7 @@ export default class Worldwar3 extends cc.Component {
         for (let i = 0; i < 6; i++) {
             testFoulBar(i * 280, i)
         }
+
         //test blood bar
         // _c_.emit(ccType.Sprite, { name: 'blood_bar_cursor_L', x: -200 })
     }
@@ -221,6 +223,10 @@ export default class Worldwar3 extends cc.Component {
                     this.setFoul_L(0)
                     this.setFoul_R(0)
                 }
+            })
+            .on(WSEvent.sc_setPlayerDot, data => {
+                cc.log('sc_setPlayerDot', data)
+                this.setPlayerDot(data.isR, data.count, false)
             })
     }
 
