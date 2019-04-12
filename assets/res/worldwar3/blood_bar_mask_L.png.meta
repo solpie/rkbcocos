@@ -1,21 +1,21 @@
 {
   "ver": "2.2.0",
-  "uuid": "8bb65e0c-9e53-4939-86e0-6d4fee41855d",
+  "uuid": "89612af5-ff10-46c3-ab0c-33b2298cf590",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
   "subMetas": {
-    "blood_bar_mask": {
+    "blood_bar_mask_L": {
       "ver": "1.0.3",
-      "uuid": "4254f312-3aa2-47bc-b125-9a8543def4ee",
-      "rawTextureUuid": "8bb65e0c-9e53-4939-86e0-6d4fee41855d",
+      "uuid": "498bc1a1-5412-4801-b001-ea3b39398650",
+      "rawTextureUuid": "89612af5-ff10-46c3-ab0c-33b2298cf590",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
-      "offsetX": 292.5,
+      "offsetX": -292.5,
       "offsetY": -429,
-      "trimX": 1038,
+      "trimX": 453,
       "trimY": 955,
       "width": 429,
       "height": 28,

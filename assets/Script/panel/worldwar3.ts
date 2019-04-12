@@ -68,6 +68,7 @@ export default class Worldwar3 extends cc.Component {
 
             this.setPlayerDot(1, 3,false)
             this.setPlayerDot(0, 3, true)
+            // this.setBloodBar(0,0.3)
         }, 2000);
     }
     setPlayerDot(isR, count, isOn?) {
@@ -110,6 +111,8 @@ export default class Worldwar3 extends cc.Component {
             testBloodText(i * 80, i)
         }
 
+        this.bloodBar_L.setBlood(9)
+        this.bloodBar_R.setBlood(8)
 
         let testFoulBar = (time, p) => {
             setTimeout(() => {
@@ -117,8 +120,10 @@ export default class Worldwar3 extends cc.Component {
                 this.setFoul_R(p)
                 // this.setFoulBar(true, p)
                 // this.setFoulBar(false, p)
-                this.setBloodBar(false, p * 15 / 100)
-                this.setBloodBar(true, (p + 1) * 15 / 100)
+                this.bloodBar_L.setBloodByDtScore(5)
+                this.bloodBar_R.setBloodByDtScore(1)
+                // this.setBloodBar(false, p * 15 / 100)
+                // this.setBloodBar(true, (p + 1) * 15 / 100)
             }, time);
         }
 
@@ -129,15 +134,15 @@ export default class Worldwar3 extends cc.Component {
         //test blood bar
         // _c_.emit(ccType.Sprite, { name: 'blood_bar_cursor_L', x: -200 })
     }
-    setBloodBar(isR, perc) {
-        //-495 -100
-        let flag = isR ? -1 : 1
-        let nm = isR ? 'blood_bar_cursor_R' : 'blood_bar_cursor_L'
-        let max = -495//see left bar curso position in editor
-        let min = -100
-        let offs = (max - (max - min) * perc) * flag
-        _c_.emit(ccType.Sprite, { name: nm, x: offs })
-    }
+    // setBloodBar(isR, perc) {
+    //     //-495 -100
+    //     let flag = isR ? -1 : 1
+    //     let nm = isR ? 'blood_bar_cursor_R' : 'blood_bar_cursor_L'
+    //     let max = -495//see left bar curso position in editor
+    //     let min = -100
+    //     let offs = (max - (max - min) * perc) * flag
+    //     _c_.emit(ccType.Sprite, { name: nm, x: offs })
+    // }
     foulToFT: number = 5
     setFoul_L(foul, foulToFT?) {
         if (foulToFT)

@@ -70,11 +70,14 @@ export default class __sp extends cc.Component {
             let sp: cc.Sprite = this.comp
             if (data.img64)
                 setSp64(sp, data.img64)
-            let nodeKey = ['x', 'y', 'opacity']
-            // cc.log('handle sprite', data['x'], data)
+            let nodeKey = ['x', 'y', 'opacity', 'callback']
+            cc.log('handle sprite', this._name, data['x'], data)
             for (let k of nodeKey) {
                 if (data[k] != null) {
-                    this.node[k] = data[k]
+                    if (k == 'callback')
+                        data[k](this.node)
+                    else
+                        this.node[k] = data[k]
                 }
             }
         })
