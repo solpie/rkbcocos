@@ -134,15 +134,6 @@ export default class Worldwar3 extends cc.Component {
         //test blood bar
         // _c_.emit(ccType.Sprite, { name: 'blood_bar_cursor_L', x: -200 })
     }
-    // setBloodBar(isR, perc) {
-    //     //-495 -100
-    //     let flag = isR ? -1 : 1
-    //     let nm = isR ? 'blood_bar_cursor_R' : 'blood_bar_cursor_L'
-    //     let max = -495//see left bar curso position in editor
-    //     let min = -100
-    //     let offs = (max - (max - min) * perc) * flag
-    //     _c_.emit(ccType.Sprite, { name: nm, x: offs })
-    // }
     foulToFT: number = 5
     setFoul_L(foul, foulToFT?) {
         if (foulToFT)
@@ -194,7 +185,6 @@ export default class Worldwar3 extends cc.Component {
         }
     }
 
-
     initWS() {
         let ws = CC_BUILD ? conf.localWS : 'http://127.0.0.1/rkb';
         io(ws)
@@ -234,5 +224,4 @@ export default class Worldwar3 extends cc.Component {
                 this.setPlayerDot(data.isR, data.count, false)
             })
     }
-
 }

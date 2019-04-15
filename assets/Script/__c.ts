@@ -71,7 +71,7 @@ export default class __sp extends cc.Component {
             if (data.img64)
                 setSp64(sp, data.img64)
             let nodeKey = ['x', 'y', 'opacity', 'callback']
-            cc.log('handle sprite', this._name, data['x'], data)
+            cc.log('handle sprite', this._name, data['x'])
             for (let k of nodeKey) {
                 if (data[k] != null) {
                     if (k == 'callback')

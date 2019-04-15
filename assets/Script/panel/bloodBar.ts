@@ -2,6 +2,7 @@ import { ccType, setText } from '../__c';
 import { _nm_ } from './worldwar3';
 import { confWW3 } from '../com/gameConf';
 declare let _c_: cc.Node;
+const BLOOD_FX_CD = 800;//ms
 
 export class BloodBar {
     _isR: number
@@ -21,7 +22,8 @@ export class BloodBar {
     initBlood: number
     setBlood(val) {
         this.initBlood = val;
-        this._setBlood(val);
+        let offsx = this._setBlood(val);
+        this.bloodNoTween(offsx)
         // val = Math.min(val, 6)
     }
     reset() {
@@ -39,6 +41,7 @@ export class BloodBar {
         // if (!offs)
         //     offs = 1920 - offs
         _c_.emit(ccType.Sprite, { name: nm, x: offs })
+        // cc['tween'](node).to(0.3, { x: this._fx_offs }).start()
         return offs
     }
     _tmpBlood = -1;
@@ -48,14 +51,42 @@ export class BloodBar {
     _fx_cd_timer = null
     bloodTween(node) {
         // let tw:cc.Tween = new cc.Tween()
+        // this.testEnd = new Date().getTime();
         cc.log('play blood fx...', this._fx_offs)
-        cc['tween'](node).to(0.3, { x: this._fx_offs }).start()
+        this.cur_fx_offs = this._fx_offs
+        cc['tween'](node)
+            .to(0.3, { x: this._fx_offs })
+            .start()
     }
+    bloodNoTween(offsx) {
+        _c_.emit(ccType.Sprite, { name: this._bloodFx, x: offsx })
+
+    }
+    // isStartTest = false
+    // testStart: any
+    // testEnd: any
+    cur_fx_offs: number = -1
     setBloodByDtScore(dtScore) {
+        // if (!this.isStartTest) {
+        //     this.isStartTest = true
+        //     this.testStart = new Date().getTime();
+        // }
         let val = this.initBlood - dtScore
         this._curBlood = val
-        this._fx_offs = this._setBlood(val);
-        if (dtScore > 0) {
+        let offsx = this._setBlood(val);
+        let isIncreaseBlood;
+        if (this._fx_offs != null) {
+            isIncreaseBlood = this._isR ? offsx > this._fx_offs : offsx < this._fx_offs
+            if (isIncreaseBlood) {
+                cc.log('加血')
+            }
+        }
+        this._fx_offs = offsx
+
+        if (isIncreaseBlood) {
+           this.bloodNoTween(offsx)
+        }
+        else if (dtScore >= 0) {
             if (this._tmpBlood < 0)
                 this._tmpBlood = val
             let delayFx = (offx) => {
@@ -77,7 +108,7 @@ export class BloodBar {
             //     }
             // }, 1500);
             if (!this._fx_cd_timer) {
-                this._fx_cd = 1500
+                this._fx_cd = BLOOD_FX_CD
                 this._fx_cd_timer = setInterval(() => {
                     this._fx_cd -= 10
                     if (this._fx_cd <= 0) {
@@ -89,7 +120,7 @@ export class BloodBar {
                 }, 10)
             }
             else {
-                this._fx_cd = 1300
+                this._fx_cd = BLOOD_FX_CD
             }
         }
         else {
