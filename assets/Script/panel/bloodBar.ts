@@ -62,15 +62,8 @@ export class BloodBar {
         _c_.emit(ccType.Sprite, { name: this._bloodFx, x: offsx })
 
     }
-    // isStartTest = false
-    // testStart: any
-    // testEnd: any
     cur_fx_offs: number = -1
     setBloodByDtScore(dtScore) {
-        // if (!this.isStartTest) {
-        //     this.isStartTest = true
-        //     this.testStart = new Date().getTime();
-        // }
         let val = this.initBlood - dtScore
         this._curBlood = val
         let offsx = this._setBlood(val);
@@ -109,6 +102,8 @@ export class BloodBar {
             // }, 1500);
             if (!this._fx_cd_timer) {
                 this._fx_cd = BLOOD_FX_CD
+                let timer = new cc.Scheduler()
+                // timer.schedule()
                 this._fx_cd_timer = setInterval(() => {
                     this._fx_cd -= 10
                     if (this._fx_cd <= 0) {
