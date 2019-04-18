@@ -19,3 +19,9 @@ export function loadImg64(sp, url) {
             _c_.emit(ccType.Sprite, { name: sp, img64: res.data })
         })
 }
+const baseUrl = 'http://rtmp.icassi.us:8090/'
+export function getPanelConf(pid, callback) {
+    let url = baseUrl + 'panel/?pid=' + pid
+    axios.get(url)
+        .then(callback)
+}

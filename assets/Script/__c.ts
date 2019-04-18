@@ -19,13 +19,17 @@ export const ccType = {
     , Label: 'Label'
     , Animation: 'Animation'
     , ProgressBar: 'ProgressBar'
+    , Node: 'Node'
 }
 let map = {
     'Sprite': cc.Sprite
     , 'Label': cc.Label
     , 'Animation': cc.Animation
     , 'ProgressBar': cc.ProgressBar
+    , 'Node': cc.Node
+
 }
+let nodeKey = ['x', 'y', 'opacity', 'callback', 'active']
 
 @ccclass
 export default class __sp extends cc.Component {
@@ -37,9 +41,9 @@ export default class __sp extends cc.Component {
     cc_type: string = '';
     onLoad() {
         if (this.cc_type) {
-            cc.log('speci type', this.cc_type, this.node['_components'][0])
+            cc.log('speci type', this.cc_type, this.node['_components'])
             this.cls = this.cc_type
-            this.comp = this.node.getComponent(map[this.cls])
+            // this.comp = this.node.getComponent(map[this.cls])
         }
         else {//only one component
             for (const k in map) {
@@ -53,10 +57,13 @@ export default class __sp extends cc.Component {
                 }
             }
         }
+        if (this.cls == ccType.Node)
+            this._name = this.node.name
+        else
+            this._name = this.node.getComponent(map[this.cls]).node.name;
 
-        this._name = this.node.getComponent(map[this.cls]).node.name;
+
         cc.log(this._name, 'is', this.cls)
-
         let handle = (type, callback) => {
             if (this.cls == type) {
                 _c_.on(type, data => {
@@ -66,11 +73,22 @@ export default class __sp extends cc.Component {
                 })
             }
         }
+        handle(ccType.Node, data => {
+            let nodeKey = ['x', 'y', 'opacity', 'callback', 'active']
+            for (let k of nodeKey) {
+                if (data[k] != null) {
+                    if (k == 'callback')
+                        data[k](this.node)
+                    else
+                        this.node[k] = data[k]
+                }
+            }
+        })
         handle(ccType.Sprite, data => {
             let sp: cc.Sprite = this.comp
             if (data.img64)
                 setSp64(sp, data.img64)
-            let nodeKey = ['x', 'y', 'opacity', 'callback']
+            let nodeKey = ['x', 'y', 'opacity', 'callback', 'active']
             cc.log('handle sprite', this._name, data['x'])
             for (let k of nodeKey) {
                 if (data[k] != null) {
@@ -78,6 +96,7 @@ export default class __sp extends cc.Component {
                         data[k](this.node)
                     else
                         this.node[k] = data[k]
+
                 }
             }
         })
@@ -88,6 +107,8 @@ export default class __sp extends cc.Component {
                     label[key] = data[key];
                 }
             }
+            this.oneCompNode(data)
+            
         })
         handle(ccType.Animation, data => {
             let anim: cc.Animation = this.comp
@@ -110,5 +131,16 @@ export default class __sp extends cc.Component {
                 }
             }
         })
+    }
+    oneCompNode(data) {
+        cc.log('handle node', this._name)
+        for (let k of nodeKey) {
+            if (data[k] != null) {
+                if (k == 'callback')
+                    data[k](this.node)
+                else
+                    this.node[k] = data[k]
+            }
+        }
     }
 }

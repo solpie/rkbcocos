@@ -29,6 +29,17 @@ export class BloodBar {
     reset() {
         this.setBlood(confWW3.maxBlood)
     }
+    _calcOffs(val) {
+        let isR = this._isR
+        let flag = isR ? -1 : 1
+        let nm = this._bloodCursor
+        let max = -495//see left bar curso position in editor
+        let min = -100
+        let perc = 1 - val / this.maxBlood
+        setText(this._bloodTxt, val)
+        let offs = (max - (max - min) * perc) * flag
+        return offs
+    }
     _setBlood(val) {
         let isR = this._isR
         let flag = isR ? -1 : 1
@@ -38,10 +49,14 @@ export class BloodBar {
         let perc = 1 - val / this.maxBlood
         setText(this._bloodTxt, val)
         let offs = (max - (max - min) * perc) * flag
-        // if (!offs)
-        //     offs = 1920 - offs
-        _c_.emit(ccType.Sprite, { name: nm, x: offs })
-        // cc['tween'](node).to(0.3, { x: this._fx_offs }).start()
+        _c_.emit(ccType.Sprite, {
+            name: nm, callback: node => {
+                cc['tween'](node)
+                    .to(0.1, { x: offs })
+                    .start()
+            }
+        })
+        // _c_.emit(ccType.Sprite, { name: nm, x: offs })
         return offs
     }
     _tmpBlood = -1;
@@ -77,7 +92,7 @@ export class BloodBar {
         this._fx_offs = offsx
 
         if (isIncreaseBlood) {
-           this.bloodNoTween(offsx)
+            this.bloodNoTween(offsx)
         }
         else if (dtScore >= 0) {
             if (this._tmpBlood < 0)

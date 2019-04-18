@@ -1,7 +1,7 @@
 import { conf, WSEvent } from '../api';
 import { setText } from '../__c';
 import { ccType } from './../__c';
-import { loadImg64 } from '../web';
+import { loadImg64, getPanelConf } from '../web';
 import { Timer } from '../com/timer';
 import { BloodBar } from './bloodBar';
 const { ccclass } = cc._decorator;
@@ -19,6 +19,9 @@ export const _nm_ = {//value is the name in creator
     txt_foul_R: 'txt_foul_R',
     sp_avt_L: 'avt_L',
     sp_avt_R: 'avt_R',
+
+    node_team_bg: 'team_bg',
+    node_front_panel: 'front_panel',
 }
 @ccclass
 export default class Worldwar3 extends cc.Component {
@@ -44,6 +47,10 @@ export default class Worldwar3 extends cc.Component {
         this.bloodBar_R.reset()
         this.setFoul_L(0)
         this.setFoul_R(0)
+        //隐藏 info_bg
+        _c_.emit(ccType.Node, { name: 'info_bg', active: false })
+
+        this.initState()
         this.initWS()
         if (!CC_BUILD)
             this.test()
@@ -64,17 +71,20 @@ export default class Worldwar3 extends cc.Component {
             loadImg64(_nm_.sp_avt_L, url)
             setText(_nm_.txt_team_score, '0 - 0')
             setText(_nm_.txt_blood_L, '2')
+            setText(_nm_.txt_player_left, '李胜俊')
             setText(_nm_.txt_player_right, '马克')
 
-            this.setPlayerDot(1, 3,false)
+            this.setPlayerDot(1, 3, false)
             this.setPlayerDot(0, 3, true)
             // this.setBloodBar(0,0.3)
+            this.showPlayerInfo()
         }, 2000);
     }
+    playerDocTotal: number = 5
     setPlayerDot(isR, count, isOn?) {
         let side = isR ? 'R' : 'L'
         let prefix = 'player_dot_off_' + side;
-        let total = this.foulToFT
+        let total = this.playerDocTotal
         let clipName = isOn ? 'player_dot_on' : 'player_dot_off'
         function delayEmitOff(time, idx) {
             let compName = prefix + idx
@@ -99,7 +109,7 @@ export default class Worldwar3 extends cc.Component {
         //     this.setPlayerDot(false, 0, true)
         //     this.setPlayerDot(true, 0, true)
         // }, 2000);
-        this.setPlayerDot(1, 2,false)
+        this.setPlayerDot(1, 2, false)
 
         function testBloodText(time, text) {
             setTimeout(() => {
@@ -130,11 +140,10 @@ export default class Worldwar3 extends cc.Component {
         for (let i = 0; i < 6; i++) {
             testFoulBar(i * 280, i)
         }
-
         //test blood bar
         // _c_.emit(ccType.Sprite, { name: 'blood_bar_cursor_L', x: -200 })
     }
-    foulToFT: number = 5
+    foulToFT: number = 3
     setFoul_L(foul, foulToFT?) {
         if (foulToFT)
             this.foulToFT = foulToFT
@@ -184,6 +193,63 @@ export default class Worldwar3 extends cc.Component {
             bloodBar.setBlood(player.blood)
         }
     }
+    showPlayerInfo(data?) {
+        _c_.emit(ccType.Node, { name: 'info_bg', active: true })
+        _c_.emit(ccType.Node, { name: _nm_.node_front_panel, opacity: 0 })
+        _c_.emit(ccType.Node, { name: _nm_.node_team_bg, opacity: 0 })
+
+
+        _c_.emit(ccType.Label, { name: 'txt_info_R', opacity: 0 })
+        _c_.emit(ccType.Label, {
+            name: 'txt_info_R', callback: node => {
+                cc['tween'](node)
+                    .to(0.3, { opacity: 255 })
+                    .start()
+            }
+        })
+        _c_.emit(ccType.Label, { name: 'txt_hw_L', x: 60 })
+        _c_.emit(ccType.Label, {
+            name: 'txt_hw_L', callback: node => {
+                cc['tween'](node)
+                    .to(0.2, { x: 198 })
+                    .start()
+            }
+        })
+        _c_.emit(ccType.Label, { name: 'txt_hw_R', x: -60 })
+        _c_.emit(ccType.Label, {
+            name: 'txt_hw_R', callback: node => {
+                cc['tween'](node)
+                    .to(0.2, { x: -198 })
+                    .start()
+            }
+        })
+        let name_y1 = 55
+        
+        _c_.emit(ccType.Node, {
+            name: 'info_player_R', callback: node => {
+                cc['tween'](node)
+                    .to(0.1, { y: name_y1 })
+                    .start()
+            }
+        })
+       
+
+        _c_.emit(ccType.Node, {
+            name: 'info_player_L', callback: node => {
+                cc['tween'](node)
+                    .to(0.1, { y: name_y1 })
+                    .start()
+            }
+        })
+    }
+    initState() {
+        getPanelConf('ww3', res => {
+            cc.log('get panel conf', res)
+            let conf = res.data[0]
+            setText(_nm_.txt_team_left, conf['team_L'])
+            setText(_nm_.txt_team_right, conf['team_R'])
+        })
+    }
 
     initWS() {
         let ws = CC_BUILD ? conf.localWS : 'http://127.0.0.1/rkb';
@@ -221,7 +287,15 @@ export default class Worldwar3 extends cc.Component {
             })
             .on(WSEvent.sc_setPlayerDot, data => {
                 cc.log('sc_setPlayerDot', data)
-                this.setPlayerDot(data.isR, data.count, false)
+                let playerDot_L = data.playerDot_L
+                let playerDot_R = data.playerDot_R
+                if (data.isOn) {
+                    playerDot_L = this.playerDocTotal - playerDot_L
+                    playerDot_R = this.playerDocTotal - playerDot_R
+                }
+                this.setPlayerDot(0, playerDot_L, data.isOn)
+                this.setPlayerDot(1, playerDot_R, data.isOn)
+                // this.setPlayerDot(data.isR, data.count, false)
             })
     }
 }
