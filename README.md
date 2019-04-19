@@ -2,4 +2,4 @@
 RKB panel cocos
 
 creator build to
-rkb/static/panel
+rkb/static/cc
