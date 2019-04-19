@@ -47,6 +47,10 @@ export default class Worldwar3 extends cc.Component {
         this.setFoul_L(0)
         this.setFoul_R(0)
         //隐藏 info_bg
+        setText('txt_info_L','')
+        setText('txt_info_R','')
+        setText(_nm_.txt_player_left,'')
+        setText(_nm_.txt_player_right,'')
         _c_.emit(ccType.Node, { name: 'info_bg', active: false })
 
         this.initState()

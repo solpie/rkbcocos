@@ -7,6 +7,9 @@ function _tween(name, ctype, callback) {
         }
     })
 }
+export function resetPlayerInfo() {
+
+}
 export function showPlayerInfo(visible, data?) {
     if (visible) {
         _c_.emit(ccType.Node, { name: 'info_bg', active: true })
