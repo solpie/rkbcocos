@@ -2604,7 +2604,7 @@
       "__id__": 4
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_level": 4,
     "_components": [
       {
@@ -2852,7 +2852,7 @@
         "__id__": 168
       }
     ],
-    "_active": false,
+    "_active": true,
     "_level": 4,
     "_components": [
       {

@@ -4,6 +4,7 @@ import { ccType } from './../__c';
 import { loadImg64, getPanelConf } from '../web';
 import { Timer } from '../com/timer';
 import { BloodBar } from './bloodBar';
+import { showPlayerInfo } from './ww3_fx';
 const { ccclass } = cc._decorator;
 declare let io;
 declare let _c_;
@@ -20,8 +21,6 @@ export const _nm_ = {//value is the name in creator
     sp_avt_L: 'avt_L',
     sp_avt_R: 'avt_R',
 
-    node_team_bg: 'team_bg',
-    node_front_panel: 'front_panel',
 }
 @ccclass
 export default class Worldwar3 extends cc.Component {
@@ -77,7 +76,6 @@ export default class Worldwar3 extends cc.Component {
             this.setPlayerDot(1, 3, false)
             this.setPlayerDot(0, 3, true)
             // this.setBloodBar(0,0.3)
-            this.showPlayerInfo()
         }, 2000);
     }
     playerDocTotal: number = 5
@@ -182,6 +180,7 @@ export default class Worldwar3 extends cc.Component {
     }
 
     setPlayer(isR, player) {
+        cc.log('setPlayer', player)
         let nm1 = isR ? _nm_.txt_player_right : _nm_.txt_player_left;
         setText(nm1, player.name)
         if (player.avatar) {
@@ -192,55 +191,17 @@ export default class Worldwar3 extends cc.Component {
             let bloodBar = isR ? this.bloodBar_R : this.bloodBar_L
             bloodBar.setBlood(player.blood)
         }
-    }
-    showPlayerInfo(data?) {
-        _c_.emit(ccType.Node, { name: 'info_bg', active: true })
-        _c_.emit(ccType.Node, { name: _nm_.node_front_panel, opacity: 0 })
-        _c_.emit(ccType.Node, { name: _nm_.node_team_bg, opacity: 0 })
+        let txt_hw = isR ? 'txt_hw_R' : 'txt_hw_L';
+        let hw = player.hwa[0] + 'cm/' + player.hwa[1] + 'kg'
+        setText(txt_hw, hw)
 
+        //球员简介
 
-        _c_.emit(ccType.Label, { name: 'txt_info_R', opacity: 0 })
-        _c_.emit(ccType.Label, {
-            name: 'txt_info_R', callback: node => {
-                cc['tween'](node)
-                    .to(0.3, { opacity: 255 })
-                    .start()
-            }
-        })
-        _c_.emit(ccType.Label, { name: 'txt_hw_L', x: 60 })
-        _c_.emit(ccType.Label, {
-            name: 'txt_hw_L', callback: node => {
-                cc['tween'](node)
-                    .to(0.2, { x: 198 })
-                    .start()
-            }
-        })
-        _c_.emit(ccType.Label, { name: 'txt_hw_R', x: -60 })
-        _c_.emit(ccType.Label, {
-            name: 'txt_hw_R', callback: node => {
-                cc['tween'](node)
-                    .to(0.2, { x: -198 })
-                    .start()
-            }
-        })
-        let name_y1 = 55
-        
-        _c_.emit(ccType.Node, {
-            name: 'info_player_R', callback: node => {
-                cc['tween'](node)
-                    .to(0.1, { y: name_y1 })
-                    .start()
-            }
-        })
-       
+        let txt_info = isR ? 'txt_info_R' : 'txt_info_L';
+        let player_info = player.info
+        player_info = '一二三十万六七八九十一二三十万六七八九十一二三十万六七八九十'
 
-        _c_.emit(ccType.Node, {
-            name: 'info_player_L', callback: node => {
-                cc['tween'](node)
-                    .to(0.1, { y: name_y1 })
-                    .start()
-            }
-        })
+        setText(txt_info, player_info)
     }
     initState() {
         getPanelConf('ww3', res => {
@@ -296,6 +257,9 @@ export default class Worldwar3 extends cc.Component {
                 this.setPlayerDot(0, playerDot_L, data.isOn)
                 this.setPlayerDot(1, playerDot_R, data.isOn)
                 // this.setPlayerDot(data.isR, data.count, false)
+            })
+            .on(WSEvent.sc_showWW3PlayerInfo, data => {
+                showPlayerInfo(data.visible, data.playerArr)
             })
     }
 }

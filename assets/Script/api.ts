@@ -10,6 +10,7 @@ export const WSEvent = {
     sc_setBlood:'',
     sc_setPlayer:'',
     sc_setPlayerDot:'',
+    sc_showWW3PlayerInfo:'',
 }
 
 
