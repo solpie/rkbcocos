@@ -52,6 +52,7 @@ export default class Worldwar3 extends cc.Component {
         setText(_nm_.txt_player_left,'')
         setText(_nm_.txt_player_right,'')
         _c_.emit(ccType.Node, { name: 'info_bg', active: false })
+        setText(_nm_.txt_team_score, '0 - 0')
 
         this.initState()
         this.initWS()
@@ -203,7 +204,7 @@ export default class Worldwar3 extends cc.Component {
 
         let txt_info = isR ? 'txt_info_R' : 'txt_info_L';
         let player_info = player.info
-        player_info = '一二三十万六七八九十一二三十万六七八九十一二三十万六七八九十'
+        // player_info = '一二三十万六七八九十一二三十万六七八九十一二三十万六七八九十'
 
         setText(txt_info, player_info)
     }
