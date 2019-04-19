@@ -61,15 +61,7 @@ export default class Worldwar3 extends cc.Component {
 
     }
 
-    // initTimer() {
-    //     // this.schedule(_ => {
-    //     //     setText('1', "1")
-    //     // }, 1, Infinity)
-    // }
     test() {
-        // setText(nm.txt_player_left, 'Tade wade')
-        // _c_.emit(ccType.Sp   rite, { name: nm.sp_avt_L, img64: img64 })
-
         setTimeout(() => {
             let url = 'http://rtmp.icassi.us:8092/img/player/0323/p1.png'
             loadImg64(_nm_.sp_avt_L, url)
