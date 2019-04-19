@@ -24,6 +24,13 @@ export function showPlayerInfo(visible, data?) {
                     .start()
             }
         })
+
+        _tween('txt_info_L', ccType.Label, tw => {
+            tw
+                .to(0, { opacity: 0 })
+                .to(0.3, { opacity: 255 })
+                .start()
+        })
         _c_.emit(ccType.Label, {
             name: 'txt_hw_L', callback: node => {
                 cc['tween'](node)
@@ -42,20 +49,17 @@ export function showPlayerInfo(visible, data?) {
         })
         let name_y1 = 55
 
-        _c_.emit(ccType.Node, {
-            name: 'info_player_R', callback: node => {
-                cc['tween'](node)
-                    .to(0.1, { y: name_y1 })
-                    .start()
-            }
+        _tween('info_player_L', ccType.Node, tw => {
+            tw
+                .to(0, { y: 0 })
+                .to(0.1, { y: name_y1 })
+                .start()
         })
-
-        _c_.emit(ccType.Node, {
-            name: 'info_player_L', callback: node => {
-                cc['tween'](node)
-                    .to(0.1, { y: name_y1 })
-                    .start()
-            }
+        _tween('info_player_R', ccType.Node, tw => {
+            tw
+                .to(0, { y: 0 })
+                .to(0.1, { y: name_y1 })
+                .start()
         })
     }
 
