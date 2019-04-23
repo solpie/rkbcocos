@@ -1,10 +1,9 @@
-import { conf, WSEvent } from '../api';
-import { setText } from '../__c';
-import { ccType } from './../__c';
-import { loadImg64, getPanelConf } from '../web';
-import { Timer } from '../com/timer';
 import { BloodBar } from './bloodBar';
 import { showPlayerInfo } from './ww3_fx';
+import { Timer } from '../../com/timer';
+import { setText, ccType } from '../../__c';
+import { loadImg64, getPanelConf } from '../../web';
+import { conf, WSEvent } from '../../api';
 const { ccclass } = cc._decorator;
 declare let io;
 declare let _c_;
@@ -35,7 +34,6 @@ export default class Worldwar3 extends cc.Component {
     start() {
         // init logic
         console.log('start worldwar3')
-
         //init game timer
         this.gameTimer.isMin = false
         this.gameTimer.resetTimer()
@@ -47,10 +45,10 @@ export default class Worldwar3 extends cc.Component {
         this.setFoul_L(0)
         this.setFoul_R(0)
         //隐藏 info_bg
-        setText('txt_info_L','')
-        setText('txt_info_R','')
-        setText(_nm_.txt_player_left,'')
-        setText(_nm_.txt_player_right,'')
+        setText('txt_info_L', '')
+        setText('txt_info_R', '')
+        setText(_nm_.txt_player_left, '')
+        setText(_nm_.txt_player_right, '')
         _c_.emit(ccType.Node, { name: 'info_bg', active: false })
         setText(_nm_.txt_team_score, '0 - 0')
 
@@ -58,7 +56,9 @@ export default class Worldwar3 extends cc.Component {
         this.initWS()
         if (!CC_BUILD)
             this.test()
-
+        else {
+            _c_.emit(ccType.Node, { name: 'test_layer', active: false })
+        }
     }
 
     test() {

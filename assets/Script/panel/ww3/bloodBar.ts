@@ -1,6 +1,6 @@
-import { ccType, setText } from '../__c';
 import { _nm_ } from './worldwar3';
-import { confWW3 } from '../com/gameConf';
+import { setText, ccType } from '../../__c';
+import { confWW3 } from '../../com/gameConf';
 declare let _c_: cc.Node;
 const BLOOD_FX_CD = 800;//ms
 

@@ -1,4 +1,4 @@
-import { ccType } from '../__c';
+import { ccType } from '../../__c';
 declare let _c_;
 function _tween(name, ctype, callback) {
     _c_.emit(ctype, {
