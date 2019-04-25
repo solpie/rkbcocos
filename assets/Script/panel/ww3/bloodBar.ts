@@ -77,6 +77,56 @@ export class BloodBar {
         _c_.emit(ccType.Sprite, { name: this._bloodFx, x: offsx })
 
     }
+    setBloodByCurBlood(val) {
+        let dtScore = this._curBlood - val
+        this._curBlood = val
+        let offsx = this._setBlood(val);
+        let isIncreaseBlood;
+        if (this._fx_offs != null) {
+            isIncreaseBlood = this._isR ? offsx > this._fx_offs : offsx < this._fx_offs
+            if (isIncreaseBlood) {
+                cc.log('加血')
+            }
+        }
+        this._fx_offs = offsx
+
+        if (isIncreaseBlood) {
+            this.bloodNoTween(offsx)
+        }
+        else if (dtScore >= 0) {
+            if (this._tmpBlood < 0)
+                this._tmpBlood = val
+            let delayFx = (offx) => {
+                _c_.emit(ccType.Sprite, {
+                    name: this._bloodFx, callback: (node) => {
+                        this.bloodTween(node)
+                    }
+                })
+            }
+            if (!this._fx_cd_timer) {
+                this._fx_cd = BLOOD_FX_CD
+                let timer = new cc.Scheduler()
+                // timer.schedule()
+                this._fx_cd_timer = setInterval(() => {
+                    this._fx_cd -= 10
+                    if (this._fx_cd <= 0) {
+                        // if (this._isR)
+                        delayFx(300)
+                        clearInterval(this._fx_cd_timer)
+                        this._fx_cd_timer = null
+                    }
+                }, 10)
+            }
+            else {
+                this._fx_cd = BLOOD_FX_CD
+            }
+        }
+        else {
+            //   val = Math.min(val, 6)
+            //   this.bloodFx.x = this.bloodFxPos[val]
+        }
+        return val
+    }
     cur_fx_offs: number = -1
     setBloodByDtScore(dtScore) {
         let val = this.initBlood - dtScore
@@ -104,17 +154,6 @@ export class BloodBar {
                     }
                 })
             }
-            // setTimeout(() => {
-            //     if (this._tmpBlood == this._curBlood) {
-            //         cc.log('play blood fx...')
-            //         if (this._isR)
-            //             delayFx(300)
-            //     }
-            //     else {
-            //         cc.log('play blood next tick fx...', this._tmpBlood, this._curBlood)
-            //         this._tmpBlood = this._curBlood
-            //     }
-            // }, 1500);
             if (!this._fx_cd_timer) {
                 this._fx_cd = BLOOD_FX_CD
                 let timer = new cc.Scheduler()

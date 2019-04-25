@@ -1,6 +1,6 @@
 import { BloodBar } from './bloodBar';
 import { showPlayerInfo } from './ww3_fx';
-import { Timer } from '../../com/timer';
+import { Timer, TimerEvent } from '../../com/timer';
 import { setText, ccType } from '../../__c';
 import { loadImg64, getPanelConf } from '../../web';
 import { conf, WSEvent } from '../../api';
@@ -62,6 +62,7 @@ export default class Worldwar3 extends cc.Component {
     }
 
     test() {
+        // _c_.emit(ccType.Node, { name: 'test_layer', active: false, opacity: 255 })
         setTimeout(() => {
             let url = 'http://rtmp.icassi.us:8092/img/player/0323/p1.png'
             loadImg64(_nm_.sp_avt_L, url)
@@ -230,9 +231,16 @@ export default class Worldwar3 extends cc.Component {
             })
             .on(WSEvent.sc_setBlood, data => {
                 cc.log('sc_setBlood', data)
-                let isLeftBloodBar = !data.isLeft//left score right lose blood
-                let bb = isLeftBloodBar ? this.bloodBar_L : this.bloodBar_R;
-                bb.setBloodByDtScore(data.score)
+                if (data.isSetBlood) {
+                    let bb = data.isR ? this.bloodBar_R : this.bloodBar_L;
+                    let blood = data.isR ? data.rBlood : data.lBlood;
+                    bb.setBloodByCurBlood(blood)
+                }
+                else {
+                    let isLeftBloodBar = !data.isLeft//left score right lose blood
+                    let bb = isLeftBloodBar ? this.bloodBar_L : this.bloodBar_R;
+                    bb.setBloodByDtScore(data.score)
+                }
             })
             .on(WSEvent.sc_setPlayer, data => {
                 cc.log('sc_setPlayer', data)
@@ -257,6 +265,11 @@ export default class Worldwar3 extends cc.Component {
             })
             .on(WSEvent.sc_showWW3PlayerInfo, data => {
                 showPlayerInfo(data.visible, data.playerArr)
+            })
+            .on(WSEvent.sc_start_ww3_game, data => {
+                this.setFoul_L(0)
+                this.setFoul_R(0)
+                this.gameTimer.setTimerEvent({ event: TimerEvent.RESET })
             })
     }
 }

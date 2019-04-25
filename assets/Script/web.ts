@@ -25,3 +25,18 @@ export function getPanelConf(pid, callback) {
     axios.get(url)
         .then(callback)
 }
+
+
+export function opReq(cmdId, param) {
+    let url = `/panel/online/${cmdId}`
+    if (!CC_BUILD)
+        url = 'http://127.0.0.1:80' + url
+    param._ = '_'
+    axios({
+        url: url,
+        method: "post",
+        data: JSON.stringify(param),
+        headers: { "Content-Type": "application/json" },
+        // dataType: "json"
+    })
+}

@@ -71,8 +71,8 @@ export class Timer {
         } else if (data.event == TimerEvent.START) {
             this.startTimer()
         } else if (data.event == TimerEvent.RESET) {
-            this.toggleTimer(TimerEvent.RESET);
             this.resetTimer();
+            this.pauseTimer()
         } else if (data.event == TimerEvent.SETTING) {
             this.setTimeBySec(data.param);
         }
