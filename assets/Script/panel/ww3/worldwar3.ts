@@ -1,9 +1,10 @@
+import { WSEvent } from '../../api';
+import { Timer, TimerEvent } from '../../com/timer';
+import { getPanelConf, getWsUrl, loadImg64 } from '../../web';
+import { ccType, setText } from '../../__c';
 import { BloodBar } from './bloodBar';
 import { showPlayerInfo } from './ww3_fx';
-import { Timer, TimerEvent } from '../../com/timer';
-import { setText, ccType } from '../../__c';
-import { loadImg64, getPanelConf } from '../../web';
-import { conf, WSEvent } from '../../api';
+import { BaseGame } from './ww3_op';
 const { ccclass } = cc._decorator;
 declare let io;
 declare let _c_;
@@ -23,15 +24,19 @@ export const _nm_ = {//value is the name in creator
 }
 @ccclass
 export default class Worldwar3 extends cc.Component {
+    id: string//同步的时候区分自己
     gameTimer: Timer = new Timer()
     bloodBar_L: BloodBar
     bloodBar_R: BloodBar
     onLoad() {
-        console.log('onLoad Worldwar3')
+        this.id = (new Date()).getTime().toString()
+        cc.log('onLoad Worldwar3,id:', this.id)
         this.gameTimer.initTimer(this, 'txt_timer')
     }
 
     start() {
+        //global ww3
+        window['ww3'] = this
         // init logic
         console.log('start worldwar3')
         //init game timer
@@ -177,6 +182,14 @@ export default class Worldwar3 extends cc.Component {
         })
     }
 
+    setBaseGame(ww3Game: BaseGame) {
+        this.setFoul_L(ww3Game.lFoul)
+        this.setFoul_R(ww3Game.rFoul)
+        this.bloodBar_L.setBloodByCurBlood(ww3Game.lBlood)
+        this.bloodBar_R.setBloodByCurBlood(ww3Game.rBlood)
+        this.gameTimer.setTimeBySec(ww3Game.curTimeInSec)
+    }
+
     setPlayer(isR, player) {
         cc.log('setPlayer', player)
         let nm1 = isR ? _nm_.txt_player_right : _nm_.txt_player_left;
@@ -207,11 +220,14 @@ export default class Worldwar3 extends cc.Component {
             let conf = res.data[0]
             setText(_nm_.txt_team_left, conf['team_L'])
             setText(_nm_.txt_team_right, conf['team_R'])
+            let foulHint = Number(conf['foul_hint'])
+            if (foulHint > 0)
+                this.foulToFT = foulHint
         })
     }
 
     initWS() {
-        let ws = CC_BUILD ? conf.localWS : 'http://127.0.0.1/rkb';
+        let ws = getWsUrl()
         io(ws)
             .on('connect', _ => {
                 cc.log('socketio.....localWS')
@@ -271,5 +287,13 @@ export default class Worldwar3 extends cc.Component {
                 this.setFoul_R(0)
                 this.gameTimer.setTimerEvent({ event: TimerEvent.RESET })
             })
+
+            .on(WSEvent.sc_sync_game, data => {
+                cc.log('sc_sync_game', data)
+                if (data.id != this.id) {
+                    this.setBaseGame(data)
+                }
+            })
+
     }
 }

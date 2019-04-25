@@ -41,7 +41,7 @@ export default class __sp extends cc.Component {
     cc_type: string = '';
     onLoad() {
         if (this.cc_type) {
-            cc.log('speci type', this.cc_type, this.node['_components'])
+            // cc.log('speci type', this.cc_type, this.node['_components'])
             this.cls = this.cc_type
             // this.comp = this.node.getComponent(map[this.cls])
         }
@@ -63,7 +63,7 @@ export default class __sp extends cc.Component {
             this._name = this.node.getComponent(map[this.cls]).node.name;
 
 
-        cc.log(this._name, 'is', this.cls)
+        // cc.log(this._name, 'is', this.cls)
         let handle = (type, callback) => {
             if (this.cls == type) {
                 _c_.on(type, data => {
@@ -133,7 +133,7 @@ export default class __sp extends cc.Component {
         })
     }
     oneCompNode(data) {
-        cc.log('handle node', this._name)
+        // cc.log('handle node', this._name)
         for (let k of nodeKey) {
             if (data[k] != null) {
                 if (k == 'callback')

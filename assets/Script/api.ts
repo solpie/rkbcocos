@@ -1,6 +1,3 @@
-export const conf = {
-    localWS:'/rkb'
-}
 
 export const WSEvent = {
     sc_ww3_team_score: '',
@@ -19,6 +16,9 @@ export const WSEvent = {
 
     sc_start_ww3_game:'',
     cs_start_ww3_game:'',
+
+    sc_sync_game:'',
+    cs_sync_game:'',
 }
 
 
