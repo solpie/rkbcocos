@@ -4,7 +4,7 @@ import { opReq } from '../../web';
 import Worldwar3 from './worldwar3';
 const { ccclass, property } = cc._decorator;
 export class BaseGame {
-    id:string
+    id: string
     lBlood: number = 0;
     rBlood: number = 0;
     lFoul: number = 0;
@@ -41,6 +41,7 @@ export class BaseGame {
 const ww3Game = new BaseGame();
 @ccclass
 export default class WW3_OP extends cc.Component {
+    _set_time_val: string
     op_start_game() {
         this._emit_start_ww3_game()
     }
@@ -72,6 +73,27 @@ export default class WW3_OP extends cc.Component {
     }
     op_blood_add_L() {
         this._emit_blood(false, 1)
+    }
+
+    op_set_timer() {
+        let a = this._set_time_val.split('-')
+        let sec;
+        if (a.length == 2) {
+            sec = Number(a[0])*60+Number(a[1])
+
+        }
+        else if (Number(this._set_time_val) > -1) {
+            sec = Number(this._set_time_val)
+        }
+        opReq(WSEvent.cs_timerEvent, {
+            event: TimerEvent.SETTING
+            ,param:sec
+        });
+    }
+
+    op_on_set_timer_changed(val) {
+        cc.log('op_on_set_timer_changed', val)
+        this._set_time_val = val
     }
 
     op_start_timer() {
