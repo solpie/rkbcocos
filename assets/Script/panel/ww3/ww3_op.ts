@@ -76,18 +76,21 @@ export default class WW3_OP extends cc.Component {
     }
 
     op_set_timer() {
+        var reg = /^([0-9]+[\-]?)|([0-9]+[\-]+[0-9])$/;
+        if (!reg.test(this._set_time_val)) {
+            return
+        }
         let a = this._set_time_val.split('-')
         let sec;
         if (a.length == 2) {
-            sec = Number(a[0])*60+Number(a[1])
-
+            sec = Number(a[0]) * 60 + Number(a[1])
         }
         else if (Number(this._set_time_val) > -1) {
             sec = Number(this._set_time_val)
         }
         opReq(WSEvent.cs_timerEvent, {
             event: TimerEvent.SETTING
-            ,param:sec
+            , param: sec
         });
     }
 
