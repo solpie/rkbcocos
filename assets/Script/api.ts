@@ -9,6 +9,7 @@ export const WSEvent = {
     cs_setFoul: '',
     
     sc_setBlood:'',
+    sc_updateScore:'',
     cs_setBlood:'',
     sc_setPlayer:'',
     sc_setPlayerDot:'',
