@@ -80,6 +80,7 @@ export default class WW3_OP extends cc.Component {
         if (!reg.test(this._set_time_val)) {
             return
         }
+        
         let a = this._set_time_val.split('-')
         let sec;
         if (a.length == 2) {

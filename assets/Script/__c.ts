@@ -31,6 +31,9 @@ let map = {
 }
 let nodeKey = ['x', 'y', 'opacity', 'callback', 'active']
 
+export function getNode(nodeName, callback) {
+    _c_.emit(ccType.Node, { name: nodeName, callback: callback })
+}
 @ccclass
 export default class __sp extends cc.Component {
     _name: string
@@ -108,7 +111,6 @@ export default class __sp extends cc.Component {
                 }
             }
             this.oneCompNode(data)
-            
         })
         handle(ccType.Animation, data => {
             let anim: cc.Animation = this.comp

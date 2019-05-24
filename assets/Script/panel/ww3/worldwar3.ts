@@ -1,7 +1,7 @@
 import { WSEvent } from '../../api';
 import { Timer, TimerEvent } from '../../com/timer';
 import { getPanelConf, getWsUrl, loadImg64 } from '../../web';
-import { ccType, setText } from '../../__c';
+import { ccType, setText, getNode } from '../../__c';
 import { BloodBar } from './bloodBar';
 import { showPlayerInfo } from './ww3_fx';
 import { BaseGame } from './ww3_op';
@@ -32,6 +32,17 @@ export default class Worldwar3 extends cc.Component {
         this.id = (new Date()).getTime().toString()
         cc.log('onLoad Worldwar3,id:', this.id)
         this.gameTimer.initTimer(this, 'txt_timer')
+
+
+        let op_layer: cc.Node = cc.find('op_layer')
+        let page_content: cc.Node = cc.find('pageview')
+        // page_content.addChild(op_layer)
+        let pc = cc.find('pageview/view/page_content')
+        cc.log('op_layer', op_layer, page_content)
+        cc.log(pc)
+        // op_layer.parent = pc
+
+        //dincondensedc 2
     }
 
     start() {
@@ -59,11 +70,20 @@ export default class Worldwar3 extends cc.Component {
 
         this.initState()
         this.initWS()
+
         if (!CC_BUILD)
             this.test()
-        else {
+        else
             _c_.emit(ccType.Node, { name: 'test_layer', active: false })
-        }
+
+        // _c_.emit(ccType.Node, {
+        //     name: '', callback: node => {
+        //     }
+        // })
+        getNode('vBox_L', node => {
+            cc.log('vBox_L', node)
+        })
+
     }
 
     test() {
@@ -142,7 +162,6 @@ export default class Worldwar3 extends cc.Component {
             testFoulBar(i * 280, i)
         }
         //test blood bar
-        // _c_.emit(ccType.Sprite, { name: 'blood_bar_cursor_L', x: -200 })
     }
     foulToFT: number = 3
     setFoul_L(foul, foulToFT?) {
