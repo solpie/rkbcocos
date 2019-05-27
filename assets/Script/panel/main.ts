@@ -24,7 +24,6 @@ export default class NewClass extends cc.Component {
                 }
             }
         else if(!CC_BUILD) {
-            cc.director.loadScene(route.ww3);
             cc.director.loadScene(route.rank0);
         }
     }
