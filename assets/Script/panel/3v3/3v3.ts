@@ -17,15 +17,17 @@ export default class Game3v3 extends cc.Component {
     }
 
     start() {
-        setText('txt_foul_red', '')
-        setText('txt_foul_blue', '')
-        setText('txt_score_red', '0')
-        setText('txt_score_blue', '0')
+        this.setScore({ lScore: 0, rScore: 0 })
+        this.setFoul_L(0)
+        this.setFoul_R(0)
         this.gameTimer.resetTimer()
+
+        setText('txt_team_L', '')
+        setText('txt_team_R', '')
         this.gameTimer.isMin = true
         this.initWS()
     }
-    
+
     foulToFT: number = 5
     setFoul_L(foul, foulToFT?) {
         if (foulToFT)
@@ -40,8 +42,8 @@ export default class Game3v3 extends cc.Component {
     }
 
     setScore(data) {
-        setText('txt_score_red', data.lScore)
-        setText('txt_score_blue', data.rScore)
+        setText('txt_score_L', data.lScore)
+        setText('txt_score_R', data.rScore)
     }
 
     initWS() {
@@ -58,6 +60,11 @@ export default class Game3v3 extends cc.Component {
                 cc.log('sc_setFoul', data)
                 this.setFoul_L(data.lFoul)
                 this.setFoul_R(data.rFoul)
+            })
+            .on(WSEvent.sc_setTeam, data => {
+                cc.log('sc_setPlayer', data)
+                setText('txt_team_L', data.lPlayer)
+                setText('txt_team_R', data.rPlayer)
             })
             .on(WSEvent.sc_updateScore, data => {
                 cc.log('sc_updateScore', data)

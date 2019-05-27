@@ -12,6 +12,7 @@ export const WSEvent = {
     sc_updateScore:'',
     cs_setBlood:'',
     sc_setPlayer:'',
+    sc_setTeam:'',
     sc_setPlayerDot:'',
     sc_showWW3PlayerInfo:'',
 
