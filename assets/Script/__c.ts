@@ -1,6 +1,23 @@
 const { ccclass, property } = cc._decorator;
 declare let _c_: cc.Node;
-
+// export function injectCls(cls) {
+//     cls['setNodeLabel'] = function (nodeName, text) {
+//         let pn = this.node.getChildByName(nodeName)
+//         if (pn) {
+//             let pnLabel = pn.getComponent(cc.Label)
+//             pnLabel.string = text
+//         }
+//     }
+// }
+export class InjectCls extends cc.Component {
+    setNodeLabel(nodeName, text) {
+        let pn = this.node.getChildByName(nodeName)
+        if (pn) {
+            let pnLabel = pn.getComponent(cc.Label)
+            pnLabel.string = text
+        }
+    }
+}
 
 function setSp64(sp, img64) {
     let img = new Image()

@@ -1,7 +1,7 @@
 import { Timer } from '../../com/timer';
-import { setText } from '../../__c';
+import { setText, getNode, ccType } from '../../__c';
 import { WSEvent } from '../../api';
-import { getWsUrl } from '../../web';
+import { getWsUrl, loadImg64 } from '../../web';
 
 const { ccclass, property } = cc._decorator;
 declare let io;
@@ -10,6 +10,10 @@ declare let _c_;
 export default class Game3v3 extends cc.Component {
     id: string//同步的时候区分自己
     gameTimer: Timer = new Timer()
+
+
+    _node_bg2_4v4: cc.Node
+    _node_bg2_1v1: cc.Node
 
     onLoad() {
         this.id = (new Date()).getTime().toString()
@@ -26,6 +30,24 @@ export default class Game3v3 extends cc.Component {
         setText('txt_team_R', '')
         this.gameTimer.isMin = true
         this.initWS()
+        _c_.emit(ccType.Node, { name: 'bg2_4v4', active:false })
+
+
+        // getNode('bg2_4v4', node => {
+        //     this._node_bg2_4v4 = node
+        // })
+        // getNode('bg2_1v1', node => {
+        //     this._node_bg2_1v1 = node
+        // })
+
+        if (!CC_BUILD) {
+            this.test()
+        }
+    }
+
+    test() {
+        let url = 'http://rtmp.icassi.us:8092/img/player/0323/p1.png'
+        loadImg64('player_info_avt', url)
     }
 
     foulToFT: number = 5
@@ -44,6 +66,11 @@ export default class Game3v3 extends cc.Component {
     setScore(data) {
         setText('txt_score_L', data.lScore)
         setText('txt_score_R', data.rScore)
+    }
+
+    set4v4Icon(data) {
+        _c_.emit(ccType.Node, { name: 'bg2_4v4', active: data.is4v4 })
+        _c_.emit(ccType.Node, { name: 'bg2_1v1', active: !data.is4v4 })
     }
 
     initWS() {
@@ -69,6 +96,10 @@ export default class Game3v3 extends cc.Component {
             .on(WSEvent.sc_updateScore, data => {
                 cc.log('sc_updateScore', data)
                 this.setScore(data)
+            })
+            .on(WSEvent.sc_set_4v4_icon, data => {
+                cc.log('sc_set_4v4_icon', data)
+                this.set4v4Icon(data)
             })
 
             .on(WSEvent.sc_sync_game, data => {
