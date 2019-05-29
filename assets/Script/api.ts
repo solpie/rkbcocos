@@ -13,6 +13,8 @@ export const WSEvent = {
     sc_set_4v4_icon:'',
     cs_setBlood:'',
     sc_setPlayer:'',
+    sc_timeOut:'',
+    sc_manual_blood:'',
     sc_setTeam:'',
     sc_setPlayerDot:'',
     sc_showWW3PlayerInfo:'',

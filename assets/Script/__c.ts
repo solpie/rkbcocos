@@ -1,3 +1,4 @@
+import { loadImg64_InjectCls } from './web';
 const { ccclass, property } = cc._decorator;
 declare let _c_: cc.Node;
 // export function injectCls(cls) {
@@ -16,6 +17,15 @@ export class InjectCls extends cc.Component {
             let pnLabel = pn.getComponent(cc.Label)
             pnLabel.string = text
         }
+    }
+    setSPbyUrl(nodeName, url) {
+        loadImg64_InjectCls(url, img64 => {
+            let node = this.node.getChildByName(nodeName)
+            if (node) {
+                let sp = node.getComponent(cc.Sprite)
+                setSp64(sp, img64)
+            }
+        })
     }
 }
 

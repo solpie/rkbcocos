@@ -25,6 +25,21 @@ export function loadImg64(sp, url) {
             _c_.emit(ccType.Sprite, { name: sp, img64: res.data })
         })
 }
+let imageCache = {}
+export function loadImg64_InjectCls(url, callback) {
+    let pUrl = _proxy(url)
+    if (!imageCache[url]) {
+        axios.get(pUrl)
+            .then(function (res) {
+                imageCache[url] = res.data
+                callback(res.data)
+            })
+    }
+    else {
+        callback(imageCache[url])
+    }
+
+}
 
 const baseUrl = 'http://rtmp.icassi.us:8090/'
 export function getPanelConf(pid, callback) {
