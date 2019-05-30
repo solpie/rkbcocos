@@ -30,7 +30,7 @@ export default class Game3v3 extends cc.Component {
         setText('txt_team_R', '')
         this.gameTimer.isMin = true
         this.initWS()
-        _c_.emit(ccType.Node, { name: 'bg2_4v4', active:false })
+        _c_.emit(ccType.Node, { name: 'bg2_4v4', active: false })
 
 
         // getNode('bg2_4v4', node => {
@@ -52,14 +52,10 @@ export default class Game3v3 extends cc.Component {
 
     foulToFT: number = 5
     setFoul_L(foul, foulToFT?) {
-        if (foulToFT)
-            this.foulToFT = foulToFT
         setText('txt_foul_L', foul)
     }
 
     setFoul_R(foul, foulToFT?) {
-        if (foulToFT)
-            this.foulToFT = foulToFT
         setText('txt_foul_R', foul)
     }
 
@@ -96,6 +92,11 @@ export default class Game3v3 extends cc.Component {
             .on(WSEvent.sc_updateScore, data => {
                 cc.log('sc_updateScore', data)
                 this.setScore(data)
+            })
+            .on(WSEvent.sc_updateFoul, data => {
+                cc.log('sc_updateFoul', data)
+                this.setFoul_L(data.lFoul)
+                this.setFoul_R(data.rFoul)
             })
             .on(WSEvent.sc_set_4v4_icon, data => {
                 cc.log('sc_set_4v4_icon', data)
