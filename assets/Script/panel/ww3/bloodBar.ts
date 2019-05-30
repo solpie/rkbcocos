@@ -27,7 +27,7 @@ export class BloodBar {
         // val = Math.min(val, 6)
     }
     reset() {
-        this.setBlood(confWW3.maxBlood)
+            this.setBlood(confWW3.maxBlood)
     }
     _calcOffs(val) {
         let isR = this._isR

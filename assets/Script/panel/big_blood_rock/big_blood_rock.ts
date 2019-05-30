@@ -105,7 +105,6 @@ export default class BigBloodRock extends cc.Component {
                 getNode('timeout_mask_R2', node => {
                     node.active = rTimeOut < 1
                 })
-
             })
             .on(WSEvent.sc_setFoul, data => {
                 setText('txt_player_foul_L', data.lFoul)

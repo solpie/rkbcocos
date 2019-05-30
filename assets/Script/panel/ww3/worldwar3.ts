@@ -264,6 +264,21 @@ export default class Worldwar3 extends cc.Component {
                 this.setFoul_L(data.lFoul)
                 this.setFoul_R(data.rFoul)
             })
+            .on(WSEvent.sc_manual_blood, data => {
+                cc.log('sc_manual_blood', data)
+                let player_L = data.vsPlayerArr[0]
+                let player_R = data.vsPlayerArr[1]
+                for (let p of data.lTeam) {
+                    if (p.player_id == player_L) {
+                        this.bloodBar_L.setBloodByCurBlood(p.blood)
+                    }
+                }
+                for (let p of data.rTeam) {
+                    if (p.player_id == player_R) {
+                        this.bloodBar_R.setBloodByCurBlood(p.blood)
+                    }
+                }
+            })
             .on(WSEvent.sc_setBlood, data => {
                 cc.log('sc_setBlood', data)
                 if (data.isSetBlood) {

@@ -1,5 +1,5 @@
 export const confWW3 = {
-    maxBlood: 9
+    maxBlood: 5
     , foulToHint: 3
     , time: 20 * 60
 }
