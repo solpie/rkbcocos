@@ -38,6 +38,8 @@ export class Timer {
         else {
             this.timeInSec++
         }
+        if (this.timeInSec < 0)
+            this.timeInSec = 0
         setText(this._textName, formatSecond(this.timeInSec))
     }
     startTimer() {
@@ -56,6 +58,8 @@ export class Timer {
     }
 
     setTimeBySec(sec) {
+        if (sec < 0)
+            sec = 0
         this.timeInSec = sec;
         setText(this._textName, formatSecond(this.timeInSec, this.isSecOnly))
     }
@@ -64,7 +68,7 @@ export class Timer {
         this.timerState = TimerState.PAUSE;
         this.setTimeBySec(this.resetTime)
     }
-    
+
     setTimerEvent(data) {
         if (data.event == TimerEvent.PAUSE) {
             this.pauseTimer()
