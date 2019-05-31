@@ -5,6 +5,7 @@ const route = {
     , 'bblood': 'big_blood_rock'
     , 'rank0': 'rank0'
     , '3v3': '3v3'
+    , 'group': 'group'
     // , '3v3': '3v3'
 }
 window['_c_'] = new cc.Node('_c_')
