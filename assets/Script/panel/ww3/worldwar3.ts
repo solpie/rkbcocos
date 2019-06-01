@@ -44,14 +44,26 @@ export default class Worldwar3 extends cc.Component {
 
         //dincondensedc 2
     }
-
-    start() {
-        if (window['isOP'])
+    isLoadOP = false
+    addOp() {
+        if (!this.isLoadOP) {
             cc.loader.loadRes("prefab/op_ww3", cc.Prefab, function (err, prefab) {
                 cc.log('load op layer', prefab)
                 var newNode = cc.instantiate(prefab);
                 cc.director.getScene().addChild(newNode);
             });
+            this.isLoadOP = true
+        }
+
+    }
+    start() {
+        this.node.on(cc.Node.EventType.MOUSE_UP, function (event) {
+            console.log('Mouse down');
+            this.addOp()
+        }, this);
+
+        if (window['isOP'])
+            this.addOp()
 
         cc.log('ww3 ')
         //global ww3
