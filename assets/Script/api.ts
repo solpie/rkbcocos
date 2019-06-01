@@ -10,6 +10,7 @@ export const WSEvent = {
     
     sc_setBlood:'',
     sc_updateScore:'',
+    cs_updateScore:'',
     sc_updateFoul:'',
     sc_set_4v4_icon:'',
     cs_setBlood:'',

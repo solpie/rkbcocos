@@ -19,8 +19,22 @@ export default class Game3v3 extends cc.Component {
         this.id = (new Date()).getTime().toString()
         this.gameTimer.initTimer(this, 'txt_timer')
     }
-
+    isLoadOP = false
+    addOp() {
+        if (!this.isLoadOP) {
+            cc.loader.loadRes("prefab/op_3v3", cc.Prefab, function (err, prefab) {
+                var newNode = cc.instantiate(prefab);
+                cc.director.getScene().addChild(newNode);
+                this.isLoadOP = true
+            });
+        }
+    }
     start() {
+        if (!CC_BUILD) {
+            this.addOp()
+        }
+
+        
         this.setScore({ lScore: 0, rScore: 0 })
         this.setFoul_L(0)
         this.setFoul_R(0)

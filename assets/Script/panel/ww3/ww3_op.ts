@@ -5,6 +5,8 @@ import Worldwar3 from './worldwar3';
 const { ccclass, property } = cc._decorator;
 export class BaseGame {
     id: string
+    lScore:number = 0
+    rScore:number = 0
     lBlood: number = 0;
     rBlood: number = 0;
     lFoul: number = 0;
