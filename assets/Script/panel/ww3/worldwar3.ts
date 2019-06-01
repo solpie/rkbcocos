@@ -46,6 +46,14 @@ export default class Worldwar3 extends cc.Component {
     }
 
     start() {
+        if (window['isOP'])
+            cc.loader.loadRes("prefab/op_ww3", cc.Prefab, function (err, prefab) {
+                cc.log('load op layer', prefab)
+                var newNode = cc.instantiate(prefab);
+                cc.director.getScene().addChild(newNode);
+            });
+
+        cc.log('ww3 ')
         //global ww3
         window['ww3'] = this
         // init logic
@@ -75,15 +83,6 @@ export default class Worldwar3 extends cc.Component {
             this.test()
         else
             _c_.emit(ccType.Node, { name: 'test_layer', active: false })
-
-        // _c_.emit(ccType.Node, {
-        //     name: '', callback: node => {
-        //     }
-        // })
-        getNode('vBox_L', node => {
-            cc.log('vBox_L', node)
-        })
-
     }
 
     test() {

@@ -9,6 +9,7 @@ const route = {
     // , '3v3': '3v3'
 }
 window['_c_'] = new cc.Node('_c_')
+window['isOP'] = false
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -17,6 +18,8 @@ export default class NewClass extends cc.Component {
         //get url query
         const urlParams = new URLSearchParams(window.location.search);
         const panel = urlParams.get('panel');
+        window['isOP'] = urlParams.get('op')=='1';
+
         // cc.log('panel ', panel)
         if (panel)
             for (const k in route) {
@@ -25,12 +28,13 @@ export default class NewClass extends cc.Component {
                     cc.director.loadScene(scene);
                 }
             }
-        else if(!CC_BUILD) {
-            cc.director.loadScene(route.rank0);
+        else if (!CC_BUILD) {
+            cc.director.loadScene(route.ww3);
         }
     }
 
     start() {
+     
         // cc.director.loadScene('worldwar3');
     }
 
