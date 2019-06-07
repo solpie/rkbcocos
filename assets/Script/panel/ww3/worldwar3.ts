@@ -55,7 +55,7 @@ export default class Worldwar3 extends cc.Component {
             });
         }
     }
-    
+
     start() {
         this.node.on(cc.Node.EventType.MOUSE_UP, function (event) {
             console.log('Mouse down');
@@ -236,7 +236,7 @@ export default class Worldwar3 extends cc.Component {
         let hw = player.hwa[0] + 'cm/' + player.hwa[1] + 'kg'
         setText(txt_hw, hw)
 
-        //球员简介
+        //球员简
 
         let txt_info = isR ? 'txt_info_R' : 'txt_info_L';
         let player_info = player.info
