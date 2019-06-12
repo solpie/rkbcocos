@@ -5,7 +5,6 @@ import { EVENT_PLAYER_BAR_4V4 } from './BBR_player_bar';
 const { ccclass, property } = cc._decorator;
 declare let _c_;
 declare let io;
-declare let axios;
 let baseUrl = 'http://rtmp.icassi.us:8092/img/player/0602/'
 
 @ccclass

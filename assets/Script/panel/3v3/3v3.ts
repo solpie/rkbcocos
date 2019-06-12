@@ -2,10 +2,14 @@ import { Timer } from '../../com/timer';
 import { setText, getNode, ccType } from '../../__c';
 import { WSEvent } from '../../api';
 import { getWsUrl, loadImg64 } from '../../web';
+import { BaseGame } from '../ww3/ww3_op';
 
 const { ccclass, property } = cc._decorator;
 declare let io;
 declare let _c_;
+function getGame3v3(): BaseGame {
+    return window['game3v3']
+}
 @ccclass
 export default class Game3v3 extends cc.Component {
     id: string//同步的时候区分自己
@@ -22,7 +26,7 @@ export default class Game3v3 extends cc.Component {
     isLoadOP = false
     addOp() {
         if (!this.isLoadOP) {
-            cc.loader.loadRes("prefab/op_3v3", cc.Prefab,  (err, prefab)=> {
+            cc.loader.loadRes("prefab/op_3v3", cc.Prefab, (err, prefab) => {
                 var newNode = cc.instantiate(prefab);
                 cc.director.getScene().addChild(newNode);
                 this.isLoadOP = true
@@ -34,7 +38,6 @@ export default class Game3v3 extends cc.Component {
             this.addOp()
         }
 
-
         this.setScore({ lScore: 0, rScore: 0 })
         this.setFoul_L(0)
         this.setFoul_R(0)
@@ -45,14 +48,6 @@ export default class Game3v3 extends cc.Component {
         this.gameTimer.isMin = true
         this.initWS()
         _c_.emit(ccType.Node, { name: 'bg2_4v4', active: false })
-
-
-        // getNode('bg2_4v4', node => {
-        //     this._node_bg2_4v4 = node
-        // })
-        // getNode('bg2_1v1', node => {
-        //     this._node_bg2_1v1 = node
-        // })
 
         if (!CC_BUILD) {
             this.test()
@@ -66,14 +61,21 @@ export default class Game3v3 extends cc.Component {
 
     foulToFT: number = 5
     setFoul_L(foul, foulToFT?) {
+        let g3 = getGame3v3()
+        g3.lFoul = Number(foul)
         setText('txt_foul_L', foul)
     }
 
     setFoul_R(foul, foulToFT?) {
+        let g3 = getGame3v3()
+        g3.rFoul = Number(foul)
         setText('txt_foul_R', foul)
     }
 
     setScore(data) {
+        let g3 = getGame3v3()
+        g3.lScore = Number(data.lScore)
+        g3.rScore = Number(data.rScore)
         setText('txt_score_L', data.lScore)
         setText('txt_score_R', data.rScore)
     }

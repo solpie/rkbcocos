@@ -23,6 +23,8 @@ export const WSEvent = {
 
     sc_start_ww3_game:'',
     cs_start_ww3_game:'',
+    
+    sc_bracket:'',
 
     sc_sync_game:'',
     cs_sync_game:'',

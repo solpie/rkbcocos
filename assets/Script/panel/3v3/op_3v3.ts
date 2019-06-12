@@ -2,7 +2,7 @@ import { opReq } from '../../web';
 import { WSEvent } from '../../api';
 import { BaseGame } from '../ww3/ww3_op';
 const game3v3 = new BaseGame();
-
+window['game3v3'] = game3v3
 const { ccclass } = cc._decorator;
 @ccclass
 export default class Game3v3Model extends cc.Component {
