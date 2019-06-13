@@ -11,6 +11,16 @@ declare let _c_: cc.Node;
 //     }
 // }
 export class InjectCls extends cc.Component {
+    regist_this_node() {
+        if (!_c_['node_list'])
+            _c_['node_list'] = {}
+        if (!_c_['node_list'][this.node.name])
+            _c_['node_list'][this.node.name] = this
+    }
+    getNode(nodeName) {
+        return this.node.getChildByName(nodeName)
+    }
+
     setNodeLabel(nodeName, text) {
         let pn = this.node.getChildByName(nodeName)
         if (pn) {

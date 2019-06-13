@@ -6,14 +6,14 @@ const route = {
     , 'rank0': 'rank0'
     , '3v3': '3v3'
     , 'group': 'group'
+    , 'group8': 'group_list'
     , 'bracket16': 'bracket_16'
     // , '3v3': '3v3'
 }
 window['_c_'] = new cc.Node('_c_')
 window['isOP'] = false
 @ccclass
-export default class NewClass extends cc.Component {
-
+export default class Main extends cc.Component {
 
     onLoad() {
         //get url query

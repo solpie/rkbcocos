@@ -28,6 +28,8 @@ export const WSEvent = {
 
     sc_sync_game:'',
     cs_sync_game:'',
+    //group list
+    sc_group_list:'',
 }
 
 
