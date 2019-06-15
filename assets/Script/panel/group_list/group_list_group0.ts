@@ -2,21 +2,11 @@ import { InjectCls } from '../../__c';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class GroupListRow extends InjectCls {
+export default class GroupListGroup0 extends InjectCls {
     onLoad() {
         this.regist_this_node()
     }
-
-    init_row2() {
-        if (this.node.name == 'row2_2' || this.node.name == 'row2_4') {
-            let score_L = this.getNode('txt_score_L')
-            let score_R = this.getNode('txt_score_R')
-            score_L.x =
-                score_R.x = -539
-        }
-    }
     start() {
-        this.init_row2()
         this.setData({ lScore: 0, rScore: 0, lPlayer: "", rPlayer: "", gameIdx: -1 })
     }
     setData(data) {
