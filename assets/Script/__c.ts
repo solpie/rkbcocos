@@ -1,15 +1,20 @@
 import { loadImg64_InjectCls } from './web';
 const { ccclass, property } = cc._decorator;
 declare let _c_: cc.Node;
-// export function injectCls(cls) {
-//     cls['setNodeLabel'] = function (nodeName, text) {
-//         let pn = this.node.getChildByName(nodeName)
-//         if (pn) {
-//             let pnLabel = pn.getComponent(cc.Label)
-//             pnLabel.string = text
-//         }
-//     }
-// }
+export function injectCls(node) {
+    node['setNodeLabel'] = function (nodeName, text) {
+        console.log(this)
+        let pn = this.getChildByName(nodeName)
+        if (pn) {
+            let pnLabel = pn.getComponent(cc.Label)
+            pnLabel.string = text
+        }
+    }
+}
+export interface IInjectCls{
+    setNodeLabel(source: string, subString: string)
+}
+
 export class InjectCls extends cc.Component {
     regist_this_node() {
         if (!_c_['node_list'])
@@ -28,6 +33,7 @@ export class InjectCls extends cc.Component {
             pnLabel.string = text
         }
     }
+
     setSPbyUrl(nodeName, url) {
         loadImg64_InjectCls(url, img64 => {
             let node = this.node.getChildByName(nodeName)

@@ -7,6 +7,7 @@ const route = {
     , '3v3': '3v3'
     , 'group': 'group'
     , 'group8': 'group_list'
+    , 'group_power': 'group_power'
     , 'bracket16': 'bracket_16'
     // , '3v3': '3v3'
 }
@@ -30,13 +31,12 @@ export default class Main extends cc.Component {
                 }
             }
         else if (!CC_BUILD) {
-            cc.director.loadScene(route.ww3);
+            cc.director.loadScene(route.group_power);
         }
     }
 
     start() {
      
-        // cc.director.loadScene('worldwar3');
     }
 
 }

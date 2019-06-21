@@ -3,7 +3,6 @@ import { setText, getNode, ccType } from '../../__c';
 import { WSEvent } from '../../api';
 import { getWsUrl, loadImg64 } from '../../web';
 import { BaseGame } from '../ww3/ww3_op';
-import { delayTime } from '../../../../creator';
 
 const { ccclass, property } = cc._decorator;
 declare let io;

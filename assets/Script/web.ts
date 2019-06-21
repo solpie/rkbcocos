@@ -1,11 +1,15 @@
 import { ccType } from "./__c";
 declare let axios;
 declare let _c_;
+declare let io;
 
 export function getWsUrl(): string {
     if (CC_BUILD)
         return '/rkb'
     return 'http://127.0.0.1/rkb'
+}
+export function getWs(): any{
+    return io(getWsUrl())
 }
 
 function _proxy(url) {
