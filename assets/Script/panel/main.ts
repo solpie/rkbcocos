@@ -7,6 +7,7 @@ const route = {
     , '3v3': '3v3'
     , 'group': 'group'
     , 'group8': 'group_list'
+    , 'group16': 'group_list'
     , 'group_power': 'group_power'
     , 'bracket16': 'bracket_16'
     // , '3v3': '3v3'
