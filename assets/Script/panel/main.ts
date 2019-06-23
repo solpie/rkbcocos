@@ -21,6 +21,7 @@ export default class Main extends cc.Component {
         const urlParams = new URLSearchParams(window.location.search);
         const panel = urlParams.get('panel');
         window['isOP'] = urlParams.get('op')=='1';
+        window['isDelay'] = urlParams.get('delay')=='1';
 
         // cc.log('panel ', panel)
         if (panel)

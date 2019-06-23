@@ -108,7 +108,7 @@ export default class Game3v3 extends cc.Component {
             })
             .on(WSEvent.sc_updateScore, data => {
                 cc.log('sc_updateScore', data)
-                if (this.delay > 0) {
+                if (this.delay > 0&& window['isDelay']) {
                     setTimeout(() => {
                         this.setScore(data)
                     }, this.delay);
@@ -119,7 +119,7 @@ export default class Game3v3 extends cc.Component {
             .on(WSEvent.sc_updateFoul, data => {
                 cc.log('sc_updateFoul', data)
 
-                if (this.delay > 0) {
+                if (this.delay > 0&& window['isDelay']) {
                     setTimeout(() => {
                         this.setFoul_L(data.lFoul)
                         this.setFoul_R(data.rFoul)
