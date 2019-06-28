@@ -3,6 +3,7 @@ const { ccclass, property } = cc._decorator;
 const route = {
     'ww3': 'worldwar3'
     , 'bblood': 'big_blood_rock'
+    , 'bscore': 'big_score'
     , 'rank0': 'rank0'
     , '3v3': '3v3'
     , 'group': 'group'
@@ -33,7 +34,7 @@ export default class Main extends cc.Component {
                 }
             }
         else if (!CC_BUILD) {
-            cc.director.loadScene(route.group_power);
+            cc.director.loadScene(route.bblood);
         }
     }
 

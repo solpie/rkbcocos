@@ -5,7 +5,7 @@ import { EVENT_PLAYER_BAR_4V4 } from './BBR_player_bar';
 const { ccclass, property } = cc._decorator;
 declare let _c_;
 declare let io;
-let baseUrl = 'http://rtmp.icassi.us:8092/img/player/0602/'
+// let baseUrl = 'http://rtmp.icassi.us:8092/img/player/0602/'
 
 @ccclass
 export default class BigBloodRock extends cc.Component {
@@ -15,22 +15,6 @@ export default class BigBloodRock extends cc.Component {
     rightTeamMap: any
     onLoad() {
         cc.log('BigBloodRock on loaded')
-        let pUrl = 'http://rtmp.icassi.us:8090/event?idx=0602'
-        // axios.get(pUrl)
-        //     .then(res => {
-        //         if (res.data.length == 1) {
-        //             let doc = res.data[0]
-        //             // cc.log('event doc', doc)
-        //             doc.doc = JSON.parse(doc.doc)
-        //             this.eventDoc = doc.doc
-        //             this.playerMap = doc.doc.playerMap
-        //             for (let pid in this.playerMap) {
-        //                 let p = this.playerMap[pid]
-        //                 p.avatar = doc.doc.avatar_url + pid + '.png'
-        //             }
-        //             cc.log('playerMap', this.playerMap)
-        //         }
-        //     })
     }
 
     start() {
@@ -56,8 +40,8 @@ export default class BigBloodRock extends cc.Component {
 
                 let leftPlayer = data.leftPlayer
                 let rightPlayer = data.rightPlayer
-                leftPlayer.avatar = baseUrl + leftPlayer.playerId + '.png'
-                rightPlayer.avatar = baseUrl + rightPlayer.playerId + '.png'
+                // leftPlayer.avatar = baseUrl + leftPlayer.playerId + '.png'
+                // rightPlayer.avatar = baseUrl + rightPlayer.playerId + '.png'
                 this.player_id_L = leftPlayer.playerId
                 this.player_id_R = rightPlayer.playerId
                 setText('txt_player_name_L', leftPlayer.name)
@@ -69,11 +53,15 @@ export default class BigBloodRock extends cc.Component {
 
                 let leftTeam = data.leftTeam
                 let leftTeamMap = {}
+                let is5v5 = leftTeam.length == 5
+                let row_idx_L = 0, row_idx_R = 0
                 for (let i = 0; i < leftTeam.length; i++) {
                     let p = leftTeam[i];
                     let pid = p.playerId
-                    p.avatar = baseUrl + pid + '.png'
-                    leftTeamMap['L' + (i + 1)] = p
+                    if (is5v5 && pid == leftPlayer.playerId) { continue; }
+                    // p.avatar = baseUrl + pid + '.png'
+                    leftTeamMap['L' + (row_idx_L + 1)] = p
+                    row_idx_L++
                 }
                 _c_.emit(EVENT_PLAYER_BAR_4V4, leftTeamMap)
                 this.leftTeamMap = leftTeamMap
@@ -82,8 +70,12 @@ export default class BigBloodRock extends cc.Component {
                 for (let i = 0; i < rightTeam.length; i++) {
                     let p = rightTeam[i];
                     let pid = p.playerId
-                    p.avatar = baseUrl + pid + '.png'
-                    rightTeamMap['R' + (i + 1)] = p
+                    if (is5v5 && pid == rightPlayer.playerId) {
+                        continue;
+                    }
+                    // p.avatar = baseUrl + pid + '.png'
+                    rightTeamMap['R' + (row_idx_R + 1)] = p
+                    row_idx_R++
                 }
                 this.rightTeamMap = rightTeamMap
                 _c_.emit(EVENT_PLAYER_BAR_4V4, rightTeamMap)
@@ -114,20 +106,18 @@ export default class BigBloodRock extends cc.Component {
                 setText('txt_player_blood_L', '')
                 setText('txt_player_blood_R', '')
                 for (let p of data.lTeam) {
-                    let lPlayer = this.findPlayerOnBar(p.playerId)
-                    if (lPlayer)
-                        lPlayer.blood = p.blood
-                    if (lPlayer.playerId == this.player_id_L) {
-                        setText('txt_player_blood_L', lPlayer.blood)
-                    }
+                    let bar_player = this.findPlayerOnBar(p.playerId)
+                    if (bar_player)
+                        bar_player.blood = p.blood
+                    if (p.playerId == data.vsPlayerArr[0])
+                        setText('txt_player_blood_L', p.blood)
                 }
                 for (let p of data.rTeam) {
-                    let rPlayer = this.findPlayerOnBar(p.playerId)
-                    if (rPlayer)
-                        rPlayer.blood = p.blood
-                    if (rPlayer.playerId == this.player_id_R) {
-                        setText('txt_player_blood_R', rPlayer.blood)
-                    }
+                    let bar_player = this.findPlayerOnBar(p.playerId)
+                    if (bar_player)
+                        bar_player.blood = p.blood
+                    if (p.playerId == data.vsPlayerArr[1])
+                        setText('txt_player_blood_R', p.blood)
                 }
                 _c_.emit(EVENT_PLAYER_BAR_4V4, this.leftTeamMap)
                 _c_.emit(EVENT_PLAYER_BAR_4V4, this.rightTeamMap)
