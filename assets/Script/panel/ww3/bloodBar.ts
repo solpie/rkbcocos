@@ -8,7 +8,6 @@ export class BloodBar {
     _isR: number
     _bloodTxt: string
     _bloodCursor: string
-    maxBlood: number = confWW3.maxBlood
     _bloodFx: string
     constructor(isR) {
         this._isR = isR
@@ -27,7 +26,8 @@ export class BloodBar {
         // val = Math.min(val, 6)
     }
     reset() {
-            this.setBlood(confWW3.maxBlood)
+        cc.log('reset maxBlood',confWW3.maxBlood)
+        this.setBlood(confWW3.maxBlood)
     }
     _calcOffs(val) {
         let isR = this._isR
@@ -35,7 +35,7 @@ export class BloodBar {
         let nm = this._bloodCursor
         let max = -495//see left bar curso position in editor
         let min = -100
-        let perc = 1 - val / this.maxBlood
+        let perc = 1 - val / confWW3.maxBlood
         setText(this._bloodTxt, val)
         let offs = (max - (max - min) * perc) * flag
         return offs
@@ -46,7 +46,7 @@ export class BloodBar {
         let nm = this._bloodCursor
         let max = -495//see left bar curso position in editor
         let min = -100
-        let perc = 1 - val / this.maxBlood
+        let perc = 1 - val / confWW3.maxBlood
         setText(this._bloodTxt, val)
         let offs = (max - (max - min) * perc) * flag
         _c_.emit(ccType.Sprite, {

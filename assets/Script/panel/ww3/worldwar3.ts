@@ -5,6 +5,7 @@ import { ccType, setText, getNode } from '../../__c';
 import { BloodBar } from './bloodBar';
 import { showPlayerInfo } from './ww3_fx';
 import { BaseGame } from './ww3_op';
+import { confWW3 } from '../../com/gameConf';
 const { ccclass } = cc._decorator;
 declare let io;
 declare let _c_;
@@ -76,8 +77,10 @@ export default class Worldwar3 extends cc.Component {
         //init blood bar
         this.bloodBar_L = new BloodBar(0)
         this.bloodBar_R = new BloodBar(1)
-        this.bloodBar_L.reset()
-        this.bloodBar_R.reset()
+        // this.bloodBar_L.reset()
+        // this.bloodBar_R.reset()
+        this.initState()
+
         this.setFoul_L(0)
         this.setFoul_R(0)
         //隐藏 info_bg
@@ -88,7 +91,6 @@ export default class Worldwar3 extends cc.Component {
         _c_.emit(ccType.Node, { name: 'info_bg', active: false })
         setText(_nm_.txt_team_score, '0 - 0')
 
-        this.initState()
         this.initWS()
 
         if (!CC_BUILD)
@@ -246,13 +248,23 @@ export default class Worldwar3 extends cc.Component {
     }
     initState() {
         getPanelConf('ww3', res => {
-            cc.log('get panel conf', res)
             let conf = res.data[0]
             setText(_nm_.txt_team_left, conf['team_L'])
             setText(_nm_.txt_team_right, conf['team_R'])
             let foulHint = Number(conf['foul_hint'])
-            if (foulHint > 0)
+            if (foulHint > 0) {
                 this.foulToFT = foulHint
+
+            }
+            let max_blood = Number(conf['max_blood'])
+            if (max_blood > 0) {
+                confWW3.maxBlood = max_blood
+                this.bloodBar_L.reset()
+                this.bloodBar_R.reset()
+            }
+            cc.log('get panel conf', res)
+            cc.log('confWW3', confWW3)
+
         })
     }
 
