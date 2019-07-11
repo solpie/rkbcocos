@@ -127,26 +127,26 @@ def proxy():
     if request.method == "POST":
         url = request.values.get("url")
         isForm = request.values.get("form")
-        print("[req json]", isForm)
+        print("[req json]",isForm)
         if isForm == '1':
             fd = json.loads(request.data.decode("utf-8"))
             print(fd)
-            m = MultipartEncoder(fields={'player_list': (
-                'filename', open('1130.json', 'rb'), 'text/plain')})
-            url = 'http://127.0.0.2/test'
+            m = MultipartEncoder(fields={'player_list': ('filename', open('1130.json', 'rb'), 'text/plain')})
             r = requests.post(url, data=m,
-                              headers={'Content-Type': m.content_type})
+                              headers={'Content-Type':m.content_type})
             r.close()
             return r.json()
-        return 'ok'
-        # r = requests.post(url, json=request.json, headers={
-        #     'Content-type': 'application/json'})
-        # if r.headers['Content-Type'].find('json') > -1:
-        #     c = r.json()
-        # else:
-        #     c = r.text
-        # r.close()
-        # return jsonify({'Content-Type': r.headers['Content-Type'], 'content': c})
+        # return 'ok'
+        jsonStr = str(request.json).replace("'", '"')
+        print(jsonStr)
+        r = requests.post(url,data="data="+parse.quote(jsonStr),headers={
+            'Content-type': 'application/x-www-form-urlencoded'})
+        if r.headers['Content-Type'].find('json') > -1:
+            c = r.json()
+        else:
+            c = r.text
+        r.close()
+        return jsonify({'Content-Type': r.headers['Content-Type'], 'content': c})
 
 # auto git pull
 
