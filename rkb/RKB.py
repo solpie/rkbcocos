@@ -96,6 +96,7 @@ def view(viewname):
 
 # proxy
 
+from urllib import parse
 
 @app.route('/proxy', methods=['GET', 'POST'])
 def proxy():
