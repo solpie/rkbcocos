@@ -235,7 +235,7 @@ export default class Worldwar3 extends cc.Component {
             bloodBar.setBlood(player.blood)
         }
         let txt_hw = isR ? 'txt_hw_R' : 'txt_hw_L';
-        let hw = player.hwa[0] + 'cm/' + player.hwa[1] + 'kg'
+        let hw = player.height + 'cm/' + player.weight + 'kg'
         setText(txt_hw, hw)
 
         //球员简
