@@ -36,14 +36,18 @@ export default class BigBloodRock extends cc.Component {
                 cc.log('socketio.....localWS')
             })
             .on(WSEvent.sc_setPlayer, data => {
+                this.set_timeout(data)
                 cc.log('sc_setPlayer', data)
-
+                if (data.isRestFoul) {
+                    setText('txt_player_foul_L', 0)
+                    setText('txt_player_foul_R', 0)
+                }
                 let leftPlayer = data.leftPlayer
                 let rightPlayer = data.rightPlayer
                 // leftPlayer.avatar = baseUrl + leftPlayer.playerId + '.png'
                 // rightPlayer.avatar = baseUrl + rightPlayer.playerId + '.png'
-                this.player_id_L = leftPlayer.playerId
-                this.player_id_R = rightPlayer.playerId
+                this.player_id_L = leftPlayer.player_id
+                this.player_id_R = rightPlayer.player_id
                 setText('txt_player_name_L', leftPlayer.name)
                 setText('txt_player_name_R', rightPlayer.name)
                 setText('txt_player_blood_L', leftPlayer.blood)
@@ -51,26 +55,26 @@ export default class BigBloodRock extends cc.Component {
                 loadImg64('avt_L', leftPlayer.avatar)
                 loadImg64('avt_R', rightPlayer.avatar)
 
-                let leftTeam = data.leftTeam
+                let leftTeam = data.lTeam
                 let leftTeamMap = {}
                 let is5v5 = leftTeam.length == 5
                 let row_idx_L = 0, row_idx_R = 0
                 for (let i = 0; i < leftTeam.length; i++) {
                     let p = leftTeam[i];
-                    let pid = p.playerId
-                    if (is5v5 && pid == leftPlayer.playerId) { continue; }
+                    let pid = p.player_id
+                    if (is5v5 && pid == leftPlayer.player_id) { continue; }
                     // p.avatar = baseUrl + pid + '.png'
                     leftTeamMap['L' + (row_idx_L + 1)] = p
                     row_idx_L++
                 }
                 _c_.emit(EVENT_PLAYER_BAR_4V4, leftTeamMap)
                 this.leftTeamMap = leftTeamMap
-                let rightTeam = data.rightTeam
+                let rightTeam = data.rTeam
                 let rightTeamMap = {}
                 for (let i = 0; i < rightTeam.length; i++) {
                     let p = rightTeam[i];
-                    let pid = p.playerId
-                    if (is5v5 && pid == rightPlayer.playerId) {
+                    let pid = p.player_id
+                    if (is5v5 && pid == rightPlayer.player_id) {
                         continue;
                     }
                     // p.avatar = baseUrl + pid + '.png'
@@ -82,20 +86,7 @@ export default class BigBloodRock extends cc.Component {
             })
             .on(WSEvent.sc_timeOut, data => {
                 cc.log('sc_timeOut', data)
-                let lTimeOut = Number(data.lTimeOut)
-                let rTimeOut = Number(data.rTimeOut)
-                getNode('timeout_mask_L1', node => {
-                    node.active = lTimeOut < 2
-                })
-                getNode('timeout_mask_L2', node => {
-                    node.active = lTimeOut < 1
-                })
-                getNode('timeout_mask_R1', node => {
-                    node.active = rTimeOut < 2
-                })
-                getNode('timeout_mask_R2', node => {
-                    node.active = rTimeOut < 1
-                })
+                this.set_timeout(data)
             })
             .on(WSEvent.sc_setFoul, data => {
                 setText('txt_player_foul_L', data.lFoul)
@@ -123,6 +114,22 @@ export default class BigBloodRock extends cc.Component {
                 _c_.emit(EVENT_PLAYER_BAR_4V4, this.rightTeamMap)
             })
 
+    }
+    set_timeout(data) {
+        let timeout_L = Number(data.timeout_L)
+        let timeout_R = Number(data.timeout_R)
+        getNode('timeout_mask_L1', node => {
+            node.active = timeout_L < 2
+        })
+        getNode('timeout_mask_L2', node => {
+            node.active = timeout_L < 1
+        })
+        getNode('timeout_mask_R1', node => {
+            node.active = timeout_R < 2
+        })
+        getNode('timeout_mask_R2', node => {
+            node.active = timeout_R < 1
+        })
     }
     findPlayerOnBar(pid) {
         for (let barIdx in this.leftTeamMap)//pos L1 L2
