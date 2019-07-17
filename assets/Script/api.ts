@@ -19,6 +19,7 @@ export const WSEvent = {
     sc_timeOut:'',
     sc_manual_blood:'',
     sc_setTeam:'',
+    sc_set_player:'',
     sc_setPlayerDot:'',
     sc_showWW3PlayerInfo:'',
 
@@ -30,7 +31,8 @@ export const WSEvent = {
     sc_sync_game:'',
     cs_sync_game:'',
     //group list
-    sc_group_list:'',
+    sc_rec:'',
+    sc_set_delay:'',
 }
 
 

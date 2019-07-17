@@ -13,7 +13,7 @@ export default class GroupPower extends cc.Component {
             .on('connect', _ => {
                 cc.log('socketio.....localWS')
             })
-            .on(WSEvent.sc_group_list, data => {
+            .on(WSEvent.sc_rec, data => {
                 for (let i = 0; i < 7; i++) {
                     let rec = data.rec_arr[i]
                     let gp = this.gp_list[i] as IInjectCls

@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "group0",
+    "_name": "group0_1",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -160,7 +160,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": ""
   },
@@ -258,7 +258,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": ""
   },

@@ -101,14 +101,14 @@ export default class Game3v3 extends cc.Component {
                 this.setFoul_L(data.lFoul)
                 this.setFoul_R(data.rFoul)
             })
-            .on(WSEvent.sc_setTeam, data => {
+            .on(WSEvent.sc_set_player, data => {
                 cc.log('sc_setPlayer', data)
-                setText('txt_team_L', data.lPlayer)
-                setText('txt_team_R', data.rPlayer)
+                setText('txt_team_L', data.player_L)
+                setText('txt_team_R', data.player_R)
             })
             .on(WSEvent.sc_updateScore, data => {
                 cc.log('sc_updateScore', data)
-                if (this.delay > 0&& window['isDelay']) {
+                if (this.delay > 0 && window['isDelay']) {
                     setTimeout(() => {
                         this.setScore(data)
                     }, this.delay);
@@ -118,8 +118,7 @@ export default class Game3v3 extends cc.Component {
             })
             .on(WSEvent.sc_updateFoul, data => {
                 cc.log('sc_updateFoul', data)
-
-                if (this.delay > 0&& window['isDelay']) {
+                if (this.delay > 0 && window['isDelay']) {//main.js
                     setTimeout(() => {
                         this.setFoul_L(data.lFoul)
                         this.setFoul_R(data.rFoul)
@@ -134,10 +133,10 @@ export default class Game3v3 extends cc.Component {
                 cc.log('sc_set_4v4_icon', data)
                 this.set4v4Icon(data)
             })
-            .on(WSEvent.sc_set_4v4_delay, data => {
-                cc.log('sc_set_4v4_delay', data)
+            .on(WSEvent.sc_set_delay, data => {
+                cc.log('sc_set_delay', data)
                 if (data.delay >= 0) {
-                    this.delay = data.delay*1000
+                    this.delay = data.delay * 1000
                 }
             })
 
