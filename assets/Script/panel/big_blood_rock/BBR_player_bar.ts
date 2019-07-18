@@ -24,7 +24,7 @@ export default class PlayerBar4v4 extends InjectCls {
             if (p) {
                 if (p.blood < 0)
                     p.blood = 0
-                this.bloodBar.x = this.bloodBarInitX + (p.blood / p.initBlood) * 359
+                this.bloodBar.x = this.bloodBarInitX + (p.blood / p.init_blood) * 359
                 this.setNodeLabel('txt_player_name', p.name)
                 this.setSPbyUrl('avt', p.avatar)
                 this.setNodeLabel('txt_player_blood', p.blood || 0)

@@ -97,17 +97,17 @@ export default class BigBloodRock extends cc.Component {
                 setText('txt_player_blood_L', '')
                 setText('txt_player_blood_R', '')
                 for (let p of data.lTeam) {
-                    let bar_player = this.findPlayerOnBar(p.playerId)
+                    let bar_player = this.findPlayerOnBar(p.player_id)
                     if (bar_player)
                         bar_player.blood = p.blood
-                    if (p.playerId == data.vsPlayerArr[0])
+                    if (p.player_id == data.vsPlayerArr[0])
                         setText('txt_player_blood_L', p.blood)
                 }
                 for (let p of data.rTeam) {
-                    let bar_player = this.findPlayerOnBar(p.playerId)
+                    let bar_player = this.findPlayerOnBar(p.player_id)
                     if (bar_player)
                         bar_player.blood = p.blood
-                    if (p.playerId == data.vsPlayerArr[1])
+                    if (p.player_id == data.vsPlayerArr[1])
                         setText('txt_player_blood_R', p.blood)
                 }
                 _c_.emit(EVENT_PLAYER_BAR_4V4, this.leftTeamMap)
