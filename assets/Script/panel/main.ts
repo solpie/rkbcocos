@@ -17,7 +17,6 @@ window['_c_'] = new cc.Node('_c_')
 window['isOP'] = false
 @ccclass
 export default class Main extends cc.Component {
-
     onLoad() {
         //get url query
         const urlParams = new URLSearchParams(window.location.search);
