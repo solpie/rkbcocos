@@ -33,7 +33,7 @@ export default class Main extends cc.Component {
                 }
             }
         else if (!CC_BUILD) {
-            cc.director.loadScene(route.bblood);
+            cc.director.loadScene(route.bracket16);
         }
     }
 

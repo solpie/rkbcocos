@@ -24,7 +24,7 @@
       }
     ],
     "_active": true,
-    "_level": 2,
+    "_level": 3,
     "_components": [
       {
         "__id__": 10
@@ -86,7 +86,7 @@
     },
     "_children": [],
     "_active": true,
-    "_level": 3,
+    "_level": 4,
     "_components": [
       {
         "__id__": 3
@@ -119,7 +119,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": -98,
       "z": 0
     },
     "_scale": {
@@ -198,7 +198,7 @@
     },
     "_children": [],
     "_active": true,
-    "_level": 3,
+    "_level": 4,
     "_components": [
       {
         "__id__": 7
@@ -231,7 +231,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -62,
+      "y": -139,
       "z": 0
     },
     "_scale": {

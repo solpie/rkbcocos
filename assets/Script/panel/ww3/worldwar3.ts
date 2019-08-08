@@ -21,7 +21,6 @@ export const _nm_ = {//value is the name in creator
     txt_foul_R: 'txt_foul_R',
     sp_avt_L: 'avt_L',
     sp_avt_R: 'avt_R',
-
 }
 @ccclass
 export default class Worldwar3 extends cc.Component {
@@ -29,6 +28,8 @@ export default class Worldwar3 extends cc.Component {
     gameTimer: Timer = new Timer()
     bloodBar_L: BloodBar
     bloodBar_R: BloodBar
+
+    delay: number
     onLoad() {
         this.id = (new Date()).getTime().toString()
         cc.log('onLoad Worldwar3,id:', this.id)
@@ -267,7 +268,20 @@ export default class Worldwar3 extends cc.Component {
 
         })
     }
-
+    _set_blood(data) {
+        let player_L = data.vsPlayerArr[0]
+        let player_R = data.vsPlayerArr[1]
+        for (let p of data.lTeam) {
+            if (p.player_id == player_L) {
+                this.bloodBar_L.setBloodByCurBlood(p.blood)
+            }
+        }
+        for (let p of data.rTeam) {
+            if (p.player_id == player_R) {
+                this.bloodBar_R.setBloodByCurBlood(p.blood)
+            }
+        }
+    }
     initWS() {
         let ws = getWsUrl()
         io(ws)
@@ -284,23 +298,32 @@ export default class Worldwar3 extends cc.Component {
             })
             .on(WSEvent.sc_setFoul, data => {
                 cc.log('sc_setFoul', data)
-                this.setFoul_L(data.lFoul)
-                this.setFoul_R(data.rFoul)
+                if (this.delay > 0 && window['isDelay']) {//main.js
+                    setTimeout(() => {
+                        this.setFoul_L(data.lFoul)
+                        this.setFoul_R(data.rFoul)
+                    }, this.delay);
+                }
+                else {
+                    this.setFoul_L(data.lFoul)
+                    this.setFoul_R(data.rFoul)
+                }
+            })
+            .on(WSEvent.sc_set_delay, data => {
+                cc.log('sc_set_delay', data)
+                if (data.delay >= 0) {
+                    this.delay = data.delay * 1000
+                }
             })
             .on(WSEvent.sc_manual_blood, data => {
                 cc.log('sc_manual_blood', data)
-                let player_L = data.vsPlayerArr[0]
-                let player_R = data.vsPlayerArr[1]
-                for (let p of data.lTeam) {
-                    if (p.player_id == player_L) {
-                        this.bloodBar_L.setBloodByCurBlood(p.blood)
-                    }
+                if (this.delay > 0 && window['isDelay']) {//main.js
+                    setTimeout(() => {
+                        this._set_blood(data)
+                    }, this.delay);
                 }
-                for (let p of data.rTeam) {
-                    if (p.player_id == player_R) {
-                        this.bloodBar_R.setBloodByCurBlood(p.blood)
-                    }
-                }
+                else
+                    this._set_blood(data)
             })
             .on(WSEvent.sc_setBlood, data => {
                 cc.log('sc_setBlood', data)
@@ -317,12 +340,21 @@ export default class Worldwar3 extends cc.Component {
             })
             .on(WSEvent.sc_setPlayer, data => {
                 cc.log('sc_setPlayer', data)
-                this.setPlayer(0, data.leftPlayer)
-                this.setPlayer(1, data.rightPlayer)
-                if (data.isRestFoul) {
-                    this.setFoul_L(0)
-                    this.setFoul_R(0)
+                let _set_player = (data) => {
+                    this.setPlayer(0, data.leftPlayer)
+                    this.setPlayer(1, data.rightPlayer)
+                    if (data.isRestFoul) {
+                        this.setFoul_L(0)
+                        this.setFoul_R(0)
+                    }
                 }
+                if (this.delay > 0 && window['isDelay']) {//main.js
+                    setTimeout(() => {
+                        _set_player(data)
+                    }, this.delay);
+                }
+                else
+                    _set_player(data)
             })
             .on(WSEvent.sc_setPlayerDot, data => {
                 cc.log('sc_setPlayerDot', data)
