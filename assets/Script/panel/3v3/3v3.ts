@@ -7,6 +7,7 @@ import { BaseGame } from '../ww3/ww3_op';
 const { ccclass, property } = cc._decorator;
 declare let io;
 declare let _c_;
+declare let axios;
 function getGame3v3(): BaseGame {
     return window['game3v3']
 }
@@ -53,6 +54,8 @@ export default class Game3v3 extends cc.Component {
         if (!CC_BUILD) {
             this.test()
         }
+
+        this.set4v4Icon({ is4v4: true })
     }
 
     test() {
@@ -86,11 +89,52 @@ export default class Game3v3 extends cc.Component {
         _c_.emit(ccType.Node, { name: 'bg2_1v1', active: !data.is4v4 })
     }
 
+    get_basescore(param) {
+        axios.get(param.url)
+            .then((res) => {
+                let doc = res.data
+                this.setScore({ lScore: doc.score_L, rScore: doc.score_R })
+                this.setFoul_L(doc.foul_L)
+                this.setFoul_R(doc.foul_R)
+                this.set_player(doc)
+
+                let timer_state: string = doc.timer_state
+                if (timer_state.search('start') > -1) {
+                    this.gameTimer.startTimer()
+                }
+                else if (timer_state.search('pause') > -1) {
+                    this.gameTimer.pauseTimer()
+                }
+                else if (timer_state.search('setting') > -1) {
+                    this.gameTimer.setTimeBySec(doc.timer_param)
+                }
+                else if (timer_state.search('pause') > -1) {
+
+                }
+
+                // basescore: {
+                //     player_L: 0,
+                //     player_R: 0,
+                //     score_L: 0,
+                //     score_R: 0,
+                //     foul_L: 0,
+                //     foul_R: 0
+                // }
+            })
+    }
+    set_player(data) {
+        setText('txt_team_L', data.player_L)
+        setText('txt_team_R', data.player_R)
+    }
     initWS() {
         let ws = getWsUrl()
         io(ws)
             .on('connect', _ => {
                 cc.log('socketio.....localWS')
+            })
+            .on(WSEvent.sc_update_basescore, data => {
+                cc.log('sc_update_basescore', data)
+                this.get_basescore(data)//todo data.url
             })
             .on(WSEvent.sc_timerEvent, data => {
                 cc.log('sc_timerEvent', data)
@@ -103,8 +147,7 @@ export default class Game3v3 extends cc.Component {
             })
             .on(WSEvent.sc_set_player, data => {
                 cc.log('sc_setPlayer', data)
-                setText('txt_team_L', data.player_L)
-                setText('txt_team_R', data.player_R)
+                this.set_player(data)
             })
             .on(WSEvent.sc_updateScore, data => {
                 cc.log('sc_updateScore', data)

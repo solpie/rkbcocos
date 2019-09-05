@@ -58,6 +58,7 @@ export class Timer {
     }
 
     setTimeBySec(sec) {
+        sec=Number(sec)
         if (sec < 0)
             sec = 0
         this.timeInSec = sec;

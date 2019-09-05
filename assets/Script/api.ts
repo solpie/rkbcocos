@@ -2,6 +2,7 @@
 export const WSEvent = {
     sc_ww3_team_score: '',
     sc_teamScore:'',
+    sc_update_basescore:'',
     sc_timerEvent: '',
     cs_timerEvent: '',
     
