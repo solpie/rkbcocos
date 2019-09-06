@@ -170,7 +170,7 @@ window.boot = function () {
         md5AssetsMap: settings.md5AssetsMap,
         subpackages: settings.subpackages
     });
- cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
+    cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
     cc.game.run(option, onStart);
 };
 
