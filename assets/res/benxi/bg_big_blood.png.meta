@@ -1,15 +1,15 @@
 {
   "ver": "2.2.0",
-  "uuid": "32455017-36bf-4363-9f2d-30ba6d15cd59",
+  "uuid": "2de96b31-ba04-4cd0-860a-72b900efb8c4",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
   "subMetas": {
-    "blood_bar_curso2": {
+    "bg_big_blood": {
       "ver": "1.0.4",
-      "uuid": "0ced123c-fede-4be2-ad45-222b2471a1ed",
-      "rawTextureUuid": "32455017-36bf-4363-9f2d-30ba6d15cd59",
+      "uuid": "f3829156-3293-438f-a3bc-7943b2fa9b5b",
+      "rawTextureUuid": "2de96b31-ba04-4cd0-860a-72b900efb8c4",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -17,14 +17,14 @@
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
-      "width": 830,
-      "height": 44,
-      "rawWidth": 830,
-      "rawHeight": 44,
+      "width": 1920,
+      "height": 1080,
+      "rawWidth": 1920,
+      "rawHeight": 1080,
       "borderTop": 0,
       "borderBottom": 0,
       "borderLeft": 0,
-      "borderRight": 32,
+      "borderRight": 0,
       "subMetas": {}
     }
   }
