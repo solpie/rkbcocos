@@ -90,9 +90,9 @@ export default class Game3v3 extends cc.Component {
     }
 
     get_basescore(param) {
-        axios.get(param.url)
-            .then((res) => {
-                let doc = res.data
+        // axios.get(param.url)
+        //     .then((res) => {
+                let doc = param
                 this.setScore({ lScore: doc.score_L, rScore: doc.score_R })
                 this.setFoul_L(doc.foul_L)
                 this.setFoul_R(doc.foul_R)
@@ -120,7 +120,7 @@ export default class Game3v3 extends cc.Component {
                 //     foul_L: 0,
                 //     foul_R: 0
                 // }
-            })
+            // })
     }
     set_player(data) {
         setText('txt_team_L', data.player_L)
