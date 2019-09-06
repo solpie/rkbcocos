@@ -362,7 +362,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_player_left",
+    "_name": "txt_player_L",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -461,7 +461,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_player_right",
+    "_name": "txt_player_R",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -560,7 +560,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_score_left",
+    "_name": "txt_score_L",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -659,7 +659,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_score_right",
+    "_name": "txt_score_R",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
