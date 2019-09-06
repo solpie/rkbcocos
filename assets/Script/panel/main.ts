@@ -11,6 +11,7 @@ const route = {
     , 'bracket32': 'group_list'
     , 'group_power': 'group_power'
     , 'bracket16': 'bracket_16'
+    , 'benxi': 'benxi'
     // , '3v3': '3v3'
 }
 window['_c_'] = new cc.Node('_c_')
@@ -33,7 +34,7 @@ export default class Main extends cc.Component {
                 }
             }
         else if (!CC_BUILD) {
-            cc.director.loadScene(route['3v3']);
+            cc.director.loadScene(route['benxi']);
         }
     }
 
