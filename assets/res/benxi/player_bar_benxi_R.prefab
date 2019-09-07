@@ -154,7 +154,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bg",
+    "_name": "bar",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -225,7 +225,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "2e2988ae-8908-4f48-bff3-0f5042bf8e87"
+      "__uuid__": "3906b408-7ded-4d61-8e56-2789dbfd1238"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -248,9 +248,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "b40e9753-3d3a-41b6-b111-852d1af9aa2c"
     },
-    "fileId": "1doPFJvf9FPZgPycxdNpwr",
+    "fileId": "1enScMOlVNTYSK/QB7r7fK",
     "sync": false
   },
   {
@@ -326,7 +326,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "3906b408-7ded-4d61-8e56-2789dbfd1238"
+      "__uuid__": "2e2988ae-8908-4f48-bff3-0f5042bf8e87"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -349,9 +349,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "b40e9753-3d3a-41b6-b111-852d1af9aa2c"
     },
-    "fileId": "1enScMOlVNTYSK/QB7r7fK",
+    "fileId": "1doPFJvf9FPZgPycxdNpwr",
     "sync": false
   },
   {
@@ -377,7 +377,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "b40e9753-3d3a-41b6-b111-852d1af9aa2c"
     },
     "fileId": "54fsH9PpdFFaLYT4agOOJB",
     "sync": false
@@ -492,7 +492,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "b40e9753-3d3a-41b6-b111-852d1af9aa2c"
     },
     "fileId": "4eGGXDRqVOS49lL4hLozJT",
     "sync": false
@@ -590,7 +590,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "b40e9753-3d3a-41b6-b111-852d1af9aa2c"
     },
     "fileId": "4d4zLz3qVBVZ5J2SJjPqs+",
     "sync": false
@@ -690,7 +690,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "b40e9753-3d3a-41b6-b111-852d1af9aa2c"
     },
     "fileId": "a7nnwkJsBH/r95AJoO+gCJ",
     "sync": false
@@ -712,7 +712,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "b40e9753-3d3a-41b6-b111-852d1af9aa2c"
     },
     "fileId": "5061ZaRDNCgqwdB4LsOlgZ",
     "sync": false
