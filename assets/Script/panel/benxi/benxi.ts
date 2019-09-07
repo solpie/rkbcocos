@@ -32,6 +32,10 @@ export default class Benxi extends cc.Component {
         this.gameTimer.isMin = false
         this.gameTimer.resetTimer()
         this.initWS()
+        this.set_foul({ lFoul: 0, rFoul: 0 })
+        setText(_nm_.txt_score_L, 0)
+        setText(_nm_.txt_score_R, 0)
+        this.set_player({player_L:'',player_R:''})
     }
     set_foul(data) {
         setText(_nm_.txt_foul_L, data.lFoul)

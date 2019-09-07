@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.2873545990675959,
-      "y": 0.2873545990675959,
+      "x": 0.48550296271036186,
+      "y": 0.48550296271036186,
       "z": 1
     },
     "_quat": {
@@ -444,7 +444,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "41b+kwgDNCkJwF0nigouMF"
   },
@@ -543,7 +543,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "14YmHL68dA6bPb+f4LOhe0"
   },
