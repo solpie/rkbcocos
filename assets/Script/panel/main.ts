@@ -12,6 +12,7 @@ const route = {
     , 'group_power': 'group_power'
     , 'bracket16': 'bracket_16'
     , 'benxi': 'benxi'
+    , 'benxi_bblood': 'big_blood_benxi'
     // , '3v3': '3v3'
 }
 window['_c_'] = new cc.Node('_c_')
