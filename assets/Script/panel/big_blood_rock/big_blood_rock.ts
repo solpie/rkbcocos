@@ -13,6 +13,8 @@ export default class BigBloodRock extends cc.Component {
     eventDoc: any
     leftTeamMap: any
     rightTeamMap: any
+    timeout_dot_L = []
+    timeout_dot_R = []
     onLoad() {
         cc.log('BigBloodRock on loaded')
     }
@@ -24,6 +26,16 @@ export default class BigBloodRock extends cc.Component {
 
         setText('txt_player_name_L', '')
         setText('txt_player_name_R', '')
+
+
+        for (let i = 0; i < 2; i++) {
+            let dot = cc.find("4v4/timeout/L" + (i + 1), this.node);
+            if (dot)
+                this.timeout_dot_L.push(dot)
+            dot = cc.find("4v4/timeout/R" + (i + 1), this.node);
+            if (dot)
+                this.timeout_dot_R.push(dot)
+        }
 
         this.initWS()
     }
@@ -130,6 +142,14 @@ export default class BigBloodRock extends cc.Component {
         getNode('timeout_mask_R2', node => {
             node.active = timeout_R < 1
         })
+        // let to_R1 = cc.find("4v4/timeout/R1", this.node);
+        // to_R1.active = false
+        for (let i = 0; i < this.timeout_dot_L.length; i++) {
+            let dot = this.timeout_dot_L[i]
+            dot.active = i < timeout_L
+            dot = this.timeout_dot_R[i]
+            dot.active = i < timeout_R
+        }
     }
     findPlayerOnBar(pid) {
         for (let barIdx in this.leftTeamMap)//pos L1 L2
