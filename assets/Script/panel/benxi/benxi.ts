@@ -79,6 +79,9 @@ export default class Benxi extends cc.Component {
                     player_L: data.leftPlayer.name
                     , player_R: data.rightPlayer.name
                 })
+                setText(_nm_.txt_score_L, data.leftPlayer.blood)
+                setText(_nm_.txt_score_R, data.rightPlayer.blood)
+                this.set_foul({ lFoul: 0, rFoul: 0 })
             })
             .on(WSEvent.sc_timerEvent, data => {
                 cc.log('sc_timerEvent', data)
