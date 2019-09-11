@@ -89,6 +89,7 @@ export default class Game3v3 extends cc.Component {
         _c_.emit(ccType.Node, { name: 'bg2_1v1', active: !data.is4v4 })
     }
 
+    timestamp:string
     get_basescore(param) {
         // axios.get(param.url)
         //     .then((res) => {
@@ -106,7 +107,11 @@ export default class Game3v3 extends cc.Component {
                     this.gameTimer.pauseTimer()
                 }
                 else if (timer_state.search('setting') > -1) {
-                    this.gameTimer.setTimeBySec(doc.timer_param)
+                    let timestamp = timer_state.replace('setting','')
+                    if(this.timestamp!=timestamp){
+                        this.timestamp = timestamp   
+                        this.gameTimer.setTimeBySec(doc.timer_param)
+                    }
                 }
                 else if (timer_state.search('pause') > -1) {
 
@@ -134,7 +139,7 @@ export default class Game3v3 extends cc.Component {
             })
             .on(WSEvent.sc_update_basescore, data => {
                 cc.log('sc_update_basescore', data)
-                this.get_basescore(data)//todo data.url
+                this.get_basescore(data)
             })
             .on(WSEvent.sc_timerEvent, data => {
                 cc.log('sc_timerEvent', data)

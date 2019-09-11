@@ -125,7 +125,6 @@ export default class BigBloodRock extends cc.Component {
                 _c_.emit(EVENT_PLAYER_BAR_4V4, this.leftTeamMap)
                 _c_.emit(EVENT_PLAYER_BAR_4V4, this.rightTeamMap)
             })
-
     }
     set_timeout(data) {
         let timeout_L = Number(data.timeout_L)
