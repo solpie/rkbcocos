@@ -6,6 +6,8 @@ import { BloodBar } from './bloodBar';
 import { showPlayerInfo } from './ww3_fx';
 import { BaseGame } from './ww3_op';
 import { confWW3 } from '../../com/gameConf';
+import SideBlood from './side_blood/sideBlood';
+import { SideBloodView } from './side_blood/SideBloodView';
 const { ccclass } = cc._decorator;
 declare let io;
 declare let _c_;
@@ -30,6 +32,8 @@ export default class Worldwar3 extends cc.Component {
     bloodBar_R: BloodBar
 
     delay: number
+
+    sideBlood: SideBlood
     onLoad() {
         this.id = (new Date()).getTime().toString()
         cc.log('onLoad Worldwar3,id:', this.id)
@@ -42,6 +46,7 @@ export default class Worldwar3 extends cc.Component {
         let pc = cc.find('pageview/view/page_content')
         cc.log('op_layer', op_layer, page_content)
         cc.log(pc)
+     
         // op_layer.parent = pc
 
         //dincondensedc 2
@@ -59,6 +64,7 @@ export default class Worldwar3 extends cc.Component {
     }
 
     start() {
+
         this.node.on(cc.Node.EventType.MOUSE_UP, function (event) {
             console.log('Mouse down');
             this.addOp()
@@ -338,6 +344,7 @@ export default class Worldwar3 extends cc.Component {
                     bb.setBloodByDtScore(data.score)
                 }
             })
+            // .on(WSEvent.sc_setPlayer, data => {
             .on(WSEvent.sc_setPlayer, data => {
                 cc.log('sc_setPlayer', data)
                 let _set_player = (data) => {
@@ -355,6 +362,11 @@ export default class Worldwar3 extends cc.Component {
                 }
                 else
                     _set_player(data)
+        let sbv: SideBloodView = _c_['SideBloodView']
+                if(sbv)
+                {
+                    sbv.set_player(data)
+                }
             })
             .on(WSEvent.sc_setPlayerDot, data => {
                 cc.log('sc_setPlayerDot', data)
@@ -370,6 +382,9 @@ export default class Worldwar3 extends cc.Component {
             })
             .on(WSEvent.sc_showWW3PlayerInfo, data => {
                 showPlayerInfo(data.visible, data.playerArr)
+            })
+            .on(WSEvent.sc_show_bottom_blood, data => {
+                cc.log('sc_show_bottom_blood', data)
             })
             .on(WSEvent.sc_start_ww3_game, data => {
                 this.setFoul_L(0)

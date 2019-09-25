@@ -113,10 +113,6 @@ export default class Game3v3 extends cc.Component {
                         this.gameTimer.setTimeBySec(doc.timer_param)
                     }
                 }
-                else if (timer_state.search('pause') > -1) {
-
-                }
-
                 // basescore: {
                 //     player_L: 0,
                 //     player_R: 0,

@@ -8,7 +8,7 @@ export function getWsUrl(): string {
         return '/rkb'
     return 'http://127.0.0.1/rkb'
 }
-export function getWs(): any{
+export function getWs(): any {
     return io(getWsUrl())
 }
 
@@ -27,6 +27,19 @@ export function loadImg64(sp, url) {
         .then(function (res) {
             // console.log('axios loaded----', res.data)
             _c_.emit(ccType.Sprite, { name: sp, img64: res.data })
+        })
+}
+export function loadImg64ByNode(sp, url) {
+    let pUrl = _proxy(url)
+    axios.get(pUrl)
+        .then(function (res) {
+            let img = new Image()
+            img.src = res.data
+            let tex = new cc.Texture2D()
+            tex.initWithElement(img)
+            tex.handleLoadedTexture()
+            let newframe = new cc.SpriteFrame(tex)
+            sp.spriteFrame = newframe
         })
 }
 let imageCache = {}

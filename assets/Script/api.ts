@@ -23,6 +23,7 @@ export const WSEvent = {
     sc_set_player:'',
     sc_setPlayerDot:'',
     sc_showWW3PlayerInfo:'',
+    sc_show_bottom_blood:'',
 
     sc_start_ww3_game:'',
     cs_start_ww3_game:'',
