@@ -46,7 +46,7 @@ export default class Worldwar3 extends cc.Component {
         let pc = cc.find('pageview/view/page_content')
         cc.log('op_layer', op_layer, page_content)
         cc.log(pc)
-     
+
         // op_layer.parent = pc
 
         //dincondensedc 2
@@ -330,6 +330,9 @@ export default class Worldwar3 extends cc.Component {
                 }
                 else
                     this._set_blood(data)
+                    let sbv: SideBloodView = _c_['SideBloodView']
+                    if (sbv) {
+                        sbv.set_vs_player(data)
             })
             .on(WSEvent.sc_setBlood, data => {
                 cc.log('sc_setBlood', data)
@@ -362,9 +365,8 @@ export default class Worldwar3 extends cc.Component {
                 }
                 else
                     _set_player(data)
-        let sbv: SideBloodView = _c_['SideBloodView']
-                if(sbv)
-                {
+                let sbv: SideBloodView = _c_['SideBloodView']
+                if (sbv) {
                     sbv.set_player(data)
                 }
             })
@@ -383,8 +385,12 @@ export default class Worldwar3 extends cc.Component {
             .on(WSEvent.sc_showWW3PlayerInfo, data => {
                 showPlayerInfo(data.visible, data.playerArr)
             })
-            .on(WSEvent.sc_show_bottom_blood, data => {
-                cc.log('sc_show_bottom_blood', data)
+            .on(WSEvent.sc_show_side_blood, data => {
+                cc.log('sc_show_side_blood', data)
+                let sbv: SideBloodView = _c_['SideBloodView']
+                if (sbv) {
+                    sbv.show(data)
+                }
             })
             .on(WSEvent.sc_start_ww3_game, data => {
                 this.setFoul_L(0)

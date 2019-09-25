@@ -17,7 +17,7 @@ export default class SideBlood extends cc.Component {
             let sb_name = 'side_blood_' + (i + 1)
             let sb = this.node.getChildByName(sb_name)
             if (sb) {
-                sbv.add_side_row(sb_name, sb)
+                sbv.add_side_row(sb_name, sb,i)
                 break;
             }
         }
