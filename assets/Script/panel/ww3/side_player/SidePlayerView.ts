@@ -32,7 +32,7 @@ export default class SidePlayerView extends cc.Component {
         let _fo = (sb, idx) => {
             setTimeout(_ => {
                 var anim = sb.getComponent(cc.Animation);
-                anim.play("side_blood_out");
+                anim.play("side_player_out");
             }, 250 * idx)
         }
         for (let i = 0; i < 8; i++) {
