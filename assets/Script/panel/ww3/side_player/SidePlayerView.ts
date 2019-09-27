@@ -75,21 +75,34 @@ export default class SidePlayerView extends cc.Component {
                 this.player_id_arr.push(rec.player[1])
 
             }
+            for (let i = 0; i < this.player_id_arr.length; i++) {
+                let player_id = this.player_id_arr[i];
+                this.load_avt(this.avt_sprite_arr[i], player_id)
+    
+            }
         })
-        if (this.url_base == '') {
-            get_player('p1', data => {
-                this.url_base = data[0].avatar.split('p1')[0]
-                for (let i = 0; i < this.player_id_arr.length; i++) {
-                    let player_id = this.player_id_arr[i]
-                    loadImg64ByNode(this.avt_sprite_arr[i], this.url_base + player_id + '.png')
-                }
-            })
-        }
+        // if (this.url_base == '') {
+        //     get_player('p1', data => {
+        //         this.url_base = data[0].avatar.split('p1')[0]
+        //         for (let i = 0; i < this.player_id_arr.length; i++) {
+        //             let player_id = this.player_id_arr[i]
+        //             loadImg64ByNode(this.avt_sprite_arr[i], this.url_base + player_id + '.png')
+        //         }
+        //     })
+        // }
+        
         this.initWS()
         if (!CC_BUILD) {
             this.fade_in()
         }
 
+    }
+    load_avt(sp, player_id) {
+        get_player(player_id, data => {
+            let url = data[0].avatar
+            cc.log('load avt', url)
+            loadImg64ByNode(sp, data[0].avatar)
+        })
     }
     initWS() {
         let ws = getWsUrl()
