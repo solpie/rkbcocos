@@ -18,6 +18,22 @@ function _proxy(url) {
     return 'http://127.0.0.1:80/proxy?url=' + url
 }
 
+export function get_champion_rank_rec(callback) {
+    let url = 'http://rtmp.icassi.us:8090/event?idx=1'
+    let pUrl = _proxy(url)
+    axios.get(pUrl)
+        .then(function (res) {
+            callback(res.data)
+        })
+}
+export function get_player(player_id, callback) {
+    let url = 'http://rtmp.icassi.us:8090/player2?player_id=' + player_id
+    let pUrl = _proxy(url)
+    axios.get(pUrl)
+        .then(function (res) {
+            callback(res.data)
+        })
+}
 export function loadImg64(sp, url) {
     let pUrl = _proxy(url)
     // cc.loader.load(pUrl, res => {

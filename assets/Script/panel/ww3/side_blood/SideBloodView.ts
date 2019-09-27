@@ -13,9 +13,11 @@ export class SideBloodView {
         node['idx'] = idx
         this.fade_out()
     }
+    
     show(data) {
         data.visible ? this.fade_in() : this.fade_out()
     }
+
     fade_out() {
         let _fo = (sb, idx) => {
             setTimeout(_ => {

@@ -35,6 +35,7 @@ export const WSEvent = {
     //group list
     sc_rec:'',
     sc_set_delay:'',
+    sc_show_side_player:'',
 }
 
 

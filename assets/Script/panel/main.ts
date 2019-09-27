@@ -13,6 +13,7 @@ const route = {
     , 'bracket16': 'bracket_16'
     , 'benxi': 'benxi'
     , 'benxi_bblood': 'big_blood_benxi'
+    , 'side_player': 'side_player'
     // , '3v3': '3v3'
 }
 window['_c_'] = new cc.Node('_c_')
@@ -35,7 +36,7 @@ export default class Main extends cc.Component {
                 }
             }
         else if (!CC_BUILD) {
-            cc.director.loadScene(route['ww3']);
+            cc.director.loadScene(route['side_player']);
         }
     }
 
