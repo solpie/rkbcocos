@@ -241,17 +241,17 @@ export default class Worldwar3 extends cc.Component {
             let bloodBar = isR ? this.bloodBar_R : this.bloodBar_L
             bloodBar.setBlood(player.blood)
         }
-        let txt_hw = isR ? 'txt_hw_R' : 'txt_hw_L';
-        let hw = player.height + 'cm/' + player.weight + 'kg'
-        setText(txt_hw, hw)
+        // let txt_hw = isR ? 'txt_hw_R' : 'txt_hw_L';
+        // let hw = player.height + 'cm/' + player.weight + 'kg'
+        // setText(txt_hw, hw)
 
-        //球员简
+        // //球员简
 
-        let txt_info = isR ? 'txt_info_R' : 'txt_info_L';
-        let player_info = player.info
-        // player_info = '一二三十万六七八九十一二三十万六七八九十一二三十万六七八九十'
+        // let txt_info = isR ? 'txt_info_R' : 'txt_info_L';
+        // let player_info = player.info
+        // // player_info = '一二三十万六七八九十一二三十万六七八九十一二三十万六七八九十'
 
-        setText(txt_info, player_info)
+        // setText(txt_info, player_info)
     }
     initState() {
         getPanelConf('ww3', res => {
