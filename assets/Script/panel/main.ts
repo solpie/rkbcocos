@@ -36,7 +36,7 @@ export default class Main extends cc.Component {
                 }
             }
         else if (!CC_BUILD) {
-            cc.director.loadScene(route['side_player']);
+            cc.director.loadScene(route['ww3']);
         }
     }
 

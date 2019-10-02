@@ -75,7 +75,7 @@ app = Flask(
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 @app.route('/')
