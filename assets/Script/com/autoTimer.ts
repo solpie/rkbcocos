@@ -15,6 +15,6 @@ export function get_auto_timer(url, callback) {
             callback(res.data)
             setTimeout(_ => {
                 get_auto_timer(url, callback)
-            }, 1000)
+            }, 200)
         })
 }
