@@ -15,12 +15,12 @@ export default class Rank0 extends cc.Component {
     avt_R: cc.Sprite
     auto_timer_url: string = ''
     onload() {
-        this.gameTimer.initTimer(this, 'txt_timer')
+        // this.gameTimer.initTimer(this, 'txt_timer')
     }
     start() {
         //init game timer
-        this.gameTimer.isMin = false
-        this.gameTimer.resetTimer()
+        // this.gameTimer.isMin = true
+        // this.gameTimer.resetTimer()
         this.avt_L = this.node.getChildByName('mask_L').getChildByName("avt_L").getComponent(cc.Sprite)
         this.avt_R = this.node.getChildByName('mask_R').getChildByName("avt_R").getComponent(cc.Sprite)
 
@@ -41,19 +41,11 @@ export default class Rank0 extends cc.Component {
                 loadImg64ByNode(this.avt_R, doc.avatar_R)
                 if (doc.auto_timer_url != this.auto_timer_url) {
                     this.auto_timer_url = doc.auto_timer_url
-                    this.gameTimer.pauseTimer()
-                    get_auto_timer(doc.auto_timer_url, res => {
-                        let min = res.getElementsByTagName('min')[0]
-                        let sec = res.getElementsByTagName('sec')[0]
-                        let text = res.getElementsByTagName('text')[0]
-                        min = Number(min.textContent)
-                        sec = Number(sec.textContent)
+                    let url = 'http://192.168.1.196:8090/results.xml'
+                    get_auto_timer(this.auto_timer_url, doc => {
+                        let text = doc.children[0].getElementsByTagName('text')[0].textContent
                         if (text) {
-                            this.gameTimer.setTimeBySec(text)
-                        }
-                        else{
-                            this.gameTimer.setTimeBySec(sec + min * 60)
-
+                            setText('txt_timer', text)
                         }
                     })
                 }
@@ -63,17 +55,17 @@ export default class Rank0 extends cc.Component {
             }
         })
     }
-    get_auto_timer() {
-        get_timer(res => {
-            let min = res.getElementsByTagName('min')[0]
-            let sec = res.getElementsByTagName('sec')[0]
-            min = Number(min.textContent)
-            sec = Number(sec.textContent)
-            // console.log(min, sec)
-            if (this.worldWar.timer)
-                this.worldWar.timer.setTimeBySec(min * 60 + sec)
-        })
-    }
+    // get_auto_timer() {
+    //     get_timer(res => {
+    //         let min = res.getElementsByTagName('min')[0]
+    //         let sec = res.getElementsByTagName('sec')[0]
+    //         min = Number(min.textContent)
+    //         sec = Number(sec.textContent)
+    //         // console.log(min, sec)
+    //         if (this.worldWar.timer)
+    //             this.worldWar.timer.setTimeBySec(min * 60 + sec)
+    //     })
+    // }
     initWS() {
         let ws = getWsUrl()
         // io(ws)

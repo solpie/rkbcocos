@@ -12,7 +12,7 @@ declare let axios;
 export function get_auto_timer(url, callback) {
     axios.get(url)
         .then(function (res) {
-            callback(res.data)
+            callback((new DOMParser()).parseFromString(res.data,'text/xml'))
             setTimeout(_ => {
                 get_auto_timer(url, callback)
             }, 200)
