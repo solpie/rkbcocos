@@ -34,6 +34,15 @@ export function get_player(player_id, callback) {
             callback(res.data)
         })
 }
+export function get_basescore(callback){
+    let url = "http://rtmp.icassi.us:8090/basescore?idx=rank16" 
+    let pUrl = _proxy(url)
+    axios.get(pUrl)
+        .then(function (res) {
+            callback(res.data)
+        })
+    
+}
 export function loadImg64(sp, url) {
     let pUrl = _proxy(url)
     // cc.loader.load(pUrl, res => {
