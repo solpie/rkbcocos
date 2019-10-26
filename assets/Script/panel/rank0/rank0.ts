@@ -2,6 +2,7 @@ import { Timer } from "../../com/timer";
 import { getWsUrl, loadImg64, get_basescore, loadImg64ByNode } from '../../web';
 import { WSEvent } from '../../api';
 import { setText, ccType } from '../../__c';
+import { get_auto_timer } from "../../com/autoTimer";
 
 const { ccclass, property } = cc._decorator;
 declare let io;
@@ -10,8 +11,9 @@ declare let _c_;
 export default class Rank0 extends cc.Component {
     id: string//同步的时候区分自己
     gameTimer: Timer = new Timer()
-    avt_L:cc.Sprite
-    avt_R:cc.Sprite
+    avt_L: cc.Sprite
+    avt_R: cc.Sprite
+    auto_timer_url: string = ''
     onload() {
         this.gameTimer.initTimer(this, 'txt_timer')
     }
@@ -20,7 +22,13 @@ export default class Rank0 extends cc.Component {
         this.gameTimer.isMin = false
         this.gameTimer.resetTimer()
         this.avt_L = this.node.getChildByName('mask_L').getChildByName("avt_L").getComponent(cc.Sprite)
-        this.avt_R= this.node.getChildByName('mask_R').getChildByName("avt_R").getComponent(cc.Sprite)
+        this.avt_R = this.node.getChildByName('mask_R').getChildByName("avt_R").getComponent(cc.Sprite)
+
+        // this.initWS()
+        this.get_basescore2()
+    }
+
+    get_basescore2() {
         get_basescore(data => {
             cc.log(data)
             if (data.length) {
@@ -29,14 +37,43 @@ export default class Rank0 extends cc.Component {
                 this.setFoul_L(doc.foul_L)
                 this.setFoul_R(doc.foul_R)
                 this.set_score(doc)
-                loadImg64ByNode(this.avt_L,doc.avatar_L)
-                loadImg64ByNode(this.avt_R,doc.avatar_R)
+                loadImg64ByNode(this.avt_L, doc.avatar_L)
+                loadImg64ByNode(this.avt_R, doc.avatar_R)
+                if (doc.auto_timer_url != this.auto_timer_url) {
+                    this.auto_timer_url = doc.auto_timer_url
+                    this.gameTimer.pauseTimer()
+                    get_auto_timer(doc.auto_timer_url, res => {
+                        let min = res.getElementsByTagName('min')[0]
+                        let sec = res.getElementsByTagName('sec')[0]
+                        let text = res.getElementsByTagName('text')[0]
+                        min = Number(min.textContent)
+                        sec = Number(sec.textContent)
+                        if (text) {
+                            this.gameTimer.setTimeBySec(text)
+                        }
+                        else{
+                            this.gameTimer.setTimeBySec(sec + min * 60)
+
+                        }
+                    })
+                }
+                setTimeout(_ => {
+                    this.get_basescore2()
+                }, 1000)
             }
         })
-        this.initWS()
-
     }
-
+    get_auto_timer() {
+        get_timer(res => {
+            let min = res.getElementsByTagName('min')[0]
+            let sec = res.getElementsByTagName('sec')[0]
+            min = Number(min.textContent)
+            sec = Number(sec.textContent)
+            // console.log(min, sec)
+            if (this.worldWar.timer)
+                this.worldWar.timer.setTimeBySec(min * 60 + sec)
+        })
+    }
     initWS() {
         let ws = getWsUrl()
         // io(ws)
@@ -85,8 +122,7 @@ export default class Rank0 extends cc.Component {
         setText('txt_foul_L', foul)
     }
 
-    set_score(doc)
-    {
+    set_score(doc) {
         setText('txt_score_L', doc.score_L)
         setText('txt_score_R', doc.score_R)
         setText('txt_player_L', doc.player_L)

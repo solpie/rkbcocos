@@ -58,11 +58,14 @@ export class Timer {
     }
 
     setTimeBySec(sec) {
-        sec=Number(sec)
+        sec = Number(sec)
         if (sec < 0)
             sec = 0
         this.timeInSec = sec;
         setText(this._textName, formatSecond(this.timeInSec, this.isSecOnly))
+    }
+    setTimerText(str) {
+        setText(this._textName, str)
     }
 
     resetTimer() {
