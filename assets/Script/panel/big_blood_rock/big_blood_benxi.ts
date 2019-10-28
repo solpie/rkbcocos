@@ -91,12 +91,6 @@ export default class BigBloodRock extends cc.Component {
 
                 this.player_id_L = leftPlayer.player_id
                 this.player_id_R = rightPlayer.player_id
-                // setText('txt_player_name_L', leftPlayer.name)
-                // setText('txt_player_name_R', rightPlayer.name)
-                // setText('txt_player_blood_L', leftPlayer.blood)
-                // setText('txt_player_blood_R', rightPlayer.blood)
-                // loadImg64('avt_L', leftPlayer.avatar)
-                // loadImg64('avt_R', rightPlayer.avatar)
 
                 let leftTeam = data.lTeam
                 let leftTeamMap = {}
