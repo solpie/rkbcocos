@@ -108,10 +108,11 @@ export default class BigBloodRock extends cc.Component {
                     let pid = p.player_id
                     if (is5v5 && pid == leftPlayer.player_id) { continue; }
 
-                    let player_row = this.player_row_L[i]
+                    let player_row = this.player_row_L[row_idx_L]
                     player_row.blood.string = p.blood
                     player_row.player_id = pid
                     loadImg64ByNode(player_row.avatar, p.avatar)
+                    row_idx_L++
                 }
                 let rightTeam = data.rTeam
                 for (let i = 0; i < rightTeam.length; i++) {
@@ -119,10 +120,11 @@ export default class BigBloodRock extends cc.Component {
                     let pid = p.player_id
                     if (is5v5 && pid == rightPlayer.player_id) { continue; }
 
-                    let player_row = this.player_row_R[i]
+                    let player_row = this.player_row_R[row_idx_R]
                     player_row.blood.string = p.blood
                     player_row.player_id = pid
                     loadImg64ByNode(player_row.avatar, p.avatar)
+                    row_idx_R++
                 }
             })
             .on(WSEvent.sc_timeOut, data => {
@@ -137,20 +139,25 @@ export default class BigBloodRock extends cc.Component {
                 cc.log('sc_manual_blood', data)
                 setText('txt_player_blood_L', '')
                 setText('txt_player_blood_R', '')
+                let total_blood_L = 0, total_blood_R = 0
                 for (let p of data.lTeam) {
                     let bar_player = this.findPlayerOnBar(p.player_id)
+                    total_blood_L += p.blood
                     if (bar_player)
                         bar_player.blood.string = p.blood
                     // if (p.player_id == data.vsPlayerArr[0])
                     //     setText('txt_player_blood_L', p.blood)
                 }
                 for (let p of data.rTeam) {
+                    total_blood_R += p.blood
                     let bar_player = this.findPlayerOnBar(p.player_id)
                     if (bar_player)
                         bar_player.blood.string = p.blood
                     // if (p.player_id == data.vsPlayerArr[1])
                     //     setText('txt_player_blood_R', p.blood)
                 }
+                this.total_blood_L.string = total_blood_L + ''
+                this.total_blood_R.string = total_blood_R + ''
             })
     }
     set_timeout(data) {
