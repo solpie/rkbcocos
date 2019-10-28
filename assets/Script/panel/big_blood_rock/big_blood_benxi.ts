@@ -34,6 +34,9 @@ export default class BigBloodRock extends cc.Component {
         let _Label = (name)=>{
             return cc.find(name,this.node).getComponent(cc.Label)
         }
+        let _Sp = (name)=>{
+            return cc.find(name,this.node).getComponent(cc.Sprite)
+        }
         this.timeout_L = cc.find('txt_timeout_L',this.node).getComponent(cc.Label)
         this.timeout_R = cc.find('txt_timeout_R',this.node).getComponent(cc.Label)
         this.timeout_L.string = '2'
@@ -54,8 +57,8 @@ export default class BigBloodRock extends cc.Component {
             let idx = (i+1)
             let blood_L = _Label(`player_bar_benxi_L${idx}/txt_player_blood`)
             let blood_R = _Label(`player_bar_benxi_R${idx}/txt_player_blood`)
-            let avt_L = _Label(`player_bar_benxi_L${idx}/avt`)
-            let avt_R = _Label(`player_bar_benxi_R${idx}/avt`)
+            let avt_L = _Sp(`player_bar_benxi_L${idx}/avt`)
+            let avt_R = _Sp(`player_bar_benxi_R${idx}/avt`)
             this.player_row_L.push({blood:blood_L,avatar:avt_L})
             this.player_row_R.push({blood:blood_R,avatar:avt_R})
             if(blood_L)
@@ -105,7 +108,18 @@ export default class BigBloodRock extends cc.Component {
                     let p = leftTeam[i];
                     let pid = p.player_id
                     if (is5v5 && pid == leftPlayer.player_id) { continue; }
+                    
                     let player_row = this.player_row_L[i]
+                    player_row.blood.string = p.blood
+                    loadImg64ByNode(player_row.avatar,p.avatar)
+                }
+                 let rightTeam = data.rTeam
+                for (let i = 0; i < rightTeam.length; i++) {
+                    let p = rightTeam[i];
+                    let pid = p.player_id
+                    if (is5v5 && pid == rightPlayer.player_id) { continue; }
+
+                    let player_row = this.player_row_R[i]
                     player_row.blood.string = p.blood
                     loadImg64ByNode(player_row.avatar,p.avatar)
                 }
