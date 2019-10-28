@@ -18,13 +18,9 @@ export default class Rank0 extends cc.Component {
         // this.gameTimer.initTimer(this, 'txt_timer')
     }
     start() {
-        //init game timer
-        // this.gameTimer.isMin = true
-        // this.gameTimer.resetTimer()
         this.avt_L = this.node.getChildByName('mask_L').getChildByName("avt_L").getComponent(cc.Sprite)
         this.avt_R = this.node.getChildByName('mask_R').getChildByName("avt_R").getComponent(cc.Sprite)
 
-        // this.initWS()
         this.get_basescore2()
     }
 

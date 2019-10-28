@@ -12,7 +12,7 @@ const route = {
     , 'group_power': 'group_power'
     , 'bracket16': 'bracket_16'
     , 'benxi': 'benxi'
-    , 'benxi_bblood': 'big_blood_benxi'
+    , 'benxi_bblood': 'big_blood_benxi2'
     , 'side_player': 'side_player'
     // , '3v3': '3v3'
 }
