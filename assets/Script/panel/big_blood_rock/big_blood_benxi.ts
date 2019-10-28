@@ -64,7 +64,7 @@ export default class BigBloodRock extends cc.Component {
                 blood_R.string = '9'
             }
         }
-        // this.initWS()
+        this.initWS()
     }
     player_id_L = ''
     player_id_R = ''
