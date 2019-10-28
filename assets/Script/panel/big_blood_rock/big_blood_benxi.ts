@@ -100,7 +100,7 @@ export default class BigBloodRock extends cc.Component {
                 for (let i = 0; i < leftTeam.length; i++) {
                     let p = leftTeam[i];
                     let pid = p.player_id
-                    if (is5v5 && pid == leftPlayer.player_id) { continue; }
+                    if (is5v5 && leftPlayer.is_captain) { continue; }
 
                     let player_row = this.player_row_L[row_idx_L]
                     player_row.blood.string = p.blood
@@ -112,7 +112,7 @@ export default class BigBloodRock extends cc.Component {
                 for (let i = 0; i < rightTeam.length; i++) {
                     let p = rightTeam[i];
                     let pid = p.player_id
-                    if (is5v5 && pid == rightPlayer.player_id) { continue; }
+                    if (is5v5 && rightPlayer.is_captain) { continue; }
 
                     let player_row = this.player_row_R[row_idx_R]
                     player_row.blood.string = p.blood
