@@ -66,10 +66,13 @@ export default class BigBloodRock extends cc.Component {
             let blood_R = _Label(`player_bar_benxi_R${idx}/txt_player_blood`)
             let avt_L = _Sp(`player_bar_benxi_L${idx}/avt`)
             let avt_R = _Sp(`player_bar_benxi_R${idx}/avt`)
+            let name_L = _Label(`player_bar_benxi_L${idx}/txt_player_name`)
+            let name_R = _Label(`player_bar_benxi_R${idx}/txt_player_name`)
+
             let bar_L: cc.Node = cc.find(`player_bar_benxi_L${idx}/bar_mask/bar`, this.node)
             let bar_R: cc.Node = cc.find(`player_bar_benxi_R${idx}/bar_mask/bar`, this.node)
-            this.player_row_L.push({ blood: blood_L, avatar: avt_L, player_id: '', bar: bar_L })
-            this.player_row_R.push({ blood: blood_R, avatar: avt_R, player_id: '', bar: bar_R })
+            this.player_row_L.push({ blood: blood_L, avatar: avt_L, player_id: '', bar: bar_L, name: name_L })
+            this.player_row_R.push({ blood: blood_R, avatar: avt_R, player_id: '', bar: bar_R, name: name_R })
             if (bar_L_init < 0) {
                 bar_L_init = bar_L.x
                 bar_R_init = bar_R.x
