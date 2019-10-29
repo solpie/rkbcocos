@@ -7,6 +7,8 @@ import { get_auto_timer } from "../../com/autoTimer";
 const { ccclass, property } = cc._decorator;
 declare let io;
 declare let _c_;
+let BAR_INIT_Y_L, BAR_INIT_Y_R
+const BAR_HEIGHT = 98
 @ccclass
 export default class Rank0 extends cc.Component {
     id: string//同步的时候区分自己
@@ -14,6 +16,14 @@ export default class Rank0 extends cc.Component {
     avt_L: cc.Sprite
     avt_R: cc.Sprite
     auto_timer_url: string = ''
+    is_ww3 = false
+    hint_score_L: cc.Node
+    hint_score_R: cc.Node
+    hint_foul_L: cc.Node
+    hint_foul_R: cc.Node
+
+    blood_bar_L: cc.Node
+    blood_bar_R: cc.Node
     onload() {
         // this.gameTimer.initTimer(this, 'txt_timer')
     }
@@ -21,14 +31,75 @@ export default class Rank0 extends cc.Component {
         this.avt_L = this.node.getChildByName('mask_L').getChildByName("avt_L").getComponent(cc.Sprite)
         this.avt_R = this.node.getChildByName('mask_R').getChildByName("avt_R").getComponent(cc.Sprite)
 
-        this.get_basescore2()
-    }
+        this.is_ww3 = window['panel_name'] == 'benxi_ww3'
 
+        this.hint_score_L = cc.find('hint_score_L', this.node)
+        this.hint_score_R = cc.find('hint_score_R', this.node)
+
+        this.hint_foul_L = cc.find('hint_foul_L', this.node)
+        this.hint_foul_R = cc.find('hint_foul_R', this.node)
+
+        if (this.is_ww3) {//邀请赛
+            this.hint_score_L.active = false
+            this.hint_score_R.active = false
+            this.blood_bar_L = cc.find('bloodbar/mask_L/bar', this.node)
+            this.blood_bar_R = cc.find('bloodbar/mask_R/bar', this.node)
+            BAR_INIT_Y_L = this.blood_bar_L.y
+            BAR_INIT_Y_R = this.blood_bar_R.y
+            if (!CC_BUILD) {
+                setText('txt_score_L', 3)
+                this.blood_bar_L.y = BAR_INIT_Y_L - (1 - 3 / 9) * BAR_HEIGHT
+
+            }
+            this.initWS_ww3()
+        }
+        else {//冠军排位赛
+            cc.find('bloodbar', this.node).active = false
+            this.get_basescore2()
+        }
+
+    }
+    initWS_ww3() {
+        let ws = getWsUrl()
+        io(ws)
+            .on('connect', _ => {
+                cc.log('socketio.....localWS')
+            })
+            .on(WSEvent.sc_manual_blood, data => {
+                cc.log('sc_manual_blood', data)
+                // if (this.delay > 0 && window['isDelay']) {//main.js
+                //     setTimeout(() => {
+                //         this._set_blood(data)
+                //     }, this.delay);
+                // }
+                // else
+                this._set_blood(data)
+                // let sbv: SideBloodView = _c_['SideBloodView']
+                // if (sbv) {
+                //     sbv.set_vs_player(data)
+            })
+    }
+    _set_blood(data) {
+        let player_L = data.vsPlayerArr[0]
+        let player_R = data.vsPlayerArr[1]
+        for (let p of data.lTeam) {
+            if (p.player_id == player_L) {
+                setText('txt_score_L', p.blood)
+                this.blood_bar_L.y = BAR_INIT_Y_L - (1 - p.blood / p.init_blood) * BAR_HEIGHT
+            }
+        }
+        for (let p of data.rTeam) {
+            if (p.player_id == player_R) {
+                setText('txt_score_R', p.blood)
+                this.blood_bar_R.y = BAR_INIT_Y_R - (1 - p.blood / p.init_blood) * BAR_HEIGHT
+
+            }
+        }
+    }
     get_basescore2() {
         get_basescore(data => {
             cc.log(data)
             if (data.length) {
-
                 let doc = data[0]
                 this.setFoul_L(doc.foul_L)
                 this.setFoul_R(doc.foul_R)
@@ -51,38 +122,6 @@ export default class Rank0 extends cc.Component {
             }
         })
     }
-    // get_auto_timer() {
-    //     get_timer(res => {
-    //         let min = res.getElementsByTagName('min')[0]
-    //         let sec = res.getElementsByTagName('sec')[0]
-    //         min = Number(min.textContent)
-    //         sec = Number(sec.textContent)
-    //         // console.log(min, sec)
-    //         if (this.worldWar.timer)
-    //             this.worldWar.timer.setTimeBySec(min * 60 + sec)
-    //     })
-    // }
-    initWS() {
-        let ws = getWsUrl()
-        // io(ws)
-        //     .on('connect', _ => {
-        //         cc.log('socketio.....localWS')
-        //     })
-        //     .on(WSEvent.sc_setFoul, data => {
-        //         cc.log('sc_setFoul', data)
-        //         this.setFoul_L(data.lFoul)
-        //         this.setFoul_R(data.rFoul)
-        //     })
-        //     .on(WSEvent.sc_setPlayer, data => {
-        //         cc.log('sc_setPlayer', data)
-        //         this.setPlayer(0, data.leftPlayer)
-        //         this.setPlayer(1, data.rightPlayer)
-        //         if (data.isRestFoul) {
-        //             this.setFoul_L(0)
-        //             this.setFoul_R(0)
-        //         }
-        //     })
-    }
     setPlayer(isR, player) {
         cc.log('setPlayer', player)
         let nm1 = isR ? 'txt_player_right' : 'txt_player_left';
@@ -91,9 +130,9 @@ export default class Rank0 extends cc.Component {
             let sp = isR ? 'avt_R' : 'avt_L';
             loadImg64(sp, player.avatar)
         }
-        let txt_hw = isR ? 'txt_hw_R' : 'txt_hw_L';
-        let hw = player.height + 'cm/' + player.weight + 'kg'
-        setText(txt_hw, hw)
+        // let txt_hw = isR ? 'txt_hw_R' : 'txt_hw_L';
+        // let hw = player.height + 'cm/' + player.weight + 'kg'
+        // setText(txt_hw, hw)
 
         //球员简介
 
@@ -115,7 +154,6 @@ export default class Rank0 extends cc.Component {
         setText('txt_score_R', doc.score_R)
         setText('txt_player_L', doc.player_L)
         setText('txt_player_R', doc.player_R)
-
     }
 
     setFoul_R(foul, foulToFT?) {

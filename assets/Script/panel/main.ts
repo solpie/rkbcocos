@@ -13,6 +13,7 @@ const route = {
     , 'bracket16': 'bracket_16'
     , 'benxi': 'benxi'
     , 'benxi_bblood': 'big_blood_benxi2'
+    , 'benxi_ww3': 'ww3_benxi2'
     , 'side_player': 'side_player'
     // , '3v3': '3v3'
 }
@@ -26,7 +27,7 @@ export default class Main extends cc.Component {
         const panel = urlParams.get('panel');
         window['isOP'] = urlParams.get('op')=='1';
         window['isDelay'] = urlParams.get('delay')=='1';
-
+        window['panel_name'] = panel
         // cc.log('panel ', panel)
         if (panel)
             for (const k in route) {
