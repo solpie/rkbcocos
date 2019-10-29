@@ -6,7 +6,9 @@ const { ccclass, property } = cc._decorator;
 declare let _c_;
 declare let io;
 // let baseUrl = 'http://rtmp.icassi.us:8092/img/player/0602/'
-
+let bar_width = 248
+let bar_L_init = 0
+let bar_R_init = 0
 @ccclass
 export default class BigBloodRock extends cc.Component {
     playerMap: any
@@ -59,11 +61,19 @@ export default class BigBloodRock extends cc.Component {
             let blood_R = _Label(`player_bar_benxi_R${idx}/txt_player_blood`)
             let avt_L = _Sp(`player_bar_benxi_L${idx}/avt`)
             let avt_R = _Sp(`player_bar_benxi_R${idx}/avt`)
-            this.player_row_L.push({ blood: blood_L, avatar: avt_L, player_id: '' })
-            this.player_row_R.push({ blood: blood_R, avatar: avt_R, player_id: '' })
-            if (blood_L) {
+            let bar_L: cc.Node = cc.find(`player_bar_benxi_L${idx}/bar_mask/bar`, this.node)
+            let bar_R: cc.Node = cc.find(`player_bar_benxi_R${idx}/bar_mask/bar`, this.node)
+            this.player_row_L.push({ blood: blood_L, avatar: avt_L, player_id: '', bar: bar_L })
+            this.player_row_R.push({ blood: blood_R, avatar: avt_R, player_id: '', bar: bar_R })
+            if (bar_L_init < 0) {
+                bar_L_init = bar_L.x
+                bar_R_init = bar_R.x
+            }
+            if (!CC_BUILD) {
                 blood_L.string = '9'
                 blood_R.string = '9'
+                bar_L.x = bar_L_init + (1 - 3 / 9) * bar_width
+                bar_R.x = bar_R_init + (1 - 3 / 9) * bar_width
             }
         }
         this.initWS()
@@ -100,7 +110,7 @@ export default class BigBloodRock extends cc.Component {
                 for (let i = 0; i < leftTeam.length; i++) {
                     let p = leftTeam[i];
                     let pid = p.player_id
-                    if (is5v5 && leftPlayer.is_captain) { continue; }
+                    if (is5v5 && pid == leftPlayer.player_id) { continue; }
 
                     let player_row = this.player_row_L[row_idx_L]
                     player_row.blood.string = p.blood
@@ -112,7 +122,7 @@ export default class BigBloodRock extends cc.Component {
                 for (let i = 0; i < rightTeam.length; i++) {
                     let p = rightTeam[i];
                     let pid = p.player_id
-                    if (is5v5 && rightPlayer.is_captain) { continue; }
+                    if (is5v5 && pid == rightPlayer.player_id) { continue; }
 
                     let player_row = this.player_row_R[row_idx_R]
                     player_row.blood.string = p.blood
@@ -131,24 +141,24 @@ export default class BigBloodRock extends cc.Component {
             })
             .on(WSEvent.sc_manual_blood, data => {
                 cc.log('sc_manual_blood', data)
-                setText('txt_player_blood_L', '')
-                setText('txt_player_blood_R', '')
+                // setText('txt_player_blood_L', '')
+                // setText('txt_player_blood_R', '')
                 let total_blood_L = 0, total_blood_R = 0
                 for (let p of data.lTeam) {
                     let bar_player = this.findPlayerOnBar(p.player_id)
-                    total_blood_L += p.blood
+                    total_blood_L += Number(p.blood)
                     if (bar_player)
                         bar_player.blood.string = p.blood
-                    // if (p.player_id == data.vsPlayerArr[0])
-                    //     setText('txt_player_blood_L', p.blood)
+                    if (p.player_id == data.vsPlayerArr[0])
+                        this.captain_blood_L.string = p.blood
                 }
                 for (let p of data.rTeam) {
-                    total_blood_R += p.blood
+                    total_blood_R += Number(p.blood)
                     let bar_player = this.findPlayerOnBar(p.player_id)
                     if (bar_player)
                         bar_player.blood.string = p.blood
-                    // if (p.player_id == data.vsPlayerArr[1])
-                    //     setText('txt_player_blood_R', p.blood)
+                    if (p.player_id == data.vsPlayerArr[1])
+                        this.captain_blood_R.string = p.blood
                 }
                 this.total_blood_L.string = total_blood_L + ''
                 this.total_blood_R.string = total_blood_R + ''
