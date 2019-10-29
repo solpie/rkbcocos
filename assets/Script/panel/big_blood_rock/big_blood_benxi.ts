@@ -124,6 +124,8 @@ export default class BigBloodRock extends cc.Component {
 
                     let player_row = this.player_row_L[row_idx_L]
                     player_row.blood.string = p.blood
+                    player_row.name.string = p.name
+                    player_row.bar.x = bar_L_init + (1 - p.blood / p.init_blood) * bar_width
                     player_row.player_id = pid
                     loadImg64ByNode(player_row.avatar, p.avatar)
                     row_idx_L++
@@ -141,6 +143,9 @@ export default class BigBloodRock extends cc.Component {
 
                     let player_row = this.player_row_R[row_idx_R]
                     player_row.blood.string = p.blood
+                    player_row.name.string = p.name
+                    player_row.bar.x = bar_R_init + (1 - p.blood / p.init_blood) * bar_width
+
                     player_row.player_id = pid
                     loadImg64ByNode(player_row.avatar, p.avatar)
                     row_idx_R++
@@ -164,16 +169,22 @@ export default class BigBloodRock extends cc.Component {
                 for (let p of data.lTeam) {
                     let bar_player = this.findPlayerOnBar(p.player_id)
                     total_blood_L += Number(p.blood)
-                    if (bar_player)
+                    if (bar_player) {
                         bar_player.blood.string = p.blood
+                        bar_player.name.string = p.name
+                        bar_player.bar.x = bar_L_init + (1 - p.blood / p.init_blood) * bar_width
+                    }
                     if (p.player_id == data.vsPlayerArr[0])
                         this.cur_blood_L.string = p.blood
                 }
                 for (let p of data.rTeam) {
                     total_blood_R += Number(p.blood)
                     let bar_player = this.findPlayerOnBar(p.player_id)
-                    if (bar_player)
+                    if (bar_player) {
                         bar_player.blood.string = p.blood
+                        bar_player.name.string = p.name
+                        bar_player.bar.x = bar_R_init + (1 - p.blood / p.init_blood) * bar_width
+                    }
                     if (p.player_id == data.vsPlayerArr[1])
                         this.cur_blood_R.string = p.blood
                 }
