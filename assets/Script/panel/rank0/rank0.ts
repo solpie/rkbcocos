@@ -25,8 +25,12 @@ export default class Rank0 extends cc.Component {
 
     blood_bar_L: cc.Node
     blood_bar_R: cc.Node
+
     node_hint_score_L: cc.Node
     node_hint_score_R: cc.Node
+
+    play_name_L:cc.Label
+    play_name_R:cc.Label
     onload() {
         // this.gameTimer.initTimer(this, 'txt_timer')
     }
@@ -50,6 +54,8 @@ export default class Rank0 extends cc.Component {
         this.hint_foul_L = cc.find('hint_foul_L', this.node).getComponent(cc.Animation)
         this.hint_foul_R = cc.find('hint_foul_R', this.node).getComponent(cc.Animation)
 
+        // this.play_name_L = cc.find('front_panel/txt_player_L',this.node).getComponent(cc.Label)
+        // this.play_name_R = cc.find('front_panel/txt_player_R',this.node).getComponent(cc.Label)
         if (this.is_ww3) {//邀请赛
             this.node_hint_score_L.active = false
             this.node_hint_score_R.active = false
@@ -169,8 +175,9 @@ export default class Rank0 extends cc.Component {
 
     setPlayer(isR, player) {
         cc.log('setPlayer', player)
-        let nm1 = isR ? 'txt_player_right' : 'txt_player_left';
+        let nm1 = isR ? 'txt_player_R' : 'txt_player_L';
         setText(nm1, player.name)
+
         if (player.avatar) {
             let sp = isR ? 'avt_R' : 'avt_L';
             loadImg64(sp, player.avatar)
