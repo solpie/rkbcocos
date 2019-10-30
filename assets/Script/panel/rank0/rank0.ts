@@ -18,13 +18,15 @@ export default class Rank0 extends cc.Component {
     avt_R: cc.Sprite
     auto_timer_url: string = ''
     is_ww3 = false
-    hint_score_L: cc.Node
-    hint_score_R: cc.Node
-    hint_foul_L: cc.Node
-    hint_foul_R: cc.Node
+    hint_score_L: cc.Animation
+    hint_score_R: cc.Animation
+    hint_foul_L: cc.Animation
+    hint_foul_R: cc.Animation
 
     blood_bar_L: cc.Node
     blood_bar_R: cc.Node
+    node_hint_score_L: cc.Node
+    node_hint_score_R: cc.Node
     onload() {
         // this.gameTimer.initTimer(this, 'txt_timer')
     }
@@ -37,15 +39,17 @@ export default class Rank0 extends cc.Component {
 
         this.is_ww3 = window['panel_name'] == 'benxi_ww3'
 
-        this.hint_score_L = cc.find('hint_score_L', this.node)
-        this.hint_score_R = cc.find('hint_score_R', this.node)
+        this.node_hint_score_L = cc.find('hint_score_L', this.node)
+        this.hint_score_L = this.node_hint_score_L.getComponent(cc.Animation)
+        this.node_hint_score_R = cc.find('hint_score_R', this.node)
+        this.hint_score_R = this.node_hint_score_R.getComponent(cc.Animation)
 
-        this.hint_foul_L = cc.find('hint_foul_L', this.node)
-        this.hint_foul_R = cc.find('hint_foul_R', this.node)
+        this.hint_foul_L = cc.find('hint_foul_L', this.node).getComponent(cc.Animation)
+        this.hint_foul_R = cc.find('hint_foul_R', this.node).getComponent(cc.Animation)
 
         if (this.is_ww3) {//邀请赛
-            this.hint_score_L.active = false
-            this.hint_score_R.active = false
+            this.node_hint_score_L.active = false
+            this.node_hint_score_R.active = false
             this.blood_bar_L = cc.find('bloodbar/mask_L/bar', this.node)
             this.blood_bar_R = cc.find('bloodbar/mask_R/bar', this.node)
             BAR_INIT_Y_L = this.blood_bar_L.y
@@ -55,6 +59,7 @@ export default class Rank0 extends cc.Component {
             if (!CC_BUILD) {
                 setText('txt_score_L', 3)
                 this.blood_bar_L.y = BAR_INIT_Y_L - (1 - 3 / 9) * BAR_HEIGHT
+                this.hint_foul_L.play('foul_hint')
             }
             this.initWS_ww3()
         }
@@ -111,13 +116,30 @@ export default class Rank0 extends cc.Component {
         for (let p of data.lTeam) {
             if (p.player_id == player_L) {
                 setText('txt_score_L', p.blood)
-                this.blood_bar_L.y = BAR_INIT_Y_L - (1 - p.blood / p.init_blood) * BAR_HEIGHT
+
+                if (this.last_score_L != p.blood)
+                    this.hint_score_L.play('foul_hint')
+                this.last_score_L = p.blood
+                let blood = p.blood
+                if (blood < 0)
+                    blood = 0
+                if (blood > p.init_blood)
+                    blood = p.init_blood
+                this.blood_bar_L.y = BAR_INIT_Y_L - (1 - blood / p.init_blood) * BAR_HEIGHT
             }
         }
         for (let p of data.rTeam) {
             if (p.player_id == player_R) {
                 setText('txt_score_R', p.blood)
-                this.blood_bar_R.y = BAR_INIT_Y_R - (1 - p.blood / p.init_blood) * BAR_HEIGHT
+                if (this.last_score_R != p.blood)
+                    this.hint_score_R.play('foul_hint')
+                this.last_score_R = p.blood
+                let blood = p.blood
+                if (blood < 0)
+                    blood = 0
+                if (blood > p.init_blood)
+                    blood = p.init_blood
+                this.blood_bar_R.y = BAR_INIT_Y_R - (1 - blood / p.init_blood) * BAR_HEIGHT
             }
         }
     }
@@ -164,20 +186,33 @@ export default class Rank0 extends cc.Component {
         if (foulToFT)
             this.foulToFT = foulToFT
         setText('txt_foul_L', foul)
+        if (this.last_foul_L != foul)
+            this.hint_foul_L.play('foul_hint')
+        this.last_foul_L = foul
     }
-
+    last_score_L = -1
+    last_score_R = -1
     set_score(doc) {
         setText('txt_score_L', doc.score_L)
         setText('txt_score_R', doc.score_R)
+        if (this.last_score_L != doc.score_L)
+            this.hint_score_L.play('foul_hint')
+        this.last_score_L = doc.score_L
+        if (this.last_score_R != doc.score_R)
+            this.hint_score_R.play('foul_hint')
+        this.last_score_R = doc.score_R
         setText('txt_player_L', doc.player_L)
         setText('txt_player_R', doc.player_R)
     }
-
+    last_foul_L = -1
+    last_foul_R = -1
     setFoul_R(foul, foulToFT?) {
         if (foulToFT)
             this.foulToFT = foulToFT
-
         setText('txt_foul_R', foul)
+        if (this.last_foul_R != foul)
+            this.hint_foul_R.play('foul_hint')
+        this.last_foul_R = foul
     }
     // update (dt) {}
 }
