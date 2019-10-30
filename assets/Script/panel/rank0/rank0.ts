@@ -36,7 +36,7 @@ export default class Rank0 extends cc.Component {
         }
         this.setPlayer(false, { name: '' })
         this.setPlayer(true, { name: '' })
-        
+
         this.avt_L = this.node.getChildByName('mask_L').getChildByName("avt_L").getComponent(cc.Sprite)
         this.avt_R = this.node.getChildByName('mask_R').getChildByName("avt_R").getComponent(cc.Sprite)
 
@@ -100,12 +100,6 @@ export default class Rank0 extends cc.Component {
                         this.setFoul_R(0)
                     }
                 }
-                // if (this.delay > 0 && window['isDelay']) {//main.js
-                //     setTimeout(() => {
-                //         _set_player(data)
-                //     }, this.delay);
-                // }
-                // else
                 _set_player(data)
                 let sbv: SideBloodView = _c_['SideBloodView']
                 if (sbv) {
