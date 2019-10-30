@@ -18,8 +18,8 @@ export default class PlayerBar4v4 extends InjectCls {
         let playerBar = cc.find("bar_mask/black_mask", this.node);
         console.log('4v4_player_bar', playerBar)
         this.bloodBar = playerBar
-        // this.bloodBarInitX = this.bloodBar.x//benxi
-        this.bloodBar.x = this.bloodBarInitX - (1 - 0 / this.initBlood) * 359
+        this.bloodBarInitX = this.bloodBar.x//benxi
+        // this.bloodBar.x = this.bloodBarInitX - (1 - 0 / this.initBlood) * 359
         _c_.on(EVENT_PLAYER_BAR_4V4, data => {
             // cc.log('playerBar', data)
             let p = data[this.idx]
