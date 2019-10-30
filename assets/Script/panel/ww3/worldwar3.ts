@@ -330,10 +330,10 @@ export default class Worldwar3 extends cc.Component {
                 }
                 else
                     this._set_blood(data)
-                    let sbv: SideBloodView = _c_['SideBloodView']
-                    if (sbv) {
-                        sbv.set_vs_player(data)
-            })
+                let sbv: SideBloodView = _c_['SideBloodView']
+                if (sbv) {
+                    sbv.set_vs_player(data)
+                })
             .on(WSEvent.sc_setBlood, data => {
                 cc.log('sc_setBlood', data)
                 if (data.isSetBlood) {

@@ -34,6 +34,9 @@ export default class Rank0 extends cc.Component {
         if (window['no_timer']) {
             cc.find('front_panel/txt_timer', this.node).opacity = 0
         }
+        this.setPlayer(false, { name: '' })
+        this.setPlayer(true, { name: '' })
+        
         this.avt_L = this.node.getChildByName('mask_L').getChildByName("avt_L").getComponent(cc.Sprite)
         this.avt_R = this.node.getChildByName('mask_R').getChildByName("avt_R").getComponent(cc.Sprite)
 
@@ -169,6 +172,7 @@ export default class Rank0 extends cc.Component {
             }
         })
     }
+
     setPlayer(isR, player) {
         cc.log('setPlayer', player)
         let nm1 = isR ? 'txt_player_right' : 'txt_player_left';
@@ -177,10 +181,8 @@ export default class Rank0 extends cc.Component {
             let sp = isR ? 'avt_R' : 'avt_L';
             loadImg64(sp, player.avatar)
         }
-        // let txt_hw = isR ? 'txt_hw_R' : 'txt_hw_L';
-        // let hw = player.height + 'cm/' + player.weight + 'kg'
-        // setText(txt_hw, hw)
     }
+
     foulToFT: number = 3
     setFoul_L(foul, foulToFT?) {
         if (foulToFT)
