@@ -1419,7 +1419,7 @@
     },
     "_children": [],
     "_active": true,
-    "_level": 6,
+    "_level": 7,
     "_components": [
       {
         "__id__": 43
@@ -1520,9 +1520,7 @@
     },
     "_enabled": true,
     "_N$totalLength": 118,
-    "_N$barSprite": {
-      "__id__": 43
-    },
+    "_N$barSprite": null,
     "_N$mode": 0,
     "_N$progress": 0,
     "_N$reverse": false,
@@ -1651,7 +1649,7 @@
     },
     "_children": [],
     "_active": true,
-    "_level": 6,
+    "_level": 7,
     "_components": [
       {
         "__id__": 51
@@ -1752,9 +1750,7 @@
     },
     "_enabled": true,
     "_N$totalLength": 118,
-    "_N$barSprite": {
-      "__id__": 51
-    },
+    "_N$barSprite": null,
     "_N$mode": 0,
     "_N$progress": 1,
     "_N$reverse": false,
@@ -1964,7 +1960,7 @@
     },
     "_children": [],
     "_active": true,
-    "_level": 6,
+    "_level": 7,
     "_components": [
       {
         "__id__": 62
@@ -2159,7 +2155,7 @@
     },
     "_children": [],
     "_active": true,
-    "_level": 6,
+    "_level": 7,
     "_components": [
       {
         "__id__": 68
@@ -2732,7 +2728,7 @@
         "__id__": 88
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 5,
     "_components": [
       {
@@ -2798,7 +2794,7 @@
     },
     "_children": [],
     "_active": true,
-    "_level": 5,
+    "_level": 6,
     "_components": [
       {
         "__id__": 89
