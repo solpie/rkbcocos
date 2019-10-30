@@ -3,6 +3,7 @@ import { getWsUrl, loadImg64, get_basescore, loadImg64ByNode } from '../../web';
 import { WSEvent } from '../../api';
 import { setText, ccType } from '../../__c';
 import { get_auto_timer } from "../../com/autoTimer";
+import { SideBloodView } from "../ww3/side_blood/SideBloodView";
 
 const { ccclass, property } = cc._decorator;
 declare let io;
@@ -49,6 +50,8 @@ export default class Rank0 extends cc.Component {
             this.blood_bar_R = cc.find('bloodbar/mask_R/bar', this.node)
             BAR_INIT_Y_L = this.blood_bar_L.y
             BAR_INIT_Y_R = this.blood_bar_R.y
+            this.setFoul_L(0)
+            this.setFoul_R(0)
             if (!CC_BUILD) {
                 setText('txt_score_L', 3)
                 this.blood_bar_L.y = BAR_INIT_Y_L - (1 - 3 / 9) * BAR_HEIGHT
@@ -78,6 +81,28 @@ export default class Rank0 extends cc.Component {
                 cc.log('sc_setFoul', data)
                 this.setFoul_L(data.lFoul)
                 this.setFoul_R(data.rFoul)
+            })
+            .on(WSEvent.sc_setPlayer, data => {
+                cc.log('sc_setPlayer', data)
+                let _set_player = (data) => {
+                    this.setPlayer(0, data.leftPlayer)
+                    this.setPlayer(1, data.rightPlayer)
+                    if (data.isRestFoul) {
+                        this.setFoul_L(0)
+                        this.setFoul_R(0)
+                    }
+                }
+                // if (this.delay > 0 && window['isDelay']) {//main.js
+                //     setTimeout(() => {
+                //         _set_player(data)
+                //     }, this.delay);
+                // }
+                // else
+                _set_player(data)
+                let sbv: SideBloodView = _c_['SideBloodView']
+                if (sbv) {
+                    sbv.set_player(data)
+                }
             })
     }
     _set_blood(data) {

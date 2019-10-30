@@ -185,7 +185,6 @@ export default class BigBloodRock extends cc.Component {
                     if (bar_player) {
                         bar_player.blood.string = p.blood
                         bar_player.name.string = p.name
-
                         let blood = p.blood
                         if (blood < 0)
                             blood = 0
