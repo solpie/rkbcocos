@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.7358848836699753,
-      "y": 0.7358848836699753,
+      "x": 0.34270833333333334,
+      "y": 0.34270833333333334,
       "z": 1
     },
     "_quat": {
@@ -713,14 +713,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
+      "width": 34,
       "height": 50
     },
     "_anchorPoint": {
@@ -730,14 +730,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -235,
-      "y": 261,
+      "x": -270,
+      "y": 278,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 2,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -765,11 +765,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 100,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -814,14 +814,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
+      "width": 34,
       "height": 50
     },
     "_anchorPoint": {
@@ -831,14 +831,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 235,
-      "y": 261,
+      "x": 270,
+      "y": 278,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 2,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -866,11 +866,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 100,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1336,14 +1336,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
+      "width": 34,
       "height": 50
     },
     "_anchorPoint": {
@@ -1354,13 +1354,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -155,
-      "y": 167,
+      "y": 185,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 2,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -1388,11 +1388,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 100,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1437,14 +1437,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
+      "width": 34,
       "height": 50
     },
     "_anchorPoint": {
@@ -1455,13 +1455,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 155,
-      "y": 167,
+      "y": 185,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 2,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -1489,11 +1489,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 100,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1538,9 +1538,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -1637,9 +1637,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -1765,8 +1765,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 549,
-      "y": 0,
+      "x": 611,
+      "y": -29,
       "z": 0
     },
     "_scale": {
@@ -2119,8 +2119,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 114,
-      "height": 114
+      "width": 108,
+      "height": 108
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2224,15 +2224,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
-      "height": 42
+      "width": 180,
+      "height": 45
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2276,7 +2276,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 42,
+    "_fontSize": 45,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -2286,7 +2286,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "e7gdP6445HO6XBy5PrCdLx"
   },
@@ -2322,15 +2322,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 50
+      "width": 27.2,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2340,13 +2340,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -71,
-      "y": -28,
+      "y": -7,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -2374,11 +2374,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -3764,8 +3764,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -588,
-      "y": 0,
+      "x": -645,
+      "y": -30,
       "z": 0
     },
     "_scale": {
@@ -4118,8 +4118,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 114,
-      "height": 114
+      "width": 108,
+      "height": 108
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4223,15 +4223,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
-      "height": 42
+      "width": 180,
+      "height": 45
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4275,7 +4275,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 42,
+    "_fontSize": 45,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -4285,7 +4285,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "00b+GRiJ5OdYH3okG3eE7X"
   },
@@ -4321,15 +4321,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 50
+      "width": 27.2,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4339,13 +4339,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 112,
-      "y": -28,
+      "y": -7,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -4373,11 +4373,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -4484,8 +4484,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 550,
-      "y": -139,
+      "x": 611,
+      "y": -152,
       "z": 0
     },
     "_scale": {
@@ -4838,8 +4838,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 114,
-      "height": 114
+      "width": 108,
+      "height": 108
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4943,15 +4943,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
-      "height": 42
+      "width": 180,
+      "height": 45
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4995,7 +4995,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 42,
+    "_fontSize": 45,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -5005,7 +5005,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "864L/glPhG0rEcpYmuHcwz"
   },
@@ -5041,15 +5041,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 50
+      "width": 27.2,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5059,13 +5059,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -71,
-      "y": -28,
+      "y": -7,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -5093,11 +5093,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -5128,7 +5128,7 @@
       "__id__": 125
     },
     "_enabled": true,
-    "idx": "R2",
+    "idx": "R1",
     "_id": "91tec0+9xA/5Ua9MtCAYAp"
   },
   {
@@ -5193,8 +5193,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 550,
-      "y": -273,
+      "x": 611,
+      "y": -274,
       "z": 0
     },
     "_scale": {
@@ -5547,8 +5547,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 114,
-      "height": 114
+      "width": 108,
+      "height": 108
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5652,9 +5652,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -5704,7 +5704,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 42,
+    "_fontSize": 45,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -5714,7 +5714,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "864AYOZzhNR6ZSVjoDwPQZ"
   },
@@ -5750,15 +5750,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 50
+      "width": 27.2,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5768,13 +5768,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -71,
-      "y": -28,
+      "y": -7,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -5802,11 +5802,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -5837,7 +5837,7 @@
       "__id__": 147
     },
     "_enabled": true,
-    "idx": "R3",
+    "idx": "R1",
     "_id": "cfaRK3yr1IWKwRKQ3n0IXx"
   },
   {
@@ -5902,8 +5902,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 550,
-      "y": -408,
+      "x": 611,
+      "y": -396,
       "z": 0
     },
     "_scale": {
@@ -6256,8 +6256,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 114,
-      "height": 114
+      "width": 108,
+      "height": 108
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6361,9 +6361,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -6413,7 +6413,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 42,
+    "_fontSize": 45,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -6423,7 +6423,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "0cubPH3qNAn5W6a4DNyXoy"
   },
@@ -6459,15 +6459,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 50
+      "width": 27.2,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6477,13 +6477,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -71,
-      "y": -28,
+      "y": -7,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -6511,11 +6511,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -6546,7 +6546,7 @@
       "__id__": 169
     },
     "_enabled": true,
-    "idx": "R4",
+    "idx": "R1",
     "_id": "184FfeC21BAKUK4UdGv/vS"
   },
   {
@@ -6611,8 +6611,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -588,
-      "y": -140,
+      "x": -645,
+      "y": -152,
       "z": 0
     },
     "_scale": {
@@ -6965,8 +6965,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 114,
-      "height": 114
+      "width": 108,
+      "height": 108
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7070,9 +7070,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -7122,7 +7122,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 42,
+    "_fontSize": 45,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -7132,7 +7132,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "cbV2KqgupGU51GEYAlsN16"
   },
@@ -7168,15 +7168,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 50
+      "width": 27.2,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7186,13 +7186,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 112,
-      "y": -28,
+      "y": -7,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -7220,11 +7220,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -7255,7 +7255,7 @@
       "__id__": 191
     },
     "_enabled": true,
-    "idx": "L2",
+    "idx": "L1",
     "_id": "61AfnuCV9M3Z/wVXRUnYnv"
   },
   {
@@ -7320,8 +7320,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -588,
-      "y": -270,
+      "x": -645,
+      "y": -274,
       "z": 0
     },
     "_scale": {
@@ -7674,8 +7674,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 114,
-      "height": 114
+      "width": 108,
+      "height": 108
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7779,9 +7779,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -7831,7 +7831,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 42,
+    "_fontSize": 45,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -7841,7 +7841,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "21zGn3JRBEgZsx4MWaaIuV"
   },
@@ -7877,15 +7877,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 50
+      "width": 27.2,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7895,13 +7895,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 112,
-      "y": -28,
+      "y": -7,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -7929,11 +7929,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -7964,7 +7964,7 @@
       "__id__": 213
     },
     "_enabled": true,
-    "idx": "L3",
+    "idx": "L1",
     "_id": "4exzh8cCZDn7lKq+A9EB5T"
   },
   {
@@ -8029,8 +8029,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -588,
-      "y": -395,
+      "x": -645,
+      "y": -396,
       "z": 0
     },
     "_scale": {
@@ -8383,8 +8383,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 114,
-      "height": 114
+      "width": 108,
+      "height": 108
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8488,9 +8488,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -8540,7 +8540,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 42,
+    "_fontSize": 45,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -8550,7 +8550,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "38TbPgnv5Nwrx9Ntax8UVs"
   },
@@ -8586,15 +8586,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 50
+      "width": 27.2,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8604,13 +8604,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 112,
-      "y": -28,
+      "y": -7,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.5,
-      "y": 1.5,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -8638,11 +8638,11 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 50,
+    "_fontSize": 80,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "64648300-4e03-46d8-b02f-7a779f966d34"
+      "__uuid__": "1a4ae406-cd82-44b8-b00d-7025a977047c"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -8673,7 +8673,7 @@
       "__id__": 235
     },
     "_enabled": true,
-    "idx": "L4",
+    "idx": "L1",
     "_id": "2dz+naSeFPGaD4VvTzUei8"
   },
   {
