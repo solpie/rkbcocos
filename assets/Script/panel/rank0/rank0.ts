@@ -28,6 +28,9 @@ export default class Rank0 extends cc.Component {
         // this.gameTimer.initTimer(this, 'txt_timer')
     }
     start() {
+        if (window['no_timer']) {
+            cc.find('front_panel/txt_timer', this.node).opacity = 0
+        }
         this.avt_L = this.node.getChildByName('mask_L').getChildByName("avt_L").getComponent(cc.Sprite)
         this.avt_R = this.node.getChildByName('mask_R').getChildByName("avt_R").getComponent(cc.Sprite)
 
@@ -148,7 +151,7 @@ export default class Rank0 extends cc.Component {
     setFoul_R(foul, foulToFT?) {
         if (foulToFT)
             this.foulToFT = foulToFT
-        
+
         setText('txt_foul_R', foul)
     }
     // update (dt) {}
