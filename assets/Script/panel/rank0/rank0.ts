@@ -29,8 +29,8 @@ export default class Rank0 extends cc.Component {
     node_hint_score_L: cc.Node
     node_hint_score_R: cc.Node
 
-    play_name_L:cc.Label
-    play_name_R:cc.Label
+    play_name_L: cc.Label
+    play_name_R: cc.Label
     onload() {
         // this.gameTimer.initTimer(this, 'txt_timer')
     }
@@ -101,6 +101,21 @@ export default class Rank0 extends cc.Component {
                 let _set_player = (data) => {
                     this.setPlayer(0, data.leftPlayer)
                     this.setPlayer(1, data.rightPlayer)
+
+                    let blood = data.leftPlayer.blood
+                    if (blood < 0)
+                        blood = 0
+                    if (blood > data.leftPlayer.init_blood)
+                        blood = data.leftPlayer.init_blood
+                    this.blood_bar_L.y = BAR_INIT_Y_L - (1 - blood / data.leftPlayer.init_blood) * BAR_HEIGHT
+
+                    blood = data.rightPlayer.blood
+                    if (blood < 0)
+                        blood = 0
+                    if (blood > data.rightPlayer.init_blood)
+                        blood = data.rightPlayer.init_blood
+                    this.blood_bar_R.y = BAR_INIT_Y_R - (1 - blood / data.rightPlayer.init_blood) * BAR_HEIGHT
+
                     if (data.isRestFoul) {
                         this.setFoul_L(0)
                         this.setFoul_R(0)
@@ -119,7 +134,6 @@ export default class Rank0 extends cc.Component {
         for (let p of data.lTeam) {
             if (p.player_id == player_L) {
                 setText('txt_score_L', p.blood)
-
                 if (this.last_score_L != p.blood)
                     this.hint_score_L.play('foul_hint')
                 this.last_score_L = p.blood
