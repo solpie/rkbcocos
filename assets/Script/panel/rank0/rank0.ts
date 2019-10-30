@@ -49,7 +49,6 @@ export default class Rank0 extends cc.Component {
             if (!CC_BUILD) {
                 setText('txt_score_L', 3)
                 this.blood_bar_L.y = BAR_INIT_Y_L - (1 - 3 / 9) * BAR_HEIGHT
-
             }
             this.initWS_ww3()
         }
@@ -67,16 +66,15 @@ export default class Rank0 extends cc.Component {
             })
             .on(WSEvent.sc_manual_blood, data => {
                 cc.log('sc_manual_blood', data)
-                // if (this.delay > 0 && window['isDelay']) {//main.js
-                //     setTimeout(() => {
-                //         this._set_blood(data)
-                //     }, this.delay);
-                // }
-                // else
                 this._set_blood(data)
                 // let sbv: SideBloodView = _c_['SideBloodView']
                 // if (sbv) {
                 //     sbv.set_vs_player(data)
+            })
+            .on(WSEvent.sc_setFoul, data => {
+                cc.log('sc_setFoul', data)
+                this.setFoul_L(data.lFoul)
+                this.setFoul_R(data.rFoul)
             })
     }
     _set_blood(data) {
@@ -92,7 +90,6 @@ export default class Rank0 extends cc.Component {
             if (p.player_id == player_R) {
                 setText('txt_score_R', p.blood)
                 this.blood_bar_R.y = BAR_INIT_Y_R - (1 - p.blood / p.init_blood) * BAR_HEIGHT
-
             }
         }
     }
@@ -133,14 +130,6 @@ export default class Rank0 extends cc.Component {
         // let txt_hw = isR ? 'txt_hw_R' : 'txt_hw_L';
         // let hw = player.height + 'cm/' + player.weight + 'kg'
         // setText(txt_hw, hw)
-
-        //球员简介
-
-        // let txt_info = isR ? 'txt_info_R' : 'txt_info_L';
-        // let player_info = player.info
-        // // player_info = '一二三十万六七八九十一二三十万六七八九十一二三十万六七八九十'
-
-        // setText(txt_info, player_info)
     }
     foulToFT: number = 3
     setFoul_L(foul, foulToFT?) {
@@ -159,6 +148,7 @@ export default class Rank0 extends cc.Component {
     setFoul_R(foul, foulToFT?) {
         if (foulToFT)
             this.foulToFT = foulToFT
+        
         setText('txt_foul_R', foul)
     }
     // update (dt) {}
