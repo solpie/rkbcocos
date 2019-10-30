@@ -12,11 +12,11 @@ export class SideBloodView {
         this.set_blood_R(node, 8, 9)
         node['idx'] = idx
         if (!CC_BUILD) {
+            this.fade_out()
 
         }
         else {
 
-            this.fade_out()
         }
     }
 
@@ -80,6 +80,10 @@ export class SideBloodView {
         let bar: cc.Node = node.getChildByName('mask_L').getChildByName('bar')
         if (this.BAR_INIT_X_L < 0)
             this.BAR_INIT_X_L = bar.x
+        if (blood < 0)
+            blood = 0
+        if (blood > initBlood)
+            blood = initBlood
         bar.x = this.BAR_INIT_X_L - (1 - blood / initBlood) * 204
     }
     BAR_INIT_X_L = -1
@@ -90,7 +94,11 @@ export class SideBloodView {
         let bar: cc.Node = node.getChildByName('mask_R').getChildByName('bar')
         if (this.BAR_INIT_X_R < 0)
             this.BAR_INIT_X_R = bar.x
-        bar.x =  this.BAR_INIT_X_R + (1 - blood / initBlood) * 204
+        if (blood < 0)
+            blood = 0
+        if (blood > initBlood)
+            blood = initBlood
+        bar.x = this.BAR_INIT_X_R + (1 - blood / initBlood) * 204
     }
     set_vs_player(data) {
         for (let p of data.lTeam) {

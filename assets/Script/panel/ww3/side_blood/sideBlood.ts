@@ -6,7 +6,9 @@ declare let _c_;
 @ccclass
 export default class SideBlood extends cc.Component {
 
-    onLoad() { }
+    onLoad() { 
+        
+    }
 
     start() {
         if (!_c_['SideBloodView']) {
