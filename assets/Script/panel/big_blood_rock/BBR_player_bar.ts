@@ -3,8 +3,8 @@ import { InjectCls } from '../../__c';
 const { ccclass, property } = cc._decorator;
 declare let _c_;
 export let EVENT_PLAYER_BAR_4V4 = 'EVENT_PLAYER_BAR_4V4'
-// const BAR_WIDTH = 395//benxi
-const BAR_WIDTH = 359
+const BAR_WIDTH = 395//benxi
+// const BAR_WIDTH = 359
 @ccclass
 export default class PlayerBar4v4 extends InjectCls {
     @property
