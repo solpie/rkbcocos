@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.34270833333333334,
-      "y": 0.34270833333333334,
+      "x": 0.5194486983145009,
+      "y": 0.5194486983145009,
       "z": 1
     },
     "_quat": {
@@ -1545,8 +1545,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 152,
-      "height": 38
+      "width": 287,
+      "height": 62
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1556,7 +1556,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -552,
-      "y": 120,
+      "y": 112,
       "z": 0
     },
     "_scale": {
@@ -1590,7 +1590,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 38,
+    "_fontSize": 48,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -1600,7 +1600,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "6a4DeC/0hOyItyu9ip6bVE"
   },
@@ -1644,8 +1644,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 152,
-      "height": 38
+      "width": 287,
+      "height": 62
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1655,7 +1655,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 552,
-      "y": 120,
+      "y": 112,
       "z": 0
     },
     "_scale": {
@@ -1689,7 +1689,7 @@
     "_useOriginalSize": false,
     "_string": "极客鞋谈",
     "_N$string": "极客鞋谈",
-    "_fontSize": 38,
+    "_fontSize": 48,
     "_lineHeight": 0,
     "_enableWrapText": true,
     "_N$file": null,
@@ -1699,7 +1699,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": "cclHEAf1dGfLmi9dnlmOIY"
   },
