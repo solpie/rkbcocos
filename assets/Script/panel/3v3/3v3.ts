@@ -39,7 +39,9 @@ export default class Game3v3 extends cc.Component {
         if (!CC_BUILD) {
             this.addOp()
         }
-
+        if (window['no_timer']) {
+            cc.find('txt_timer', this.node).opacity = 0
+        }
         this.setScore({ lScore: 0, rScore: 0 })
         this.setFoul_L(0)
         this.setFoul_R(0)
@@ -89,39 +91,39 @@ export default class Game3v3 extends cc.Component {
         _c_.emit(ccType.Node, { name: 'bg2_1v1', active: !data.is4v4 })
     }
 
-    timestamp:string
+    timestamp: string
     get_basescore(param) {
         // axios.get(param.url)
         //     .then((res) => {
-                let doc = param
-                this.setScore({ lScore: doc.score_L, rScore: doc.score_R })
-                this.setFoul_L(doc.foul_L)
-                this.setFoul_R(doc.foul_R)
-                this.set_player(doc)
+        let doc = param
+        this.setScore({ lScore: doc.score_L, rScore: doc.score_R })
+        this.setFoul_L(doc.foul_L)
+        this.setFoul_R(doc.foul_R)
+        this.set_player(doc)
 
-                let timer_state: string = doc.timer_state
-                if (timer_state.search('start') > -1) {
-                    this.gameTimer.startTimer()
-                }
-                else if (timer_state.search('pause') > -1) {
-                    this.gameTimer.pauseTimer()
-                }
-                else if (timer_state.search('setting') > -1) {
-                    let timestamp = timer_state.replace('setting','')
-                    if(this.timestamp!=timestamp){
-                        this.timestamp = timestamp   
-                        this.gameTimer.setTimeBySec(doc.timer_param)
-                    }
-                }
-                // basescore: {
-                //     player_L: 0,
-                //     player_R: 0,
-                //     score_L: 0,
-                //     score_R: 0,
-                //     foul_L: 0,
-                //     foul_R: 0
-                // }
-            // })
+        let timer_state: string = doc.timer_state
+        if (timer_state.search('start') > -1) {
+            this.gameTimer.startTimer()
+        }
+        else if (timer_state.search('pause') > -1) {
+            this.gameTimer.pauseTimer()
+        }
+        else if (timer_state.search('setting') > -1) {
+            let timestamp = timer_state.replace('setting', '')
+            if (this.timestamp != timestamp) {
+                this.timestamp = timestamp
+                this.gameTimer.setTimeBySec(doc.timer_param)
+            }
+        }
+        // basescore: {
+        //     player_L: 0,
+        //     player_R: 0,
+        //     score_L: 0,
+        //     score_R: 0,
+        //     foul_L: 0,
+        //     foul_R: 0
+        // }
+        // })
     }
     set_player(data) {
         setText('txt_team_L', data.player_L)

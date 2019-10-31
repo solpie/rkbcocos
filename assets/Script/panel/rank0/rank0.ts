@@ -39,12 +39,10 @@ export default class Rank0 extends cc.Component {
         if (window['no_timer']) {
             cc.find('front_panel/txt_timer', this.node).opacity = 0
         }
-        else {
-            this.gameTimer.initTimer(this, 'txt_timer')
-            //init game timer
-            this.gameTimer.isMin = false
-            this.gameTimer.resetTimer()
-        }
+        this.gameTimer.initTimer(this, 'txt_timer')
+        //init game timer
+        this.gameTimer.isMin = false
+        this.gameTimer.resetTimer()
         this.setPlayer(false, { name: '' })
         this.setPlayer(true, { name: '' })
 
