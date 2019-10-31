@@ -429,7 +429,7 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": -1,
+      "x": 1,
       "y": 1,
       "z": 1
     },
@@ -526,7 +526,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 180,
-      "height": 45
+      "height": 62
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -536,7 +536,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 345,
-      "y": -48,
+      "y": -53,
       "z": 0
     },
     "_scale": {

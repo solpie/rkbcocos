@@ -10,6 +10,7 @@ declare let io;
 declare let _c_;
 let BAR_INIT_Y_L, BAR_INIT_Y_R
 const BAR_HEIGHT = 98
+const avatar_cache = {}
 @ccclass
 export default class Rank0 extends cc.Component {
     id: string//同步的时候区分自己
@@ -91,9 +92,9 @@ export default class Rank0 extends cc.Component {
         let ws = getWsUrl()
         io(ws)
             .on('connect', _ => {
-                cc.log('socketio.....localWS')
+                console.log('socketio.....localWS')
+                // console.log()
             })
-
             .on(WSEvent.sc_timerEvent, data => {
                 cc.log('sc_timerEvent', data)
                 this.gameTimer.setTimerEvent(data)
@@ -200,10 +201,17 @@ export default class Rank0 extends cc.Component {
                 this.setFoul_L(doc.foul_L)
                 this.setFoul_R(doc.foul_R)
                 this.set_score(doc)
-                if (doc.avatar_L)
-                    loadImg64ByNode(this.avt_L, doc.avatar_L)
-                if (doc.avatar_R)
-                    loadImg64ByNode(this.avt_R, doc.avatar_R)
+                if (doc.avatar_L) {
+                    if (!avatar_cache[doc.avatar_L])
+                        loadImg64ByNode(this.avt_L, doc.avatar_L)
+                    avatar_cache[doc.avatar_L] = true
+                }
+                if (doc.avatar_R) {
+
+                    if (!avatar_cache[doc.avatar_R])
+                        loadImg64ByNode(this.avt_R, doc.avatar_R)
+                    avatar_cache[doc.avatar_R] = true
+                }
                 if (doc.auto_timer_url != this.auto_timer_url) {
                     this.auto_timer_url = doc.auto_timer_url
                     let url = 'http://192.168.1.196:8090/results.xml'
