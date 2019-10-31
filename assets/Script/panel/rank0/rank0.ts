@@ -29,8 +29,8 @@ export default class Rank0 extends cc.Component {
     node_hint_score_L: cc.Node
     node_hint_score_R: cc.Node
 
-    play_name_L: cc.Label
-    play_name_R: cc.Label
+    player_name_L: cc.Label
+    player_name_R: cc.Label
     onload() {
         // this.gameTimer.initTimer(this, 'txt_timer')
     }
@@ -54,8 +54,9 @@ export default class Rank0 extends cc.Component {
         this.hint_foul_L = cc.find('hint_foul_L', this.node).getComponent(cc.Animation)
         this.hint_foul_R = cc.find('hint_foul_R', this.node).getComponent(cc.Animation)
 
-        // this.play_name_L = cc.find('front_panel/txt_player_L',this.node).getComponent(cc.Label)
-        // this.play_name_R = cc.find('front_panel/txt_player_R',this.node).getComponent(cc.Label)
+        this.player_name_L = cc.find('front_panel/txt_player_L',this.node).getComponent(cc.Label)
+        this.player_name_R = cc.find('front_panel/txt_player_R',this.node).getComponent(cc.Label)
+        this.player_name_L.string = this.player_name_R.string = ''
         if (this.is_ww3) {//邀请赛
             this.node_hint_score_L.active = false
             this.node_hint_score_R.active = false
@@ -73,6 +74,7 @@ export default class Rank0 extends cc.Component {
             this.initWS_ww3()
         }
         else {//冠军排位赛
+
             cc.find('bloodbar', this.node).active = false
             this.get_basescore2()
         }
@@ -103,6 +105,7 @@ export default class Rank0 extends cc.Component {
                     this.setPlayer(1, data.rightPlayer)
 
                     let blood = data.leftPlayer.blood
+                    setText('txt_score_L', blood)
                     if (blood < 0)
                         blood = 0
                     if (blood > data.leftPlayer.init_blood)
@@ -110,6 +113,7 @@ export default class Rank0 extends cc.Component {
                     this.blood_bar_L.y = BAR_INIT_Y_L - (1 - blood / data.leftPlayer.init_blood) * BAR_HEIGHT
 
                     blood = data.rightPlayer.blood
+                    setText('txt_score_R', blood)
                     if (blood < 0)
                         blood = 0
                     if (blood > data.rightPlayer.init_blood)
