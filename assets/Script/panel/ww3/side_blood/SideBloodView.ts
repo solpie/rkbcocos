@@ -12,7 +12,7 @@ export class SideBloodView {
         this.set_blood_R(node, 8, 9)
         node['idx'] = idx
         if (!CC_BUILD) {
-            this.fade_out()
+            // this.fade_out()
 
         }
         else {
