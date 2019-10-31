@@ -54,8 +54,8 @@ export default class Rank0 extends cc.Component {
         this.hint_foul_L = cc.find('hint_foul_L', this.node).getComponent(cc.Animation)
         this.hint_foul_R = cc.find('hint_foul_R', this.node).getComponent(cc.Animation)
 
-        this.player_name_L = cc.find('front_panel/txt_player_L',this.node).getComponent(cc.Label)
-        this.player_name_R = cc.find('front_panel/txt_player_R',this.node).getComponent(cc.Label)
+        this.player_name_L = cc.find('front_panel/txt_player_L', this.node).getComponent(cc.Label)
+        this.player_name_R = cc.find('front_panel/txt_player_R', this.node).getComponent(cc.Label)
         this.player_name_L.string = this.player_name_R.string = ''
         if (this.is_ww3) {//邀请赛
             this.node_hint_score_L.active = false
@@ -222,8 +222,11 @@ export default class Rank0 extends cc.Component {
         if (this.last_score_R != doc.score_R)
             this.hint_score_R.play('foul_hint')
         this.last_score_R = doc.score_R
-        setText('txt_player_L', doc.player_L)
-        setText('txt_player_R', doc.player_R)
+        this.player_name_L.string = doc.player_L
+        this.player_name_R.string = doc.player_R
+
+        // setText('txt_player_L', doc.player_L)
+        // setText('txt_player_R', doc.player_R)
     }
     last_foul_L = -1
     last_foul_R = -1
