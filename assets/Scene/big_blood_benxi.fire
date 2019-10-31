@@ -2242,7 +2242,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -300,
-      "y": -53,
+      "y": -56,
       "z": 0
     },
     "_scale": {
@@ -4241,7 +4241,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 345,
-      "y": -53,
+      "y": -56,
       "z": 0
     },
     "_scale": {
@@ -4961,7 +4961,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -300,
-      "y": -53,
+      "y": -56,
       "z": 0
     },
     "_scale": {
@@ -5128,7 +5128,7 @@
       "__id__": 125
     },
     "_enabled": true,
-    "idx": "R1",
+    "idx": "R2",
     "_id": "91tec0+9xA/5Ua9MtCAYAp"
   },
   {
@@ -5670,7 +5670,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -300,
-      "y": -53,
+      "y": -56,
       "z": 0
     },
     "_scale": {
@@ -5837,7 +5837,7 @@
       "__id__": 147
     },
     "_enabled": true,
-    "idx": "R1",
+    "idx": "R3",
     "_id": "cfaRK3yr1IWKwRKQ3n0IXx"
   },
   {
@@ -6379,7 +6379,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -300,
-      "y": -53,
+      "y": -56,
       "z": 0
     },
     "_scale": {
@@ -6546,7 +6546,7 @@
       "__id__": 169
     },
     "_enabled": true,
-    "idx": "R1",
+    "idx": "R4",
     "_id": "184FfeC21BAKUK4UdGv/vS"
   },
   {
@@ -7088,7 +7088,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 345,
-      "y": -53,
+      "y": -56,
       "z": 0
     },
     "_scale": {
@@ -7255,7 +7255,7 @@
       "__id__": 191
     },
     "_enabled": true,
-    "idx": "L1",
+    "idx": "L2",
     "_id": "61AfnuCV9M3Z/wVXRUnYnv"
   },
   {
@@ -7797,7 +7797,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 345,
-      "y": -53,
+      "y": -56,
       "z": 0
     },
     "_scale": {
@@ -7964,7 +7964,7 @@
       "__id__": 213
     },
     "_enabled": true,
-    "idx": "L1",
+    "idx": "L3",
     "_id": "4exzh8cCZDn7lKq+A9EB5T"
   },
   {
@@ -8506,7 +8506,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 345,
-      "y": -53,
+      "y": -56,
       "z": 0
     },
     "_scale": {
@@ -8673,7 +8673,7 @@
       "__id__": 235
     },
     "_enabled": true,
-    "idx": "L1",
+    "idx": "L4",
     "_id": "2dz+naSeFPGaD4VvTzUei8"
   },
   {
