@@ -38,6 +38,12 @@ export default class Rank0 extends cc.Component {
         if (window['no_timer']) {
             cc.find('front_panel/txt_timer', this.node).opacity = 0
         }
+        else {
+            this.gameTimer.initTimer(this, 'txt_timer')
+            //init game timer
+            this.gameTimer.isMin = false
+            this.gameTimer.resetTimer()
+        }
         this.setPlayer(false, { name: '' })
         this.setPlayer(true, { name: '' })
 
@@ -77,7 +83,21 @@ export default class Rank0 extends cc.Component {
 
             cc.find('bloodbar', this.node).active = false
             this.get_basescore2()
+            this.initWS_rank0()
         }
+
+    }
+    initWS_rank0() {
+        let ws = getWsUrl()
+        io(ws)
+            .on('connect', _ => {
+                cc.log('socketio.....localWS')
+            })
+
+            .on(WSEvent.sc_timerEvent, data => {
+                cc.log('sc_timerEvent', data)
+                this.gameTimer.setTimerEvent(data)
+            })
 
     }
     initWS_ww3() {
@@ -131,6 +151,10 @@ export default class Rank0 extends cc.Component {
                     sbv.set_player(data)
                 }
             })
+            .on(WSEvent.sc_timerEvent, data => {
+                cc.log('sc_timerEvent', data)
+                this.gameTimer.setTimerEvent(data)
+            })
     }
     _set_blood(data) {
         let player_L = data.vsPlayerArr[0]
@@ -166,14 +190,20 @@ export default class Rank0 extends cc.Component {
     }
     get_basescore2() {
         get_basescore(data => {
+            setTimeout(_ => {
+                this.get_basescore2()
+            }, 1000)
+
             cc.log(data)
             if (data.length) {
                 let doc = data[0]
                 this.setFoul_L(doc.foul_L)
                 this.setFoul_R(doc.foul_R)
                 this.set_score(doc)
-                loadImg64ByNode(this.avt_L, doc.avatar_L)
-                loadImg64ByNode(this.avt_R, doc.avatar_R)
+                if (doc.avatar_L)
+                    loadImg64ByNode(this.avt_L, doc.avatar_L)
+                if (doc.avatar_R)
+                    loadImg64ByNode(this.avt_R, doc.avatar_R)
                 if (doc.auto_timer_url != this.auto_timer_url) {
                     this.auto_timer_url = doc.auto_timer_url
                     let url = 'http://192.168.1.196:8090/results.xml'
@@ -184,9 +214,7 @@ export default class Rank0 extends cc.Component {
                         }
                     })
                 }
-                setTimeout(_ => {
-                    this.get_basescore2()
-                }, 1000)
+
             }
         })
     }
