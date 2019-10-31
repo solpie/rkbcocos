@@ -30,6 +30,9 @@ export default class BigBloodRock extends cc.Component {
 
     player_row_L = []
     player_row_R = []
+
+    avt_half_L: cc.Sprite
+    avt_half_R: cc.Sprite
     onLoad() {
         cc.log('Big blood benxi on loaded')
     }
@@ -58,6 +61,13 @@ export default class BigBloodRock extends cc.Component {
         this.cur_name_L = _Label('txt_player_name_L')
         this.cur_name_R = _Label('txt_player_name_R')
 
+
+        this.avt_half_L = cc.find('avt_L', this.node).getComponent(cc.Sprite)
+        this.avt_half_R = cc.find('avt_R', this.node).getComponent(cc.Sprite)
+        if (!CC_BUILD) {
+            loadImg64ByNode(this.avt_half_L, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
+            loadImg64ByNode(this.avt_half_R, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
+        }
         // let blood = _Label('player_bar_benxi_R1/txt_player_blood')
         // blood.string = '9'
         for (let i = 0; i < 4; i++) {
@@ -115,6 +125,14 @@ export default class BigBloodRock extends cc.Component {
                 let row_idx_L = 0, row_idx_R = 0
                 let captain_player_id_L, captain_player_id_R
                 let total_blood_L = 0, total_blood_R = 0
+
+
+                if (leftPlayer.avatar_half) {
+                    loadImg64ByNode(this.avt_half_L, leftPlayer.avatar_half)
+                }
+                if (rightPlayer.avatar_half) {
+                    loadImg64ByNode(this.avt_half_R, rightPlayer.avatar_half)
+                }
                 for (let i = 0; i < leftTeam.length; i++) {
                     let p = leftTeam[i];
                     let pid = p.player_id
@@ -131,8 +149,8 @@ export default class BigBloodRock extends cc.Component {
                     let blood = p.blood
                     if (blood < 0)
                         blood = 0
-                    if (blood >  p.init_blood)
-                        blood =  p.init_blood
+                    if (blood > p.init_blood)
+                        blood = p.init_blood
                     player_row.bar.x = bar_L_init + (1 - blood / p.init_blood) * bar_width
                     player_row.player_id = pid
                     loadImg64ByNode(player_row.avatar, p.avatar)
@@ -155,8 +173,8 @@ export default class BigBloodRock extends cc.Component {
                     let blood = p.blood
                     if (blood < 0)
                         blood = 0
-                    if (blood >  p.init_blood)
-                        blood =  p.init_blood
+                    if (blood > p.init_blood)
+                        blood = p.init_blood
                     player_row.bar.x = bar_R_init + (1 - blood / p.init_blood) * bar_width
 
                     player_row.player_id = pid
@@ -188,8 +206,8 @@ export default class BigBloodRock extends cc.Component {
                         let blood = p.blood
                         if (blood < 0)
                             blood = 0
-                        if (blood >  p.init_blood)
-                            blood =  p.init_blood
+                        if (blood > p.init_blood)
+                            blood = p.init_blood
                         bar_player.bar.x = bar_L_init + (1 - blood / p.init_blood) * bar_width
                     }
                     if (p.player_id == data.vsPlayerArr[0])
@@ -205,8 +223,8 @@ export default class BigBloodRock extends cc.Component {
                         let blood = p.blood
                         if (blood < 0)
                             blood = 0
-                        if (blood >  p.init_blood)
-                            blood =  p.init_blood
+                        if (blood > p.init_blood)
+                            blood = p.init_blood
                         bar_player.bar.x = bar_R_init + (1 - blood / p.init_blood) * bar_width
                     }
                     if (p.player_id == data.vsPlayerArr[1])
