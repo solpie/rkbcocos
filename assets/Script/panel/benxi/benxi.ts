@@ -29,6 +29,10 @@ export default class Benxi extends cc.Component {
 
     start() {
         //init game timer
+
+        if (window['no_timer']) {
+            cc.find('txt_timer', this.node).opacity = 0
+        }
         this.gameTimer.isMin = false
         this.gameTimer.resetTimer()
         this.initWS()

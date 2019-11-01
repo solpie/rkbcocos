@@ -64,6 +64,7 @@ export default class BigBloodRock extends cc.Component {
 
         this.avt_half_L = cc.find('avt_L', this.node).getComponent(cc.Sprite)
         this.avt_half_R = cc.find('avt_R', this.node).getComponent(cc.Sprite)
+        
         if (!CC_BUILD) {
             loadImg64ByNode(this.avt_half_L, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
             loadImg64ByNode(this.avt_half_R, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
