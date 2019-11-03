@@ -63,7 +63,7 @@ export default class BigBloodRock extends cc.Component {
 
         this.cur_name_L.string = ''
         this.cur_name_R.string = ''
-        
+
         this.avt_half_L = cc.find('avt_L', this.node).getComponent(cc.Sprite)
         this.avt_half_R = cc.find('avt_R', this.node).getComponent(cc.Sprite)
 
@@ -116,6 +116,7 @@ export default class BigBloodRock extends cc.Component {
             .on(WSEvent.sc_setPlayer, data => {
                 this.set_timeout(data)
                 cc.log('sc_setPlayer', data)
+                console.log('sc_setPlayer', data)
                 this.foul_L.string = '0'
                 this.foul_R.string = '0'
 
@@ -134,10 +135,10 @@ export default class BigBloodRock extends cc.Component {
 
 
                 if (leftPlayer.avatar_half) {
-                    loadImg64ByNode(this.avt_half_L, leftPlayer.avatar_half)
+                    loadImg64ByNode(this.avt_half_L, leftPlayer.avatar_half, true)
                 }
                 if (rightPlayer.avatar_half) {
-                    loadImg64ByNode(this.avt_half_R, rightPlayer.avatar_half)
+                    loadImg64ByNode(this.avt_half_R, rightPlayer.avatar_half, true)
                 }
                 for (let i = 0; i < leftTeam.length; i++) {
                     let p = leftTeam[i];
@@ -159,7 +160,7 @@ export default class BigBloodRock extends cc.Component {
                         blood = p.init_blood
                     player_row.bar.x = bar_L_init + (1 - blood / p.init_blood) * bar_width
                     player_row.player_id = pid
-                    loadImg64ByNode(player_row.avatar, p.avatar)
+                    loadImg64ByNode(player_row.avatar, p.avatar, true)
                     row_idx_L++
                 }
                 let rightTeam = data.rTeam
@@ -184,7 +185,7 @@ export default class BigBloodRock extends cc.Component {
                     player_row.bar.x = bar_R_init + (1 - blood / p.init_blood) * bar_width
 
                     player_row.player_id = pid
-                    loadImg64ByNode(player_row.avatar, p.avatar)
+                    loadImg64ByNode(player_row.avatar, p.avatar, true)
                     row_idx_R++
                 }
                 this.total_blood_L.string = total_blood_L + ''
