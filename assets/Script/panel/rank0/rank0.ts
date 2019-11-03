@@ -232,7 +232,7 @@ export default class Rank0 extends cc.Component {
 
         if (player.avatar) {
             let sp = isR ? 'avt_R' : 'avt_L';
-            loadImg64(sp, player.avatar)
+            loadImg64(sp, player.avatar, true)
         }
     }
 

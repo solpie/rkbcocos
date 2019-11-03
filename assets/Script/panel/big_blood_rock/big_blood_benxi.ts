@@ -61,10 +61,12 @@ export default class BigBloodRock extends cc.Component {
         this.cur_name_L = _Label('txt_player_name_L')
         this.cur_name_R = _Label('txt_player_name_R')
 
-
+        this.cur_name_L.string = ''
+        this.cur_name_R.string = ''
+        
         this.avt_half_L = cc.find('avt_L', this.node).getComponent(cc.Sprite)
         this.avt_half_R = cc.find('avt_R', this.node).getComponent(cc.Sprite)
-        
+
         if (!CC_BUILD) {
             loadImg64ByNode(this.avt_half_L, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
             loadImg64ByNode(this.avt_half_R, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
@@ -81,6 +83,9 @@ export default class BigBloodRock extends cc.Component {
 
             let name_L = _Label(`player_bar_benxi_L${idx}/txt_player_name`)
             let name_R = _Label(`player_bar_benxi_R${idx}/txt_player_name`)
+
+            name_L.string = ''
+            name_R.string = ''
 
             let bar_L: cc.Node = cc.find(`player_bar_benxi_L${idx}/bar_mask/bar`, this.node)
             let bar_R: cc.Node = cc.find(`player_bar_benxi_R${idx}/bar_mask/bar`, this.node)

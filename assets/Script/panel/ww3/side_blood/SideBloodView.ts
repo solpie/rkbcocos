@@ -58,11 +58,11 @@ export class SideBloodView {
 
     set_avt_L(node, url) {
         let sp: cc.Sprite = node.getChildByName('avt_L').getComponent(cc.Sprite)
-        loadImg64ByNode(sp, url)
+        loadImg64ByNode(sp, url, true)
     }
     set_avt_R(node, url) {
         let sp: cc.Sprite = node.getChildByName('avt_R').getComponent(cc.Sprite)
-        loadImg64ByNode(sp, url)
+        loadImg64ByNode(sp, url, true)
     }
 
     set_name_L(node, name) {

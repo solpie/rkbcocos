@@ -34,38 +34,57 @@ export function get_player(player_id, callback) {
             callback(res.data)
         })
 }
-export function get_basescore(callback){
-    let url = "http://rtmp.icassi.us:8090/basescore?idx=rank16" 
+export function get_basescore(callback) {
+    let url = "http://rtmp.icassi.us:8090/basescore?idx=rank16"
     let pUrl = _proxy(url)
     axios.get(pUrl)
         .then(function (res) {
             callback(res.data)
         })
-    
+
 }
-export function loadImg64(sp, url) {
+let img64Cache = {}
+export function loadImg64(sp, url, cache = false) {
     let pUrl = _proxy(url)
     // cc.loader.load(pUrl, res => {
     //     cc.log(res)
     // })
-    axios.get(pUrl)
-        .then(function (res) {
-            // console.log('axios loaded----', res.data)
-            _c_.emit(ccType.Sprite, { name: sp, img64: res.data })
-        })
+    if (cache && imageCache[url]) {
+        _c_.emit(ccType.Sprite, { name: sp, img64: imageCache[url] })
+
+    }
+    else
+        axios.get(pUrl)
+            .then(function (res) {
+                // console.log('axios loaded----', res.data)
+                imageCache[url] = res.data
+                _c_.emit(ccType.Sprite, { name: sp, img64: res.data })
+            })
 }
-export function loadImg64ByNode(sp, url) {
+export function loadImg64ByNode(sp, url, cache = false) {
     let pUrl = _proxy(url)
-    axios.get(pUrl)
-        .then(function (res) {
-            let img = new Image()
-            img.src = res.data
-            let tex = new cc.Texture2D()
-            tex.initWithElement(img)
-            tex.handleLoadedTexture()
-            let newframe = new cc.SpriteFrame(tex)
-            sp.spriteFrame = newframe
-        })
+    if (cache && imageCache[url]) {
+        let img = new Image()
+        img.src = imageCache[url]
+        let tex = new cc.Texture2D()
+        tex.initWithElement(img)
+        tex.handleLoadedTexture()
+        let newframe = new cc.SpriteFrame(tex)
+        sp.spriteFrame = newframe
+
+    }
+    else
+        axios.get(pUrl)
+            .then(function (res) {
+                let img = new Image()
+                imageCache[url] = res.data
+                img.src = res.data
+                let tex = new cc.Texture2D()
+                tex.initWithElement(img)
+                tex.handleLoadedTexture()
+                let newframe = new cc.SpriteFrame(tex)
+                sp.spriteFrame = newframe
+            })
 }
 let imageCache = {}
 export function loadImg64_InjectCls(url, callback) {
