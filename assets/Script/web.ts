@@ -43,6 +43,15 @@ export function get_basescore(callback) {
         })
 
 }
+export function get_basescore_com(callback) {
+    let url = "http://rtmp.icassi.us:8090/basescore?idx=com_score"
+    let pUrl = _proxy(url)
+    axios.get(url)
+        .then(function (res) {
+            callback(res.data)
+        })
+
+}
 let img64Cache = {}
 export function loadImg64(sp, url, cache = false) {
     let pUrl = _proxy(url)

@@ -1,7 +1,7 @@
 import { Timer } from '../../com/timer';
 import { setText, getNode, ccType } from '../../__c';
 import { WSEvent } from '../../api';
-import { getWsUrl, loadImg64 } from '../../web';
+import { getWsUrl, loadImg64, get_basescore_com } from '../../web';
 import { BaseGame } from '../ww3/ww3_op';
 
 const { ccclass, property } = cc._decorator;
@@ -20,6 +20,15 @@ export default class Game3v3 extends cc.Component {
     _node_bg2_4v4: cc.Node
     _node_bg2_1v1: cc.Node
 
+    dot_1: cc.Sprite
+    dot_2: cc.Sprite
+    dot_3: cc.Sprite
+    dot_tex = {}
+
+    col_map = { '1': cc.color(1, 159, 247), '2': cc.color(2, 205, 128), '3': cc.color(174, 102, 241) }
+
+    team_name_L: cc.Node
+    team_name_R: cc.Node
     onLoad() {
         this.id = (new Date()).getTime().toString()
         this.gameTimer.initTimer(this, 'txt_timer')
@@ -49,15 +58,60 @@ export default class Game3v3 extends cc.Component {
 
         setText('txt_team_L', '')
         setText('txt_team_R', '')
+
+        this.dot_1 = cc.find('dot_1', this.node).getComponent(cc.Sprite)
+        this.dot_2 = cc.find('dot_2', this.node).getComponent(cc.Sprite)
+        this.dot_3 = cc.find('dot_3', this.node).getComponent(cc.Sprite)
+
+        this.team_name_L = cc.find('txt_team_L', this.node)//.getComponent(cc.Label)
+        this.team_name_R = cc.find('txt_team_R', this.node)//.getComponent(cc.Label)
+
+        this.dot_tex['dot_1'] = this.dot_1.spriteFrame
+        this.dot_tex['dot_2'] = this.dot_2.spriteFrame
+        this.dot_tex['dot_3'] = this.dot_3.spriteFrame
+
+        this.team_name_L.color = this.col_map['1']
+        this.team_name_R.color = this.col_map['2']
+
         this.gameTimer.isMin = true
-        this.initWS()
+        // this.initWS()
         _c_.emit(ccType.Node, { name: 'bg2_4v4', active: false })
 
         if (!CC_BUILD) {
             this.test()
         }
+        // this.set4v4Icon({ is4v4: true })
+        this.auto_basescore()
+    }
 
-        this.set4v4Icon({ is4v4: true })
+
+
+    auto_basescore() {
+        get_basescore_com(data => {
+            setTimeout(_ => {
+                this.auto_basescore()
+            }, 1000)
+
+            cc.log(data)
+            if (data.length) {
+                let doc = data[0]
+                this.get_basescore(doc)
+                // this.setFoul_L(doc.foul_L)
+                // this.setFoul_R(doc.foul_R)
+                // this.set_score(doc)
+                // if (doc.auto_timer_url != this.auto_timer_url) {
+                //     this.auto_timer_url = doc.auto_timer_url
+                //     let url = 'http://192.168.1.196:8090/results.xml'
+                //     get_auto_timer(this.auto_timer_url, doc => {
+                //         let text = doc.children[0].getElementsByTagName('text')[0].textContent
+                //         if (text) {
+                //             setText('txt_timer', text)
+                //         }
+                //     })
+                // }
+
+            }
+        })
     }
 
     test() {
@@ -95,11 +149,27 @@ export default class Game3v3 extends cc.Component {
     get_basescore(param) {
         // axios.get(param.url)
         //     .then((res) => {
+        // setTimeout(_ => {
+        //     this.get_basescore2()
+        // }, 1000)
+
         let doc = param
         this.setScore({ lScore: doc.score_L, rScore: doc.score_R })
         this.setFoul_L(doc.foul_L)
         this.setFoul_R(doc.foul_R)
         this.set_player(doc)
+
+        if (doc.rec != '') {
+            let a = doc.rec.split('_')
+            if (a.length == 2) {
+                this.dot_1.spriteFrame = this.dot_tex['dot_' + a[0]]
+                this.dot_2.spriteFrame = this.dot_tex['dot_' + a[1]]
+
+                this.team_name_L.color = this.col_map[a[0]]
+                this.team_name_R.color = this.col_map[a[1]]
+
+            }
+        }
 
         let timer_state: string = doc.timer_state
         if (timer_state.search('start') > -1) {
@@ -125,10 +195,12 @@ export default class Game3v3 extends cc.Component {
         // }
         // })
     }
+
     set_player(data) {
         setText('txt_team_L', data.player_L)
         setText('txt_team_R', data.player_R)
     }
+
     initWS() {
         let ws = getWsUrl()
         io(ws)

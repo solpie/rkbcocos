@@ -187,6 +187,8 @@ export default class Rank0 extends cc.Component {
             }
         }
     }
+
+    
     get_basescore2() {
         get_basescore(data => {
             setTimeout(_ => {
