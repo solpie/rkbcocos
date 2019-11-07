@@ -11,6 +11,10 @@ declare let axios;
 function getGame3v3(): BaseGame {
     return window['game3v3']
 }
+
+export function get_now_sec_1970() {
+    return Math.floor((new Date()).getTime() / 1000)
+}
 @ccclass
 export default class Game3v3 extends cc.Component {
     id: string//同步的时候区分自己
@@ -29,6 +33,10 @@ export default class Game3v3 extends cc.Component {
 
     team_name_L: cc.Node
     team_name_R: cc.Node
+
+    delay_cache = []
+    is_init = false
+
     onLoad() {
         this.id = (new Date()).getTime().toString()
         this.gameTimer.initTimer(this, 'txt_timer')
@@ -95,7 +103,31 @@ export default class Game3v3 extends cc.Component {
             cc.log(data)
             if (data.length) {
                 let doc = data[0]
-                this.get_basescore(doc)
+                if (Number(doc.delay) > 0) {
+
+                    if (this.is_init) {
+                        this.delay_cache.push({ timestamp: doc.timestamp, doc: doc })
+                        let now = get_now_sec_1970()
+                        let a = []
+                        for (let i = 0; i < this.delay_cache.length; i++) {
+                            let item = this.delay_cache[i]
+                            let timestamp = item.timestamp
+                            if (now - Number(doc.delay) > timestamp) {
+                                this.get_basescore(item.doc)
+                            }
+                            else {
+                                a.push(item)
+                            }
+                        }
+                        this.delay_cache = a
+                    }
+                    else {
+                        this.is_init = true
+                        this.get_basescore(doc)
+                    }
+                }
+                else
+                    this.get_basescore(doc)
                 // this.setFoul_L(doc.foul_L)
                 // this.setFoul_R(doc.foul_R)
                 // this.set_score(doc)
