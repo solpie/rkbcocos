@@ -113,7 +113,7 @@ export default class Game3v3 extends cc.Component {
                             let item = this.delay_cache[i]
                             let timestamp = item.timestamp
                             if (now - Number(doc.delay) > timestamp) {
-                                this.get_basescore(item.doc)
+                                this.set_basescore(item.doc)
                             }
                             else {
                                 a.push(item)
@@ -123,11 +123,11 @@ export default class Game3v3 extends cc.Component {
                     }
                     else {
                         this.is_init = true
-                        this.get_basescore(doc)
+                        this.set_basescore(doc)
                     }
                 }
                 else
-                    this.get_basescore(doc)
+                    this.set_basescore(doc)
                 // this.setFoul_L(doc.foul_L)
                 // this.setFoul_R(doc.foul_R)
                 // this.set_score(doc)
@@ -178,7 +178,7 @@ export default class Game3v3 extends cc.Component {
     }
 
     timestamp: string
-    get_basescore(param) {
+    set_basescore(param) {
         // axios.get(param.url)
         //     .then((res) => {
         // setTimeout(_ => {
@@ -241,7 +241,7 @@ export default class Game3v3 extends cc.Component {
             })
             .on(WSEvent.sc_update_basescore, data => {
                 cc.log('sc_update_basescore', data)
-                this.get_basescore(data)
+                this.set_basescore(data)
             })
             .on(WSEvent.sc_timerEvent, data => {
                 cc.log('sc_timerEvent', data)

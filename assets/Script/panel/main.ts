@@ -17,6 +17,7 @@ const route = {
     , 'benxi_bblood2': 'big_blood_benxi2'
     , 'benxi_ww3': 'ww3_benxi2'
     , 'side_player': 'side_player'
+    , 'rank8': 'rank8'
     // , '3v3': '3v3'
 }
 window['_c_'] = new cc.Node('_c_')
