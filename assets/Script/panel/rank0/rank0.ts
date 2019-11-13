@@ -108,6 +108,7 @@ export default class Rank0 extends cc.Component {
             .on(WSEvent.sc_manual_blood, data => {
                 cc.log('sc_manual_blood', data)
                 this._set_blood(data)
+                //1032763
                 let sbv: SideBloodView = _c_['SideBloodView']
                 if (sbv) {
                     sbv.set_vs_player(data)
