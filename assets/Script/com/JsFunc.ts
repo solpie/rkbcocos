@@ -11,3 +11,7 @@ export function formatSecond(sec, isSecOnly = false, minStr = ":", secStr = "") 
         return strSec
     return strMin + minStr + strSec + secStr;
 }
+
+export function get_now_sec_1970() {
+    return Math.floor((new Date()).getTime() / 1000)
+}

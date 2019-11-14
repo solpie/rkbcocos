@@ -3,11 +3,13 @@ import { setText, getNode, ccType } from '../../__c';
 import { WSEvent } from '../../api';
 import { getWsUrl, loadImg64, get_basescore_com } from '../../web';
 import { BaseGame } from '../ww3/ww3_op';
+import { TimerStack } from '../../com/TimerStack';
 
 const { ccclass, property } = cc._decorator;
 declare let io;
 declare let _c_;
 declare let axios;
+let timer_stack = new TimerStack()
 function getGame3v3(): BaseGame {
     return window['game3v3']
 }
@@ -93,55 +95,54 @@ export default class Game3v3 extends cc.Component {
     }
 
 
-
+    last_timestamp = -1
     auto_basescore() {
         get_basescore_com(data => {
             setTimeout(_ => {
                 this.auto_basescore()
             }, 1000)
 
-            cc.log(data)
+            // cc.log(data)
             if (data.length) {
                 let doc = data[0]
                 if (Number(doc.delay) > 0) {
-
                     if (this.is_init) {
-                        this.delay_cache.push({ timestamp: doc.timestamp, doc: doc })
+                        // if (this.last_timestamp > 0) {
+                        //     if (this.delay_cache.length && this.last_timestamp != this.delay_cache[this.delay_cache.length - 1].timestamp)
+                        //         this.delay_cache.push({ timestamp: doc.timestamp, doc: doc })
+                        // }
+                        // else
+                        if (this.last_timestamp != doc.timestamp)
+                            this.delay_cache.push({ timestamp: doc.timestamp, doc: doc })
+                        this.last_timestamp = doc.timestamp
                         let now = get_now_sec_1970()
                         let a = []
+                        let has_cache = false
                         for (let i = 0; i < this.delay_cache.length; i++) {
                             let item = this.delay_cache[i]
                             let timestamp = item.timestamp
                             if (now - Number(doc.delay) > timestamp) {
                                 this.set_basescore(item.doc)
+                                has_cache = true
                             }
                             else {
                                 a.push(item)
                             }
                         }
                         this.delay_cache = a
+                        if (!has_cache) {
+                            cc.log('no cache')
+                            this.set_timer(doc, true)
+                        }
                     }
                     else {
                         this.is_init = true
+                        this.last_timestamp = doc.timestamp
                         this.set_basescore(doc)
                     }
                 }
                 else
                     this.set_basescore(doc)
-                // this.setFoul_L(doc.foul_L)
-                // this.setFoul_R(doc.foul_R)
-                // this.set_score(doc)
-                // if (doc.auto_timer_url != this.auto_timer_url) {
-                //     this.auto_timer_url = doc.auto_timer_url
-                //     let url = 'http://192.168.1.196:8090/results.xml'
-                //     get_auto_timer(this.auto_timer_url, doc => {
-                //         let text = doc.children[0].getElementsByTagName('text')[0].textContent
-                //         if (text) {
-                //             setText('txt_timer', text)
-                //         }
-                //     })
-                // }
-
             }
         })
     }
@@ -179,13 +180,8 @@ export default class Game3v3 extends cc.Component {
 
     timestamp: string
     set_basescore(param) {
-        // axios.get(param.url)
-        //     .then((res) => {
-        // setTimeout(_ => {
-        //     this.get_basescore2()
-        // }, 1000)
-
         let doc = param
+        this.set_timer(doc)
         this.setScore({ lScore: doc.score_L, rScore: doc.score_R })
         this.setFoul_L(doc.foul_L)
         this.setFoul_R(doc.foul_R)
@@ -203,31 +199,18 @@ export default class Game3v3 extends cc.Component {
             }
         }
 
-        let timer_state: string = doc.timer_state
-        if (timer_state.search('start') > -1) {
-            this.gameTimer.startTimer()
-        }
-        else if (timer_state.search('pause') > -1) {
-            this.gameTimer.pauseTimer()
-        }
-        else if (timer_state.search('setting') > -1) {
-            let timestamp = timer_state.replace('setting', '')
-            if (this.timestamp != timestamp) {
-                this.timestamp = timestamp
-                this.gameTimer.setTimeBySec(doc.timer_param)
-            }
-        }
-        // basescore: {
-        //     player_L: 0,
-        //     player_R: 0,
-        //     score_L: 0,
-        //     score_R: 0,
-        //     foul_L: 0,
-        //     foul_R: 0
-        // }
-        // })
     }
-
+    set_timer(doc, is_cache = false) {
+        timer_stack.set_stack(doc.timer_stack)
+        let sec;
+        if (Number(doc.delay) > 0)
+            sec = timer_stack.get_time_sec(Number(doc.delay), is_cache)
+        else
+            sec = timer_stack.get_time_sec(0, is_cache)
+        // if (Number(doc.delay) > 0)
+        //     sec += Number(doc.delay)
+        this.gameTimer.setTimeBySec(sec)
+    }
     set_player(data) {
         setText('txt_team_L', data.player_L)
         setText('txt_team_R', data.player_R)
