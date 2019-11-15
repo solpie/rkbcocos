@@ -61,9 +61,11 @@ export class TimerStack {
                 pause_timestamp = item.timestamp
             }
             if (item.event == 'setting') {
-                total_sec = item.param
+                total_sec = Number(item.param)
             }
         }
+        if (elapsed_sec < 0)//延時開始綫上沒走此為負值
+            elapsed_sec = 0
         let left_sec = total_sec - elapsed_sec
 
         if (last_event == 'pause' && is_cache) {
@@ -74,17 +76,13 @@ export class TimerStack {
         }
 
 
-        if (this.last_time_sec > 0 && left_sec > this.last_time_sec) {
-            left_sec = this.last_time_sec
-        }
-
         if (left_sec < 0) {
             left_sec = 0
         }
-        
+
         this.last_time_sec = left_sec
 
-        cc.log('sec', left_sec, 'last_event', last_event)
+        cc.log('sec', left_sec, 'last_event', last_event, 'elapsed_sec', elapsed_sec, 'total_sec', total_sec)
         return left_sec
     }
 }

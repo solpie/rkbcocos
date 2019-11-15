@@ -102,16 +102,10 @@ export default class Game3v3 extends cc.Component {
                 this.auto_basescore()
             }, 1000)
 
-            // cc.log(data)
             if (data.length) {
                 let doc = data[0]
                 if (Number(doc.delay) > 0) {
                     if (this.is_init) {
-                        // if (this.last_timestamp > 0) {
-                        //     if (this.delay_cache.length && this.last_timestamp != this.delay_cache[this.delay_cache.length - 1].timestamp)
-                        //         this.delay_cache.push({ timestamp: doc.timestamp, doc: doc })
-                        // }
-                        // else
                         if (this.last_timestamp != doc.timestamp)
                             this.delay_cache.push({ timestamp: doc.timestamp, doc: doc })
                         this.last_timestamp = doc.timestamp
