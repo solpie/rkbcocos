@@ -138,7 +138,7 @@ window.boot = function () {
         BK.Script.loadlib();
     }
     else {
-        var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.cc9aa.js';
+        var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.14c4c.js';
         if (jsList) {
             jsList = jsList.map(function (x) {
                 return 'src/' + x;
@@ -170,11 +170,11 @@ window.boot = function () {
         md5AssetsMap: settings.md5AssetsMap,
         subpackages: settings.subpackages
     });
-    cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
+ cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
     cc.game.run(option, onStart);
 };
 
-// main.9f3be.js is qqplay and jsb platform entry file, so we must leave platform init code here
+// main.c9b12.js is qqplay and jsb platform entry file, so we must leave platform init code here
 if (false) {
     BK.Script.loadlib('GameRes://src/settings.js');
     BK.Script.loadlib();
@@ -200,12 +200,12 @@ if (false) {
 else if (window.jsb) {
     var isRuntime = (typeof loadRuntime === 'function');
     if (isRuntime) {
-        require('src/settings.8c917.js');
+        require('src/settings.25f0c.js');
         require('src/cocos2d-runtime.js');
         require('jsb-adapter/engine/index.js');
     }
     else {
-        require('src/settings.8c917.js');
+        require('src/settings.25f0c.js');
         require('src/cocos2d-jsb.js');
         require('jsb-adapter/jsb-engine.js');
     }
