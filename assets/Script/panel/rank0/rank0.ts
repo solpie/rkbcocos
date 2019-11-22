@@ -1,16 +1,15 @@
 import { Timer } from "../../com/timer";
-import { getWsUrl, loadImg64, get_basescore, loadImg64ByNode } from '../../web';
+import { getWsUrl, loadImg64, get_basescore, loadImg64ByNode, auto_doc, get_blood_map_url } from '../../web';
 import { WSEvent } from '../../api';
 import { setText, ccType } from '../../__c';
 import { get_auto_timer } from "../../com/autoTimer";
 import { SideBloodView } from "../ww3/side_blood/SideBloodView";
+import { on_get_blood_map_doc } from "./ww3doc";
 
 const { ccclass, property } = cc._decorator;
 declare let io;
 declare let _c_;
-let BAR_INIT_Y_L, BAR_INIT_Y_R
-const BAR_HEIGHT = 98
-const avatar_cache = {}
+// let BAR_INIT_Y_L, BAR_INIT_Y_R
 @ccclass
 export default class Rank0 extends cc.Component {
     id: string//同步的时候区分自己
@@ -32,6 +31,10 @@ export default class Rank0 extends cc.Component {
 
     player_name_L: cc.Label
     player_name_R: cc.Label
+
+    BAR_INIT_Y_L
+    BAR_INIT_Y_R
+    BAR_HEIGHT = 98
     onload() {
         // this.gameTimer.initTimer(this, 'txt_timer')
     }
@@ -67,16 +70,23 @@ export default class Rank0 extends cc.Component {
             this.node_hint_score_R.active = false
             this.blood_bar_L = cc.find('bloodbar/mask_L/bar', this.node)
             this.blood_bar_R = cc.find('bloodbar/mask_R/bar', this.node)
-            BAR_INIT_Y_L = this.blood_bar_L.y
-            BAR_INIT_Y_R = this.blood_bar_R.y
+            this.BAR_INIT_Y_L = this.blood_bar_L.y
+            this.BAR_INIT_Y_R = this.blood_bar_R.y
             this.setFoul_L(0)
             this.setFoul_R(0)
             if (!CC_BUILD) {
                 setText('txt_score_L', 3)
-                this.blood_bar_L.y = BAR_INIT_Y_L - (1 - 3 / 9) * BAR_HEIGHT
+                this.blood_bar_L.y = this.BAR_INIT_Y_L - (1 - 3 / 9) * this.BAR_HEIGHT
                 this.hint_foul_L.play('foul_hint')
             }
             this.initWS_ww3()
+            auto_doc(get_blood_map_url, res => {
+                if (res && res.length == 1) {
+                    let doc = res[0]
+                    cc.log('bloodmap', doc)
+                    on_get_blood_map_doc(doc,this)
+                }
+            })
         }
         else {//冠军排位赛
 
@@ -105,51 +115,7 @@ export default class Rank0 extends cc.Component {
             .on('connect', _ => {
                 cc.log('socketio.....localWS')
             })
-            .on(WSEvent.sc_manual_blood, data => {
-                cc.log('sc_manual_blood', data)
-                this._set_blood(data)
-                //1032763
-                let sbv: SideBloodView = _c_['SideBloodView']
-                if (sbv) {
-                    sbv.set_vs_player(data)
-            })
-            .on(WSEvent.sc_setFoul, data => {
-                cc.log('sc_setFoul', data)
-                this.setFoul_L(data.lFoul)
-                this.setFoul_R(data.rFoul)
-            })
             .on(WSEvent.sc_setPlayer, data => {
-                cc.log('sc_setPlayer', data)
-                let _set_player = (data) => {
-                    this.setPlayer(0, data.leftPlayer)
-                    this.setPlayer(1, data.rightPlayer)
-
-                    let blood = data.leftPlayer.blood
-                    setText('txt_score_L', blood)
-                    if (blood < 0)
-                        blood = 0
-                    if (blood > data.leftPlayer.init_blood)
-                        blood = data.leftPlayer.init_blood
-                    this.blood_bar_L.y = BAR_INIT_Y_L - (1 - blood / data.leftPlayer.init_blood) * BAR_HEIGHT
-
-                    blood = data.rightPlayer.blood
-                    setText('txt_score_R', blood)
-                    if (blood < 0)
-                        blood = 0
-                    if (blood > data.rightPlayer.init_blood)
-                        blood = data.rightPlayer.init_blood
-                    this.blood_bar_R.y = BAR_INIT_Y_R - (1 - blood / data.rightPlayer.init_blood) * BAR_HEIGHT
-
-                    if (data.isRestFoul) {
-                        this.setFoul_L(0)
-                        this.setFoul_R(0)
-                    }
-                }
-                _set_player(data)
-                let sbv: SideBloodView = _c_['SideBloodView']
-                if (sbv) {
-                    sbv.set_player(data)
-                }
             })
             .on(WSEvent.sc_timerEvent, data => {
                 cc.log('sc_timerEvent', data)
@@ -170,7 +136,7 @@ export default class Rank0 extends cc.Component {
                     blood = 0
                 if (blood > p.init_blood)
                     blood = p.init_blood
-                this.blood_bar_L.y = BAR_INIT_Y_L - (1 - blood / p.init_blood) * BAR_HEIGHT
+                this.blood_bar_L.y = this.BAR_INIT_Y_L - (1 - blood / p.init_blood) * this.BAR_HEIGHT
             }
         }
         for (let p of data.rTeam) {
@@ -184,12 +150,12 @@ export default class Rank0 extends cc.Component {
                     blood = 0
                 if (blood > p.init_blood)
                     blood = p.init_blood
-                this.blood_bar_R.y = BAR_INIT_Y_R - (1 - blood / p.init_blood) * BAR_HEIGHT
+                this.blood_bar_R.y = this.BAR_INIT_Y_R - (1 - blood / p.init_blood) * this.BAR_HEIGHT
             }
         }
     }
 
-    
+
     get_basescore2() {
         get_basescore(data => {
             setTimeout(_ => {
@@ -203,15 +169,10 @@ export default class Rank0 extends cc.Component {
                 this.setFoul_R(doc.foul_R)
                 this.set_score(doc)
                 if (doc.avatar_L) {
-                    if (!avatar_cache[doc.avatar_L])
-                        loadImg64ByNode(this.avt_L, doc.avatar_L)
-                    avatar_cache[doc.avatar_L] = true
+                    loadImg64ByNode(this.avt_L, doc.avatar_L, true)
                 }
                 if (doc.avatar_R) {
-
-                    if (!avatar_cache[doc.avatar_R])
-                        loadImg64ByNode(this.avt_R, doc.avatar_R)
-                    avatar_cache[doc.avatar_R] = true
+                    loadImg64ByNode(this.avt_R, doc.avatar_R, true)
                 }
                 if (doc.auto_timer_url != this.auto_timer_url) {
                     this.auto_timer_url = doc.auto_timer_url

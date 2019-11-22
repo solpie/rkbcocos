@@ -50,7 +50,17 @@ export function get_basescore_com(callback) {
         .then(function (res) {
             callback(res.data)
         })
-
+}
+export const get_rank5_doc_url = 'http://rtmp.icassi.us:8090/cw?idx=rank5'
+export const get_blood_map_url = 'http://rtmp.icassi.us:8090/bloodmap?idx=1'
+export function auto_doc(url, callback, invert = 1000) {
+    axios.get(url)
+        .then(function (res) {
+            callback(res.data)
+            setTimeout(_ => {
+                auto_doc(url, callback, invert)
+            }, invert)
+        })
 }
 let img64Cache = {}
 export function loadImg64(sp, url, cache = false) {

@@ -1,8 +1,8 @@
 
 const { ccclass, property } = cc._decorator;
 const route = {
-    'ww3': 'worldwar3'
-    , 'bblood': 'big_blood_rock'
+    // 'ww3': 'worldwar3'
+     'bblood': 'big_blood_rock'
     , 'bscore': 'big_score'
     , 'rank0': 'rank0'
     , '3v3': '3v3'
@@ -18,6 +18,7 @@ const route = {
     , 'benxi_ww3': 'ww3_benxi2'
     , 'side_player': 'side_player'
     , 'rank8': 'rank8'
+    , 'rank5': 'rank5_benxi2'
     // , '3v3': '3v3'
 }
 window['_c_'] = new cc.Node('_c_')

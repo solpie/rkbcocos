@@ -11,3 +11,11 @@ export function formatSecond(sec, isSecOnly = false, minStr = ":", secStr = "") 
         return strSec
     return strMin + minStr + strSec + secStr;
 }
+
+export function arrToMap(arr, key) {
+    let m = {}
+    for (let item of arr) {
+        m[item[key]] = item
+    }
+    return m
+}
