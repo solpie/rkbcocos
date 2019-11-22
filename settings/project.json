@@ -8,6 +8,7 @@
   "design-resolution-height": 1080,
   "design-resolution-width": 1920,
   "excluded-modules": [
+    "ParticleSystem",
     "TiledMap",
     "Spine Skeleton",
     "DragonBones",
@@ -34,7 +35,7 @@
   "group-list": [
     "default"
   ],
-  "last-module-event-record-time": 1573614320834,
+  "last-module-event-record-time": 1574413986103,
   "simulator-orientation": false,
   "simulator-resolution": {
     "height": 640,

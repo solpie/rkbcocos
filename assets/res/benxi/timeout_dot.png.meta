@@ -7,7 +7,7 @@
   "premultiplyAlpha": false,
   "subMetas": {
     "timeout_dot": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "ac4fef29-8aa7-41f7-ba39-f080ae8ba8b6",
       "rawTextureUuid": "16ffc82c-c13b-4406-b90c-137f051991a6",
       "trimType": "auto",

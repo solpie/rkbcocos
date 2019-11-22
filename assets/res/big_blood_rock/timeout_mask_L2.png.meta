@@ -7,7 +7,7 @@
   "premultiplyAlpha": false,
   "subMetas": {
     "timeout_mask_L2": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "100cb249-2902-4fcd-ac49-253d72a27dda",
       "rawTextureUuid": "fe8fe9e6-f730-4910-a568-aa730d6b663e",
       "trimType": "auto",
