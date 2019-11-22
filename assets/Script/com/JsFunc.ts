@@ -12,10 +12,15 @@ export function formatSecond(sec, isSecOnly = false, minStr = ":", secStr = "") 
     return strMin + minStr + strSec + secStr;
 }
 
+<<<<<<< HEAD
 export function arrToMap(arr, key) {
     let m = {}
     for (let item of arr) {
         m[item[key]] = item
     }
     return m
+=======
+export function get_now_sec_1970() {
+    return Math.floor((new Date()).getTime() / 1000)
+>>>>>>> 9616921a406b2757516cd8a5d3ed5a766adebf76
 }
