@@ -219,7 +219,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -87,
-      "y": 6,
+      "y": -1.8,
       "z": 0
     },
     "_scale": {
@@ -306,18 +306,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 500,
+      "width": 60,
       "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 1,
+      "x": 0.5,
       "y": 0
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 41,
-      "y": 6,
+      "x": -211.4,
+      "y": -5.1,
       "z": 0
     },
     "_scale": {
@@ -378,7 +378,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "avt_L",
+    "_name": "avt",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
