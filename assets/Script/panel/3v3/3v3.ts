@@ -85,7 +85,7 @@ export default class Game3v3 extends cc.Component {
 
         this.gameTimer.isMin = true
         // this.initWS()
-        _c_.emit(ccType.Node, { name: 'bg2_4v4', active: false })
+        // _c_.emit(ccType.Node, { name: 'bg2_4v4', active: false })
 
         if (!CC_BUILD) {
             this.test()
