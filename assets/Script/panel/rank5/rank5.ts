@@ -2,7 +2,8 @@ import { auto_doc, get_rank5_doc_url, loadImg64ByNode } from "../../web";
 import { arrToMap } from "../../com/JsFunc";
 
 const { ccclass, property } = cc._decorator;
-const ITEM_INVERT_Y = 110
+const ITEM_INVERT_Y = 90
+const ITEM_start_Y =240
 function bubbleSort(arr) {
     for (var j = 0; j < arr.length - 1; j++) {
         for (var i = 0; i < arr.length - 1 - j; i++) {
@@ -16,11 +17,14 @@ function bubbleSort(arr) {
     return arr;
 }
 function swap_anim(item_i, item_i_1, arr, i, j, swap_anim) {
+
     cc['tween'](arr[item_i].node)
-        .to(0.2, { y: 92 - item_i * ITEM_INVERT_Y })
+        .to(0.2, { y: ITEM_start_Y - item_i * ITEM_INVERT_Y })
+        .to(0.2, { scale:1.3 })
         .start()
     cc['tween'](arr[item_i_1].node)
-        .to(0.2, { y: 92 - item_i_1 * ITEM_INVERT_Y })
+        .to(0.2, { y: ITEM_start_Y - item_i_1 * ITEM_INVERT_Y })
+        .to(0.2, { scale:1 })
         .call(_ => {
             bubble_anim(arr, i, j, swap_anim)
         })
@@ -61,7 +65,7 @@ export default class NewClass extends cc.Component {
             let player_node: cc.Node = cc.find('p' + (i + 1), this.node)
             if (player_node) {
                 this.player_node_arr.push({ node: player_node, vote: 0, name: '球员 ' + (i + 1), player_id: '' })
-                player_node.y = 92 - i * ITEM_INVERT_Y
+                player_node.y = ITEM_start_Y - i * ITEM_INVERT_Y
                 cc.log('node', player_node.name)
             }
         }

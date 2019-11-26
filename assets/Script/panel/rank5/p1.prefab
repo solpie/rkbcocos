@@ -50,12 +50,12 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 1,
+      "x": 0,
       "y": 0
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -315,
+      "x": -960,
       "y": 226,
       "z": 0
     },
@@ -107,8 +107,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 380,
-      "height": 98
+      "width": 309,
+      "height": 78
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -117,7 +117,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -367,
+      "x": 157.7,
       "y": 29,
       "z": 0
     },
@@ -208,18 +208,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 500,
-      "height": 80
+      "width": 186,
+      "height": 58
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 1,
+      "x": 0.5,
       "y": 0
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -87,
-      "y": -1.8,
+      "x": 190.7,
+      "y": -1,
       "z": 0
     },
     "_scale": {
@@ -253,14 +253,14 @@
     "_useOriginalSize": false,
     "_string": "唐日辉",
     "_N$string": "唐日辉",
-    "_fontSize": 58,
+    "_fontSize": 48,
     "_lineHeight": 44,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_N$horizontalAlign": 1,
+    "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Microsoft Yahei",
     "_N$overflow": 2,
@@ -316,8 +316,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -211.4,
-      "y": -5.1,
+      "x": 285.7,
+      "y": -12,
       "z": 0
     },
     "_scale": {
@@ -351,7 +351,7 @@
     "_useOriginalSize": false,
     "_string": "3",
     "_N$string": "3",
-    "_fontSize": 58,
+    "_fontSize": 48,
     "_lineHeight": 44,
     "_enableWrapText": false,
     "_N$file": null,
@@ -404,8 +404,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 98,
-      "height": 98
+      "width": 78,
+      "height": 78
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -414,8 +414,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -552,
-      "y": -19,
+      "x": 7.7,
+      "y": -10,
       "z": 0
     },
     "_scale": {
