@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.659753955386447,
-      "y": 0.659753955386447,
+      "x": 0.3156249999999999,
+      "y": 0.3156249999999999,
       "z": 1
     },
     "_quat": {
@@ -72,7 +72,7 @@
     "_level": 0,
     "_components": [
       {
-        "__id__": 177
+        "__id__": 191
       }
     ],
     "_prefab": null,
@@ -136,7 +136,7 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 176
+        "__id__": 190
       }
     ],
     "_prefab": null,
@@ -226,29 +226,29 @@
         "__id__": 105
       },
       {
-        "__id__": 115
+        "__id__": 117
       },
       {
-        "__id__": 125
+        "__id__": 129
       },
       {
-        "__id__": 135
+        "__id__": 141
       },
       {
-        "__id__": 145
-      },
-      {
-        "__id__": 155
+        "__id__": 153
       },
       {
         "__id__": 165
+      },
+      {
+        "__id__": 177
       }
     ],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 175
+        "__id__": 189
       }
     ],
     "_prefab": null,
@@ -913,7 +913,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -1046,7 +1046,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -1255,7 +1255,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -1388,7 +1388,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -1597,7 +1597,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -1730,7 +1730,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -1939,7 +1939,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -2072,7 +2072,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -2281,7 +2281,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -2414,7 +2414,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -2623,7 +2623,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -2756,7 +2756,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -2965,7 +2965,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -3098,7 +3098,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 170,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -3220,14 +3220,14 @@
         "__id__": 106
       },
       {
-        "__id__": 110
+        "__id__": 111
       }
     ],
     "_active": true,
     "_level": 3,
     "_components": [],
     "_prefab": {
-      "__id__": 114
+      "__id__": 116
     },
     "_opacity": 255,
     "_color": {
@@ -3249,8 +3249,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -417,
-      "y": 298,
+      "x": -428,
+      "y": 281,
       "z": 0
     },
     "_scale": {
@@ -3289,22 +3289,25 @@
       },
       {
         "__id__": 108
+      },
+      {
+        "__id__": 109
       }
     ],
     "_prefab": {
-      "__id__": 109
+      "__id__": 110
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -3315,7 +3318,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -98,
+      "y": -34,
       "z": 0
     },
     "_scale": {
@@ -3349,7 +3352,7 @@
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -3375,6 +3378,24 @@
     "_id": "05uCzi+qFN84qY31oT9Eml"
   },
   {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 106
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "4dArj5IUlLRJ5uJSkSm3lH"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 105
@@ -3397,26 +3418,29 @@
     "_level": 4,
     "_components": [
       {
-        "__id__": 111
+        "__id__": 112
       },
       {
-        "__id__": 112
+        "__id__": 113
+      },
+      {
+        "__id__": 114
       }
     ],
     "_prefab": {
-      "__id__": 113
+      "__id__": 115
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -3427,7 +3451,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -139,
+      "y": -111,
       "z": 0
     },
     "_scale": {
@@ -3455,13 +3479,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 110
+      "__id__": 111
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -3480,11 +3504,29 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 110
+      "__id__": 111
     },
     "_enabled": true,
     "cc_type": "",
     "_id": "8559/Wyi1NCby3S7oXhwQY"
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 111
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "b7Qe6LpZhLMIXv5PBFA/sE"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3517,317 +3559,17 @@
     },
     "_children": [
       {
-        "__id__": 116
-      },
-      {
-        "__id__": 120
-      }
-    ],
-    "_active": true,
-    "_level": 3,
-    "_components": [],
-    "_prefab": {
-      "__id__": 124
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": 418.4,
-      "y": 298,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "groupIndex": 0,
-    "_id": "ff2zKcJg5CSYP+ciHcVGru"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "txt_team_1_1",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 115
-    },
-    "_children": [],
-    "_active": true,
-    "_level": 4,
-    "_components": [
-      {
-        "__id__": 117
-      },
-      {
         "__id__": 118
-      }
-    ],
-    "_prefab": {
-      "__id__": 119
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 168,
-      "height": 50
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": -98,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "groupIndex": 0,
-    "_id": "92JGmAheFHyJql3H0vQGbi"
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 116
-    },
-    "_enabled": true,
-    "_useOriginalSize": false,
-    "_string": "野球帝是是是",
-    "_N$string": "野球帝是是是",
-    "_fontSize": 28,
-    "_lineHeight": 50,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": "faM0jFg6pFX6ii1TjmM+3N"
-  },
-  {
-    "__type__": "f631evoBMdDiK7w/lLKMsw9",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 116
-    },
-    "_enabled": true,
-    "cc_type": "",
-    "_id": "263SP9hxlKzZr16B3jP6Z6"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 115
-    },
-    "asset": {
-      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
-    },
-    "fileId": "57Fc3V59lEcIab5KXeCAOF",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "txt_team_1_2",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 115
-    },
-    "_children": [],
-    "_active": true,
-    "_level": 4,
-    "_components": [
-      {
-        "__id__": 121
       },
       {
-        "__id__": 122
-      }
-    ],
-    "_prefab": {
-      "__id__": 123
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 168,
-      "height": 50
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": -139,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "groupIndex": 0,
-    "_id": "b1m1O38UlBZKleoxDAV8Ph"
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 120
-    },
-    "_enabled": true,
-    "_useOriginalSize": false,
-    "_string": "野球帝是是是",
-    "_N$string": "野球帝是是是",
-    "_fontSize": 28,
-    "_lineHeight": 50,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": "26M/7kTYxDNIJQzN7LfhHu"
-  },
-  {
-    "__type__": "f631evoBMdDiK7w/lLKMsw9",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 120
-    },
-    "_enabled": true,
-    "cc_type": "",
-    "_id": "993q2zM7RDjLHawtuUvJDH"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 115
-    },
-    "asset": {
-      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
-    },
-    "fileId": "93DhJk7KpEUJL56QHdhn7P",
-    "sync": false
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 115
-    },
-    "asset": {
-      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
-    },
-    "fileId": "8baEBOtj1FBZVq7mFWatc6",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "group_12",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 4
-    },
-    "_children": [
-      {
-        "__id__": 126
-      },
-      {
-        "__id__": 130
+        "__id__": 123
       }
     ],
     "_active": true,
     "_level": 3,
     "_components": [],
     "_prefab": {
-      "__id__": 134
+      "__id__": 128
     },
     "_opacity": 255,
     "_color": {
@@ -3849,308 +3591,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 418,
-      "y": 6,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "groupIndex": 0,
-    "_id": "beWtL/9hxDHYqMptsoHdzE"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "txt_team_1_1",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 125
-    },
-    "_children": [],
-    "_active": true,
-    "_level": 4,
-    "_components": [
-      {
-        "__id__": 127
-      },
-      {
-        "__id__": 128
-      }
-    ],
-    "_prefab": {
-      "__id__": 129
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 168,
-      "height": 50
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": -98,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "groupIndex": 0,
-    "_id": "829+qXHz1JiIxq8AsTL8cV"
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 126
-    },
-    "_enabled": true,
-    "_useOriginalSize": false,
-    "_string": "野球帝是是是",
-    "_N$string": "野球帝是是是",
-    "_fontSize": 28,
-    "_lineHeight": 50,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": "82mDycmDFGvqw3D3Adyu9c"
-  },
-  {
-    "__type__": "f631evoBMdDiK7w/lLKMsw9",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 126
-    },
-    "_enabled": true,
-    "cc_type": "",
-    "_id": "1buhWpKFRFK6dJVH2M0jbZ"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 125
-    },
-    "asset": {
-      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
-    },
-    "fileId": "57Fc3V59lEcIab5KXeCAOF",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "txt_team_1_2",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 125
-    },
-    "_children": [],
-    "_active": true,
-    "_level": 4,
-    "_components": [
-      {
-        "__id__": 131
-      },
-      {
-        "__id__": 132
-      }
-    ],
-    "_prefab": {
-      "__id__": 133
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 168,
-      "height": 50
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": -139,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "groupIndex": 0,
-    "_id": "7eQqDBibtAULZsUWJeBEVn"
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 130
-    },
-    "_enabled": true,
-    "_useOriginalSize": false,
-    "_string": "野球帝是是是",
-    "_N$string": "野球帝是是是",
-    "_fontSize": 28,
-    "_lineHeight": 50,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": "49jRU6cJhBFKpW2iHuLt7v"
-  },
-  {
-    "__type__": "f631evoBMdDiK7w/lLKMsw9",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 130
-    },
-    "_enabled": true,
-    "cc_type": "",
-    "_id": "32QOW0iA1LPbl5ARQ/Gj0F"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 125
-    },
-    "asset": {
-      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
-    },
-    "fileId": "93DhJk7KpEUJL56QHdhn7P",
-    "sync": false
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 125
-    },
-    "asset": {
-      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
-    },
-    "fileId": "8baEBOtj1FBZVq7mFWatc6",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "group_11",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 4
-    },
-    "_children": [
-      {
-        "__id__": 136
-      },
-      {
-        "__id__": 140
-      }
-    ],
-    "_active": true,
-    "_level": 3,
-    "_components": [],
-    "_prefab": {
-      "__id__": 144
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": -417,
-      "y": 6,
+      "x": -428,
+      "y": -138,
       "z": 0
     },
     "_scale": {
@@ -4178,33 +3620,36 @@
     "_name": "txt_team_1_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 135
+      "__id__": 117
     },
     "_children": [],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 137
+        "__id__": 119
       },
       {
-        "__id__": 138
+        "__id__": 120
+      },
+      {
+        "__id__": 121
       }
     ],
     "_prefab": {
-      "__id__": 139
+      "__id__": 122
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -4215,7 +3660,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -98,
+      "y": -34,
       "z": 0
     },
     "_scale": {
@@ -4243,13 +3688,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 136
+      "__id__": 118
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -4268,16 +3713,34 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 136
+      "__id__": 118
     },
     "_enabled": true,
     "cc_type": "",
     "_id": "b3iAbiZBhOmIcMjTV5W0ye"
   },
   {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 118
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "23ubqnR3FKc7B0VpXqNaKf"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 135
+      "__id__": 117
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -4290,33 +3753,36 @@
     "_name": "txt_team_1_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 135
+      "__id__": 117
     },
     "_children": [],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 141
+        "__id__": 124
       },
       {
-        "__id__": 142
+        "__id__": 125
+      },
+      {
+        "__id__": 126
       }
     ],
     "_prefab": {
-      "__id__": 143
+      "__id__": 127
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -4327,7 +3793,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -139,
+      "y": -111,
       "z": 0
     },
     "_scale": {
@@ -4355,13 +3821,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 140
+      "__id__": 123
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -4380,16 +3846,34 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 140
+      "__id__": 123
     },
     "_enabled": true,
     "cc_type": "",
     "_id": "27gUeLIUFFiYGTzPkp2Pdk"
   },
   {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 123
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "4f+DmFzAlH5qYCeIpeElcz"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 135
+      "__id__": 117
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -4400,7 +3884,7 @@
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 135
+      "__id__": 117
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -4410,24 +3894,24 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "group_13",
+    "_name": "group_11",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
     },
     "_children": [
       {
-        "__id__": 146
+        "__id__": 130
       },
       {
-        "__id__": 150
+        "__id__": 135
       }
     ],
     "_active": true,
     "_level": 3,
     "_components": [],
     "_prefab": {
-      "__id__": 154
+      "__id__": 140
     },
     "_opacity": 255,
     "_color": {
@@ -4449,8 +3933,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -167.4,
-      "y": 150.7,
+      "x": 442.1,
+      "y": 281.6,
       "z": 0
     },
     "_scale": {
@@ -4471,40 +3955,43 @@
     "_skewX": 0,
     "_skewY": 0,
     "groupIndex": 0,
-    "_id": "abDIuuXuZJnY1Ea83tZodp"
+    "_id": "ff2zKcJg5CSYP+ciHcVGru"
   },
   {
     "__type__": "cc.Node",
     "_name": "txt_team_1_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 145
+      "__id__": 129
     },
     "_children": [],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 147
+        "__id__": 131
       },
       {
-        "__id__": 148
+        "__id__": 132
+      },
+      {
+        "__id__": 133
       }
     ],
     "_prefab": {
-      "__id__": 149
+      "__id__": 134
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -4515,7 +4002,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -98,
+      "y": -34,
       "z": 0
     },
     "_scale": {
@@ -4536,20 +4023,20 @@
     "_skewX": 0,
     "_skewY": 0,
     "groupIndex": 0,
-    "_id": "b7HDtzWmdAi54x1S3oI7zq"
+    "_id": "92JGmAheFHyJql3H0vQGbi"
   },
   {
     "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 146
+      "__id__": 130
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -4561,23 +4048,41 @@
     "_N$fontFamily": "Microsoft Yahei",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "c7ZXq8XR5EFIE2plyaDfRQ"
+    "_id": "faM0jFg6pFX6ii1TjmM+3N"
   },
   {
     "__type__": "f631evoBMdDiK7w/lLKMsw9",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 146
+      "__id__": 130
     },
     "_enabled": true,
     "cc_type": "",
-    "_id": "36o/UVuipKWL38aozEI5CM"
+    "_id": "263SP9hxlKzZr16B3jP6Z6"
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 130
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "4bDAvWIFROCraPcpIUrMKl"
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 145
+      "__id__": 129
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -4590,33 +4095,36 @@
     "_name": "txt_team_1_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 145
+      "__id__": 129
     },
     "_children": [],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 151
+        "__id__": 136
       },
       {
-        "__id__": 152
+        "__id__": 137
+      },
+      {
+        "__id__": 138
       }
     ],
     "_prefab": {
-      "__id__": 153
+      "__id__": 139
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -4627,7 +4135,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -139,
+      "y": -111,
       "z": 0
     },
     "_scale": {
@@ -4648,20 +4156,20 @@
     "_skewX": 0,
     "_skewY": 0,
     "groupIndex": 0,
-    "_id": "b6DexhnkNI8JAkU8dr3BIP"
+    "_id": "b1m1O38UlBZKleoxDAV8Ph"
   },
   {
     "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 150
+      "__id__": 135
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -4673,23 +4181,41 @@
     "_N$fontFamily": "Microsoft Yahei",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "b05kwt0SBH4ImP+L4m+jN9"
+    "_id": "26M/7kTYxDNIJQzN7LfhHu"
   },
   {
     "__type__": "f631evoBMdDiK7w/lLKMsw9",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 150
+      "__id__": 135
     },
     "_enabled": true,
     "cc_type": "",
-    "_id": "9arE/cuQtHYoStDMcH9z4w"
+    "_id": "993q2zM7RDjLHawtuUvJDH"
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 135
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "1fZ99TtqFHHqAvgxyXBGg4"
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 145
+      "__id__": 129
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -4700,7 +4226,7 @@
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 145
+      "__id__": 129
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -4710,17 +4236,359 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "group_14",
+    "_name": "group_12",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
     },
     "_children": [
       {
-        "__id__": 156
+        "__id__": 142
       },
       {
-        "__id__": 160
+        "__id__": 147
+      }
+    ],
+    "_active": true,
+    "_level": 3,
+    "_components": [],
+    "_prefab": {
+      "__id__": 152
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 442,
+      "y": -136,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "groupIndex": 0,
+    "_id": "beWtL/9hxDHYqMptsoHdzE"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "txt_team_1_1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 141
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 4,
+    "_components": [
+      {
+        "__id__": 143
+      },
+      {
+        "__id__": 144
+      },
+      {
+        "__id__": 145
+      }
+    ],
+    "_prefab": {
+      "__id__": 146
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 266,
+      "height": 50
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -34,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "groupIndex": 0,
+    "_id": "829+qXHz1JiIxq8AsTL8cV"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 142
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_string": "野球帝是是是",
+    "_N$string": "野球帝是是是",
+    "_fontSize": 44,
+    "_lineHeight": 50,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Microsoft Yahei",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "82mDycmDFGvqw3D3Adyu9c"
+  },
+  {
+    "__type__": "f631evoBMdDiK7w/lLKMsw9",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 142
+    },
+    "_enabled": true,
+    "cc_type": "",
+    "_id": "1buhWpKFRFK6dJVH2M0jbZ"
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 142
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "358wZ0XvZEw4FGYmc9xJL0"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 141
+    },
+    "asset": {
+      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
+    },
+    "fileId": "57Fc3V59lEcIab5KXeCAOF",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "txt_team_1_2",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 141
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 4,
+    "_components": [
+      {
+        "__id__": 148
+      },
+      {
+        "__id__": 149
+      },
+      {
+        "__id__": 150
+      }
+    ],
+    "_prefab": {
+      "__id__": 151
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 266,
+      "height": 50
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -111,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "groupIndex": 0,
+    "_id": "7eQqDBibtAULZsUWJeBEVn"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 147
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_string": "野球帝是是是",
+    "_N$string": "野球帝是是是",
+    "_fontSize": 44,
+    "_lineHeight": 50,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Microsoft Yahei",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "49jRU6cJhBFKpW2iHuLt7v"
+  },
+  {
+    "__type__": "f631evoBMdDiK7w/lLKMsw9",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 147
+    },
+    "_enabled": true,
+    "cc_type": "",
+    "_id": "32QOW0iA1LPbl5ARQ/Gj0F"
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 147
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "31n38AzvJGWbQ5fTVy9ky/"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 141
+    },
+    "asset": {
+      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
+    },
+    "fileId": "93DhJk7KpEUJL56QHdhn7P",
+    "sync": false
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 141
+    },
+    "asset": {
+      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
+    },
+    "fileId": "8baEBOtj1FBZVq7mFWatc6",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "group_13",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 4
+    },
+    "_children": [
+      {
+        "__id__": 154
+      },
+      {
+        "__id__": 159
       }
     ],
     "_active": true,
@@ -4749,8 +4617,350 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 168.4,
-      "y": 150.7,
+      "x": -301,
+      "y": 75,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "groupIndex": 0,
+    "_id": "abDIuuXuZJnY1Ea83tZodp"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "txt_team_1_1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 153
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 4,
+    "_components": [
+      {
+        "__id__": 155
+      },
+      {
+        "__id__": 156
+      },
+      {
+        "__id__": 157
+      }
+    ],
+    "_prefab": {
+      "__id__": 158
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 266,
+      "height": 50
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -34,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "groupIndex": 0,
+    "_id": "b7HDtzWmdAi54x1S3oI7zq"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 154
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_string": "野球帝是是是",
+    "_N$string": "野球帝是是是",
+    "_fontSize": 44,
+    "_lineHeight": 50,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Microsoft Yahei",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "c7ZXq8XR5EFIE2plyaDfRQ"
+  },
+  {
+    "__type__": "f631evoBMdDiK7w/lLKMsw9",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 154
+    },
+    "_enabled": true,
+    "cc_type": "",
+    "_id": "36o/UVuipKWL38aozEI5CM"
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 154
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "5djWGs4WFGeLvXzqeTZwV6"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 153
+    },
+    "asset": {
+      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
+    },
+    "fileId": "57Fc3V59lEcIab5KXeCAOF",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "txt_team_1_2",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 153
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 4,
+    "_components": [
+      {
+        "__id__": 160
+      },
+      {
+        "__id__": 161
+      },
+      {
+        "__id__": 162
+      }
+    ],
+    "_prefab": {
+      "__id__": 163
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 266,
+      "height": 50
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -111,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "groupIndex": 0,
+    "_id": "b6DexhnkNI8JAkU8dr3BIP"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 159
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_string": "野球帝是是是",
+    "_N$string": "野球帝是是是",
+    "_fontSize": 44,
+    "_lineHeight": 50,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Microsoft Yahei",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "b05kwt0SBH4ImP+L4m+jN9"
+  },
+  {
+    "__type__": "f631evoBMdDiK7w/lLKMsw9",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 159
+    },
+    "_enabled": true,
+    "cc_type": "",
+    "_id": "9arE/cuQtHYoStDMcH9z4w"
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 159
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "319TKIOKJEn5aU5pzJmJw5"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 153
+    },
+    "asset": {
+      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
+    },
+    "fileId": "93DhJk7KpEUJL56QHdhn7P",
+    "sync": false
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 153
+    },
+    "asset": {
+      "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
+    },
+    "fileId": "8baEBOtj1FBZVq7mFWatc6",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "group_14",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 4
+    },
+    "_children": [
+      {
+        "__id__": 166
+      },
+      {
+        "__id__": 171
+      }
+    ],
+    "_active": true,
+    "_level": 3,
+    "_components": [],
+    "_prefab": {
+      "__id__": 176
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 311,
+      "y": 75,
       "z": 0
     },
     "_scale": {
@@ -4778,33 +4988,36 @@
     "_name": "txt_team_1_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 155
+      "__id__": 165
     },
     "_children": [],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 157
+        "__id__": 167
       },
       {
-        "__id__": 158
+        "__id__": 168
+      },
+      {
+        "__id__": 169
       }
     ],
     "_prefab": {
-      "__id__": 159
+      "__id__": 170
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -4815,7 +5028,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -98,
+      "y": -34,
       "z": 0
     },
     "_scale": {
@@ -4843,13 +5056,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 156
+      "__id__": 166
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -4868,16 +5081,34 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 156
+      "__id__": 166
     },
     "_enabled": true,
     "cc_type": "",
     "_id": "a8v2CUFGxAuaYKUaMPl5f4"
   },
   {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 166
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "213TJgvtFEzpf6ArlJkf/B"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 155
+      "__id__": 165
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -4890,33 +5121,36 @@
     "_name": "txt_team_1_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 155
+      "__id__": 165
     },
     "_children": [],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 161
+        "__id__": 172
       },
       {
-        "__id__": 162
+        "__id__": 173
+      },
+      {
+        "__id__": 174
       }
     ],
     "_prefab": {
-      "__id__": 163
+      "__id__": 175
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -4927,7 +5161,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -139,
+      "y": -111,
       "z": 0
     },
     "_scale": {
@@ -4955,13 +5189,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 160
+      "__id__": 171
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -4980,16 +5214,34 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 160
+      "__id__": 171
     },
     "_enabled": true,
     "cc_type": "",
     "_id": "1cX+E50dBL3KhievxNNkt2"
   },
   {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 171
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "073md2HQlB64OIiSpw+nMO"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 155
+      "__id__": 165
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -5000,7 +5252,7 @@
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 155
+      "__id__": 165
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -5017,17 +5269,17 @@
     },
     "_children": [
       {
-        "__id__": 166
+        "__id__": 178
       },
       {
-        "__id__": 170
+        "__id__": 183
       }
     ],
     "_active": true,
     "_level": 3,
     "_components": [],
     "_prefab": {
-      "__id__": 174
+      "__id__": 188
     },
     "_opacity": 255,
     "_color": {
@@ -5050,7 +5302,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 1,
-      "y": 402,
+      "y": 176,
       "z": 0
     },
     "_scale": {
@@ -5078,33 +5330,36 @@
     "_name": "txt_team_1_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 165
+      "__id__": 177
     },
     "_children": [],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 167
+        "__id__": 179
       },
       {
-        "__id__": 168
+        "__id__": 180
+      },
+      {
+        "__id__": 181
       }
     ],
     "_prefab": {
-      "__id__": 169
+      "__id__": 182
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -5115,7 +5370,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -98,
+      "y": -34,
       "z": 0
     },
     "_scale": {
@@ -5143,13 +5398,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 166
+      "__id__": 178
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -5168,16 +5423,34 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 166
+      "__id__": 178
     },
     "_enabled": true,
     "cc_type": "",
     "_id": "d8JVLTSftKapy19kUOCl84"
   },
   {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 178
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "8bDJ+Wl9ZMGIoDA1sASraD"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 165
+      "__id__": 177
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -5190,33 +5463,36 @@
     "_name": "txt_team_1_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 165
+      "__id__": 177
     },
     "_children": [],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 171
+        "__id__": 184
       },
       {
-        "__id__": 172
+        "__id__": 185
+      },
+      {
+        "__id__": 186
       }
     ],
     "_prefab": {
-      "__id__": 173
+      "__id__": 187
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -5227,7 +5503,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -139,
+      "y": -312,
       "z": 0
     },
     "_scale": {
@@ -5255,13 +5531,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 170
+      "__id__": 183
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -5280,16 +5556,34 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 170
+      "__id__": 183
     },
     "_enabled": true,
     "cc_type": "",
     "_id": "19XkGM59hPl75ul24ogBto"
   },
   {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 183
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": "72HHLKL+ZEi5EhWM0yylSf"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 165
+      "__id__": 177
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
@@ -5300,7 +5594,7 @@
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 165
+      "__id__": 177
     },
     "asset": {
       "__uuid__": "887a2b67-42b9-4bcd-a29c-1d27fd2eb65e"
