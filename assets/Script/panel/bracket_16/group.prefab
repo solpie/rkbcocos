@@ -20,14 +20,14 @@
         "__id__": 2
       },
       {
-        "__id__": 6
+        "__id__": 7
       }
     ],
     "_active": true,
     "_level": 3,
     "_components": [],
     "_prefab": {
-      "__id__": 10
+      "__id__": 12
     },
     "_opacity": 255,
     "_color": {
@@ -49,8 +49,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -723,
-      "y": 366,
+      "x": -693.9,
+      "y": 379,
       "z": 0
     },
     "_scale": {
@@ -89,22 +89,25 @@
       },
       {
         "__id__": 4
+      },
+      {
+        "__id__": 5
       }
     ],
     "_prefab": {
-      "__id__": 5
+      "__id__": 6
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -115,7 +118,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -98,
+      "y": -34,
       "z": 0
     },
     "_scale": {
@@ -149,7 +152,7 @@
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -172,6 +175,24 @@
     },
     "_enabled": true,
     "cc_type": "",
+    "_id": ""
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
     "_id": ""
   },
   {
@@ -197,26 +218,29 @@
     "_level": 4,
     "_components": [
       {
-        "__id__": 7
+        "__id__": 8
       },
       {
-        "__id__": 8
+        "__id__": 9
+      },
+      {
+        "__id__": 10
       }
     ],
     "_prefab": {
-      "__id__": 9
+      "__id__": 11
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 221,
-      "g": 221,
-      "b": 221,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
+      "width": 266,
       "height": 50
     },
     "_anchorPoint": {
@@ -227,7 +251,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -139,
+      "y": -111,
       "z": 0
     },
     "_scale": {
@@ -255,13 +279,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 6
+      "__id__": 7
     },
     "_enabled": true,
     "_useOriginalSize": false,
     "_string": "野球帝是是是",
     "_N$string": "野球帝是是是",
-    "_fontSize": 28,
+    "_fontSize": 44,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
@@ -280,10 +304,28 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 6
+      "__id__": 7
     },
     "_enabled": true,
     "cc_type": "",
+    "_id": ""
+  },
+  {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 7
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_width": 1,
     "_id": ""
   },
   {

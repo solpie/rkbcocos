@@ -111,7 +111,7 @@ export default class NewClass extends cc.Component {
             let name = cc.find("name", item.node).getComponent(cc.Label);
             name.string = player.name;
             let avt = cc.find("avt", item.node);
-            loadImg64ByNode(avt.getComponent(cc.Sprite), player.avatar);
+            loadImg64ByNode(avt.getComponent(cc.Sprite), player.avatar, true);
           } else {
             for (let p of doc.player_arr) {
               if (p.player_id == item.player_id) {
