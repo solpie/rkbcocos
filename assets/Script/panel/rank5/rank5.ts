@@ -69,6 +69,23 @@ function bubble_anim(arr, i, j, swap_anim) {
       j++;
       bubble_anim(arr, i, j, swap_anim);
     }
+  } else {
+    //排序结束
+    for (let item of arr) {
+      item.node.scale = 1;
+      item.score.color = white_score;
+      item.frame.opacity = 0;
+    }
+    let item_1st = arr[0];
+    if (item_1st.vote > 0) {
+      item_1st.node.scale = 1.3;
+      item_1st.score.color = red_score;
+      item_1st.frame.opacity = 255;
+    } else {
+      item_1st.node.scale = 1;
+      item_1st.score.color = white_score;
+      item_1st.frame.opacity = 0;
+    }
   }
 }
 declare let io;
@@ -82,7 +99,8 @@ export default class NewClass extends cc.Component {
       if (player_node) {
         let frame = cc.find("frame", player_node);
         let score = cc.find("score", player_node);
-        score.color = red_score;
+        frame.opacity = 0;
+        score.color = white_score;
         this.player_node_arr.push({
           node: player_node,
           frame: frame,
@@ -134,6 +152,9 @@ export default class NewClass extends cc.Component {
         for (let i = 0; i < this.player_node_arr.length; i++) {
           const item = this.player_node_arr[i];
           item.is_max = item.vote == max_score;
+          if (item.vote == 0) {
+            item.is_max = false;
+          }
         }
         bubble_anim(this.player_node_arr, 0, 0, swap_anim);
       }
