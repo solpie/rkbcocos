@@ -1,3 +1,4 @@
+from urllib import parse
 from flask_cors import CORS
 import time
 from subprocess import Popen, PIPE
@@ -77,6 +78,24 @@ socketio = SocketIO(app, async_mode=async_mode)
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+# gql_url = 'http://121.40.135.214:8090/graphql'
+# http://121.40.135.214:8090/gqls?api=saicheng
+strapi_url = 'http://121.40.135.214:8090/'
+@app.route('/gql/<api>/', methods=['GET', 'POST'])
+def cw(api):
+    r = requests.get(strapi_url+'gqls?api='+api)
+    res = r.json()
+    if len(res)==1:
+        gql = res[0]['gql']
+        print(gql)
+        if gql:
+            r2 = requests.post(strapi_url+'graphql',json={"query":gql})
+            print(r2.text)
+            return r2.json()
+        else:
+            return gql
+    return ''
+
 
 @app.route('/')
 def index():
@@ -96,7 +115,6 @@ def view(viewname):
 
 # proxy
 
-from urllib import parse
 
 @app.route('/proxy', methods=['GET', 'POST'])
 def proxy():
@@ -128,19 +146,20 @@ def proxy():
     if request.method == "POST":
         url = request.values.get("url")
         isForm = request.values.get("form")
-        print("[req json]",isForm)
+        print("[req json]", isForm)
         if isForm == '1':
             fd = json.loads(request.data.decode("utf-8"))
             print(fd)
-            m = MultipartEncoder(fields={'player_list': ('filename', open('1130.json', 'rb'), 'text/plain')})
+            m = MultipartEncoder(fields={'player_list': (
+                'filename', open('1130.json', 'rb'), 'text/plain')})
             r = requests.post(url, data=m,
-                              headers={'Content-Type':m.content_type})
+                              headers={'Content-Type': m.content_type})
             r.close()
             return r.json()
         # return 'ok'
         jsonStr = str(request.json).replace("'", '"')
         print(jsonStr)
-        r = requests.post(url,data="data="+parse.quote(jsonStr),headers={
+        r = requests.post(url, data="data="+parse.quote(jsonStr), headers={
             'Content-type': 'application/x-www-form-urlencoded'})
         if r.headers['Content-Type'].find('json') > -1:
             c = r.json()
