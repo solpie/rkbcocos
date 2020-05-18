@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['RKB.py'],
-             pathex=['C:\\Users\\lrw\\projects\\rkbcocos\\rkb'],
+             pathex=['F:\\projects\\rkbcocos\\rkb'],
              binaries=[],
              datas=[],
              hiddenimports=[],

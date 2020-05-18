@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "7a3e239a-a904-47d1-adde-c636f9067c88",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1920,
+  "height": 1080,
+  "platformSettings": {},
+  "subMetas": {
+    "HUD Circle 03 Comp 1_002": {
+      "ver": "1.0.4",
+      "uuid": "7f8f5dc5-69e1-4233-bbec-c457b19cc584",
+      "rawTextureUuid": "7a3e239a-a904-47d1-adde-c636f9067c88",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 491.5,
+      "offsetY": -341.5,
+      "trimX": 1237,
+      "trimY": 816,
+      "width": 429,
+      "height": 131,
+      "rawWidth": 1920,
+      "rawHeight": 1080,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

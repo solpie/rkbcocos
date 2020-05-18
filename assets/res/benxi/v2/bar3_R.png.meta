@@ -1,10 +1,15 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.4",
   "uuid": "5333a19a-5fcd-41b3-ae97-1272e417eb0d",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 108,
+  "height": 98,
+  "platformSettings": {},
   "subMetas": {
     "bar3_R": {
       "ver": "1.0.4",

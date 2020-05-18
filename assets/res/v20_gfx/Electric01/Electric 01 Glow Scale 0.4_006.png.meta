@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "01601f4c-7c30-4c8c-ab5c-84b432d2a7bd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 432,
+  "height": 432,
+  "platformSettings": {},
+  "subMetas": {
+    "Electric 01 Glow Scale 0.4_006": {
+      "ver": "1.0.4",
+      "uuid": "c69cce05-3519-412a-affc-81f565e2ab35",
+      "rawTextureUuid": "01601f4c-7c30-4c8c-ab5c-84b432d2a7bd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -46.5,
+      "offsetY": -50.5,
+      "trimX": 44,
+      "trimY": 123,
+      "width": 251,
+      "height": 287,
+      "rawWidth": 432,
+      "rawHeight": 432,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

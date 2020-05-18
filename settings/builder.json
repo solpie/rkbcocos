@@ -2,6 +2,7 @@
   "android-instant": {
     "REMOTE_SERVER_ROOT": "",
     "host": "",
+    "packageName": "org.cocos2d.helloworld",
     "pathPattern": "",
     "recordPath": "",
     "scheme": "https",
@@ -27,7 +28,8 @@
     "009261b7-2341-4637-9bed-a3a7e7b10666",
     "5b507b95-bc9a-4de8-9968-6cf2ef956fa7",
     "3ed0c14d-cb58-4ab3-b652-70d00d823d6f",
-    "a5612593-c0f6-4080-abb4-82ce98f50ba3"
+    "a5612593-c0f6-4080-abb4-82ce98f50ba3",
+    "683d5651-fe0c-496b-ba13-517b25ab121f"
   ],
   "fb-instant-games": {},
   "includeSDKBox": false,
@@ -58,5 +60,15 @@
     "subContext": ""
   },
   "xxteaKey": "496008e8-afa0-42",
-  "zipCompressJs": true
+  "zipCompressJs": true,
+  "android": {
+    "packageName": "org.cocos2d.helloworld"
+  },
+  "ios": {
+    "packageName": "org.cocos2d.helloworld"
+  },
+  "mac": {
+    "packageName": "org.cocos2d.helloworld"
+  },
+  "win32": {}
 }

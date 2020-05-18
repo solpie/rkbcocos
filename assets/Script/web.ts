@@ -2,10 +2,20 @@ import { ccType } from "./__c";
 declare let axios;
 declare let _c_;
 declare let io;
-
+let server_url = "http://rtmp.icassi.us:8088";
 export function getWsUrl(): string {
   if (CC_BUILD) return "/rkb";
   return "http://127.0.0.1/rkb";
+}
+
+const get_server_url = (env?) => {
+  if (env === "test") return "http://localhost:8088";
+  return server_url;
+};
+
+export function getWS3222(): string {
+  if (CC_BUILD && !window["isOP"]) return "/";
+  return "http://192.168.50.147:3222/";
 }
 export function getWs(): any {
   return io(getWsUrl());
@@ -17,46 +27,51 @@ function _proxy(url) {
 }
 
 export function get_champion_rank_rec(callback) {
-  let url = "http://rtmp.icassi.us:8090/event?idx=1";
+  let url = `${get_server_url()}/event?idx=1`;
   let pUrl = _proxy(url);
-  axios.get(pUrl).then(function(res) {
+  axios.get(pUrl).then(function (res) {
     callback(res.data);
   });
 }
 export function get_player(player_id, callback) {
-  let url = "http://rtmp.icassi.us:8090/player2?player_id=" + player_id;
+  let url = `${get_server_url()}/player2?player_id=${player_id}`;
   let pUrl = _proxy(url);
-  axios.get(pUrl).then(function(res) {
+  axios.get(pUrl).then(function (res) {
     callback(res.data);
   });
 }
 export function get_basescore(callback) {
-  let url = "http://rtmp.icassi.us:8090/basescore?idx=rank16";
+  let url = `${get_server_url()}/basescore?idx=rank16`;
+  // "http://rtmp.icassi.us:8090/basescore?idx=rank16";
   let pUrl = _proxy(url);
-  axios.get(pUrl).then(function(res) {
+  axios.get(pUrl).then(function (res) {
     callback(res.data);
   });
 }
 export function get_basescore_com(callback) {
-  let url = "http://rtmp.icassi.us:8090/basescore?idx=com_score";
+  let url = `${get_server_url()}/basescore?idx=com_score`;
+  // "http://rtmp.icassi.us:8090/basescore?idx=com_score";
   let pUrl = _proxy(url);
-  axios.get(url).then(function(res) {
+  axios.get(url).then(function (res) {
     callback(res.data);
   });
 }
-export const get_rank5_doc_url = "http://rtmp.icassi.us:8090/cw?idx=rank5";
-export const get_ww3_doc_url = "http://rtmp.icassi.us:8090/basescore?idx=ww3";
-export const get_blood_map_url = "http://rtmp.icassi.us:8090/bloodmap?idx=1";
+export const get_rank5_doc_url = `${get_server_url()}/cw?idx=rank5`;
+// "http://rtmp.icassi.us:8090/cw?idx=rank5";
+export const get_ww3_doc_url = `${get_server_url()}/basescore?idx=ww3`;
+// "http://rtmp.icassi.us:8090/basescore?idx=ww3";
+export const get_blood_map_url = `${get_server_url()}/bloodmap?idx=1`;
+  // "http://rtmp.icassi.us:8090/bloodmap?idx=1";
 export function auto_doc(url, callback, invert = 1000) {
   axios.get(url).then(
-    function(res) {
+    function (res) {
       callback(res.data);
-      setTimeout(_ => {
+      setTimeout((_) => {
         auto_doc(url, callback, invert);
       }, invert);
     },
-    err => {
-      setTimeout(_ => {
+    (err) => {
+      setTimeout((_) => {
         auto_doc(url, callback, invert);
       }, invert);
     }
@@ -71,7 +86,7 @@ export function loadImg64(sp, url, cache = false) {
   if (cache && imageCache[url]) {
     _c_.emit(ccType.Sprite, { name: sp, img64: imageCache[url] });
   } else
-    axios.get(pUrl).then(function(res) {
+    axios.get(pUrl).then(function (res) {
       // console.log('axios loaded----', res.data)
       imageCache[url] = res.data;
       _c_.emit(ccType.Sprite, { name: sp, img64: res.data });
@@ -84,7 +99,7 @@ export function loadImgOnly(url) {
   } else {
     if (!loaderCache[url]) {
       loaderCache[url] = "loading";
-      axios.get(pUrl).then(function(res) {
+      axios.get(pUrl).then(function (res) {
         loaderCache[url] = "done";
         console.log("axios loaded----", url);
         imageCache[url] = res.data;
@@ -111,7 +126,7 @@ export function loadImg64ByNode(sp, url, cache = false) {
     let newframe = new cc.SpriteFrame(tex);
     sp.spriteFrame = newframe;
   } else
-    axios.get(pUrl).then(function(res) {
+    axios.get(pUrl).then(function (res) {
       let img = new Image();
       imageCache[url] = res.data;
       img.src = res.data;
@@ -127,7 +142,7 @@ let imageCache = {};
 export function loadImg64_InjectCls(url, callback) {
   let pUrl = _proxy(url);
   if (!imageCache[url]) {
-    axios.get(pUrl).then(function(res) {
+    axios.get(pUrl).then(function (res) {
       imageCache[url] = res.data;
       callback(res.data);
     });
@@ -150,6 +165,6 @@ export function opReq(cmdId, param) {
     url: url,
     method: "post",
     data: JSON.stringify(param),
-    headers: { "Content-Type": "application/json" }
+    headers: { "Content-Type": "application/json" },
   });
 }

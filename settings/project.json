@@ -8,17 +8,25 @@
   "design-resolution-height": 1080,
   "design-resolution-width": 1920,
   "excluded-modules": [
-    "ParticleSystem",
-    "TiledMap",
-    "Spine Skeleton",
+    "Audio",
+    "AudioSource",
+    "Collider",
     "DragonBones",
+    "EditBox",
+    "Physics",
     "PageView",
     "PageViewIndicator",
-    "EditBox",
+    "ParticleSystem",
+    "RichText",
+    "Spine Skeleton",
+    "TiledMap",
     "VideoPlayer",
     "WebView",
-    "Audio",
-    "AudioSource"
+    "3D",
+    "3D Primitive",
+    "3D Physics/cannon.js",
+    "3D Physics/Builtin",
+    "3D Particle"
   ],
   "facebook": {
     "appID": "",
@@ -30,12 +38,12 @@
       "enable": false
     }
   },
-  "fit-height": false,
+  "fit-height": true,
   "fit-width": true,
   "group-list": [
     "default"
   ],
-  "last-module-event-record-time": 1577254605571,
+  "last-module-event-record-time": 1582878588801,
   "simulator-orientation": false,
   "simulator-resolution": {
     "height": 640,

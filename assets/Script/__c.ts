@@ -157,7 +157,7 @@ export default class __sp extends cc.Component {
         })
         handle(ccType.Animation, data => {
             let anim: cc.Animation = this.comp
-            // cc.log('ccType.Animation', data,anim)
+            cc.log('ccType.Animation', data,anim)
             if (data.play) {
                 anim.play(data.play)
             }

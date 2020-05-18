@@ -1,10 +1,15 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.4",
   "uuid": "1dc9ad56-b109-4a13-ab2a-27fe48981d40",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 830,
+  "height": 44,
+  "platformSettings": {},
   "subMetas": {
     "blood_bar2": {
       "ver": "1.0.4",

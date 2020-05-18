@@ -1,5 +1,6 @@
 const { ccclass } = cc._decorator;
 declare let _c_: cc.Node;
+
 @ccclass
 export default class __Clip extends cc.Component {
 
