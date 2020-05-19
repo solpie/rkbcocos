@@ -26,9 +26,9 @@ export default class Game3v3 extends cc.Component {
     _node_bg2_4v4: cc.Node
     _node_bg2_1v1: cc.Node
 
-    dot_1: cc.Sprite
-    dot_2: cc.Sprite
-    dot_3: cc.Sprite
+    // dot_1: cc.Sprite
+    // dot_2: cc.Sprite
+    // dot_3: cc.Sprite
     dot_tex = {}
 
     col_map = { '1': cc.color(1, 159, 247), '2': cc.color(2, 205, 128), '3': cc.color(174, 102, 241) }
@@ -69,19 +69,19 @@ export default class Game3v3 extends cc.Component {
         setText('txt_team_L', '')
         setText('txt_team_R', '')
 
-        this.dot_1 = cc.find('dot_1', this.node).getComponent(cc.Sprite)
-        this.dot_2 = cc.find('dot_2', this.node).getComponent(cc.Sprite)
-        this.dot_3 = cc.find('dot_3', this.node).getComponent(cc.Sprite)
+        // this.dot_1 = cc.find('dot_1', this.node).getComponent(cc.Sprite)
+        // this.dot_2 = cc.find('dot_2', this.node).getComponent(cc.Sprite)
+        // this.dot_3 = cc.find('dot_3', this.node).getComponent(cc.Sprite)
 
         this.team_name_L = cc.find('txt_team_L', this.node)//.getComponent(cc.Label)
         this.team_name_R = cc.find('txt_team_R', this.node)//.getComponent(cc.Label)
 
-        this.dot_tex['dot_1'] = this.dot_1.spriteFrame
-        this.dot_tex['dot_2'] = this.dot_2.spriteFrame
-        this.dot_tex['dot_3'] = this.dot_3.spriteFrame
+        // this.dot_tex['dot_1'] = this.dot_1.spriteFrame
+        // this.dot_tex['dot_2'] = this.dot_2.spriteFrame
+        // this.dot_tex['dot_3'] = this.dot_3.spriteFrame
 
-        this.team_name_L.color = this.col_map['1']
-        this.team_name_R.color = this.col_map['2']
+        // this.team_name_L.color = this.col_map['1']
+        // this.team_name_R.color = this.col_map['2']
 
         this.gameTimer.isMin = true
         // this.initWS()
@@ -184,11 +184,11 @@ export default class Game3v3 extends cc.Component {
         if (doc.rec != '') {
             let a = doc.rec.split('_')
             if (a.length == 2) {
-                this.dot_1.spriteFrame = this.dot_tex['dot_' + a[0]]
-                this.dot_2.spriteFrame = this.dot_tex['dot_' + a[1]]
+                // this.dot_1.spriteFrame = this.dot_tex['dot_' + a[0]]
+                // this.dot_2.spriteFrame = this.dot_tex['dot_' + a[1]]
 
-                this.team_name_L.color = this.col_map[a[0]]
-                this.team_name_R.color = this.col_map[a[1]]
+                // this.team_name_L.color = this.col_map[a[0]]
+                // this.team_name_R.color = this.col_map[a[1]]
 
             }
         }
