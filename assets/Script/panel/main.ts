@@ -6,6 +6,7 @@ const route = {
     , 'bscore': 'big_score'
     , 'rank0': 'rank0'
     , '3v3': '3v3'
+    , '5v5': 'TJ_5v5'
     , 'gfx': 'gfx2'
     , 'gfx2': 'gfx2'
     , 'football': 'football'
