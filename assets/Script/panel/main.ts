@@ -19,7 +19,7 @@ const route = {
     , 'benxi_score': 'big_score'
     , 'benxi_bblood': 'big_blood_benxi'
     , 'benxi_bblood2': 'big_blood_benxi2'
-    , 'benxi_ww3': 'ww3_benxi2'
+    , 'ww3': 'ww3_benxi2'
     , 'side_player': 'side_player'
     , 'rank8': 'rank8'
     , 'rank5': 'rank5_benxi2'

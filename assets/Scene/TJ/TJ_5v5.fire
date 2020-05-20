@@ -175,7 +175,7 @@
       "array": [
         0,
         0,
-        455.7010599984237,
+        718.990528198162,
         0,
         0,
         0,
@@ -1585,7 +1585,7 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -1693,7 +1693,7 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -2290,6 +2290,9 @@
       "__id__": 4
     },
     "_enabled": true,
+    "node_timer": {
+      "__id__": 20
+    },
     "_id": "31xxnVQFVF5q2a/KstiuCU"
   },
   {

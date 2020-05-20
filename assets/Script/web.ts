@@ -4,8 +4,8 @@ declare let _c_;
 declare let io;
 let server_url = "http://rtmp.icassi.us:8088";
 export function getWsUrl(): string {
-  if (CC_BUILD) return "/rkb";
-  return "http://127.0.0.1/rkb";
+  if (CC_BUILD) return "/";
+  return "http://liangle-rkb-stg.hupu.com/";
 }
 
 const get_server_url = (env?) => {
@@ -43,7 +43,7 @@ export function get_player(player_id, callback) {
 export function get_basescore(callback) {
   let url = `${get_server_url()}/basescore?idx=rank16`;
   // "http://rtmp.icassi.us:8090/basescore?idx=rank16";
-  let pUrl = _proxy(url);
+  let pUrl = url;
   axios.get(pUrl).then(function (res) {
     callback(res.data);
   });
@@ -61,7 +61,7 @@ export const get_rank5_doc_url = `${get_server_url()}/cw?idx=rank5`;
 export const get_ww3_doc_url = `${get_server_url()}/basescore?idx=ww3`;
 // "http://rtmp.icassi.us:8090/basescore?idx=ww3";
 export const get_blood_map_url = `${get_server_url()}/bloodmap?idx=1`;
-  // "http://rtmp.icassi.us:8090/bloodmap?idx=1";
+// "http://rtmp.icassi.us:8090/bloodmap?idx=1";
 export function auto_doc(url, callback, invert = 1000) {
   axios.get(url).then(
     function (res) {
