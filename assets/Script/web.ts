@@ -23,7 +23,7 @@ export function getWs(): any {
 
 function _proxy(url) {
   if (CC_BUILD) return "/proxy?url=" + url;
-  return "http://127.0.0.1:80/proxy?url=" + url;
+  return "http://liangle-rkb-stg.hupu.com/proxy?url=" + url;
 }
 
 export function get_champion_rank_rec(callback) {

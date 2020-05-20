@@ -25,13 +25,11 @@ export default class Game3v3 extends cc.Component {
   @property(cc.Node) //
   node_timer: cc.Node = null;
 
-  _node_bg2_4v4: cc.Node;
-  _node_bg2_1v1: cc.Node;
+  @property(cc.Node) //
+  node_foul_bar_blue: cc.Node = null;
 
-  // dot_1: cc.Sprite
-  // dot_2: cc.Sprite
-  // dot_3: cc.Sprite
-  dot_tex = {};
+  @property(cc.Node) //
+  node_foul_bar_red: cc.Node = null;
 
   col_map = {
     "1": cc.color(1, 159, 247),
@@ -52,6 +50,7 @@ export default class Game3v3 extends cc.Component {
       this.node_timer.getComponent(cc.Label).string = cont;
     });
     this.gameTimer.isMin = false;
+    //   this.node_foul_dot.getComponent(cc.Sprite).spriteF
   }
   isLoadOP = false;
   delay: number = 0;
@@ -84,7 +83,6 @@ export default class Game3v3 extends cc.Component {
 
     this.initWS();
     // _c_.emit(ccType.Node, { name: 'bg2_4v4', active: false })
-
     if (!CC_BUILD) {
       this.test();
     }
@@ -138,18 +136,33 @@ export default class Game3v3 extends cc.Component {
     let url = "http://rtmp.icassi.us:8092/img/player/0323/p1.png";
     loadImg64("player_info_avt", url);
   }
-
+  foul_num_pos_x = [-38, 0, 42, 80, 113, 156];
   foulToFT: number = 5;
   setFoul_L(foul, foulToFT?) {
     let g3 = getGame3v3();
     g3.lFoul = Number(foul);
     setText("txt_foul_L", foul);
+    if (foul > 5) {
+      foul = 5;
+    }
+    if (foul < 0) {
+      foul = 0;
+    }
+    this.node_foul_bar_blue.x = this.foul_num_pos_x[foul];
   }
 
   setFoul_R(foul, foulToFT?) {
     let g3 = getGame3v3();
     g3.rFoul = Number(foul);
     setText("txt_foul_R", foul);
+
+    if (foul > 5) {
+      foul = 5;
+    }
+    if (foul < 0) {
+      foul = 0;
+    }
+    this.node_foul_bar_red.x = this.foul_num_pos_x[foul];
   }
 
   setScore(data) {

@@ -1,19 +1,13 @@
 import { Timer } from "../../com/timer";
-import {
-  getWsUrl,
-  loadImg64,
-  get_basescore,
-  loadImg64ByNode,
-  auto_doc,
-  get_blood_map_url,
-  get_ww3_doc_url
-} from "../../web";
-import { WSEvent } from "../../api";
-import { setText, ccType } from "../../__c";
-import { get_auto_timer } from "../../com/autoTimer";
-import { SideBloodView } from "../ww3/side_blood/SideBloodView";
-import { on_get_blood_map_doc } from "./ww3doc_TJ";
 import { TimerStack } from "../../com/TimerStack";
+import {
+  auto_doc,
+  get_basescore,
+  get_blood_map_url,
+  loadImg64,
+} from "../../web";
+import { setText } from "../../__c";
+import { on_get_blood_map_doc } from "./ww3doc_TJ";
 
 const { ccclass, property } = cc._decorator;
 declare let io;
@@ -28,7 +22,7 @@ export default class Rank0TJ extends cc.Component {
   // avt_L: cc.Sprite;
   // avt_R: cc.Sprite;
   auto_timer_url: string = "";
-  is_ww3 = false;
+  // is_ww3 = false;
   hint_score_L: cc.Animation;
   hint_score_R: cc.Animation;
   hint_foul_L: cc.Animation;
@@ -46,16 +40,31 @@ export default class Rank0TJ extends cc.Component {
   BAR_INIT_Y_L;
   BAR_INIT_Y_R;
   BAR_HEIGHT = 98;
+
+  @property(cc.Node) //
+  node_timer: cc.Node = null;
+
+  @property(cc.Node) //
+  node_blood_bar_blue: cc.Node = null;
+
+  @property(cc.Node) //
+  node_blood_bar_red: cc.Node = null;
+
+  @property(Boolean) //
+  is_ww3_panel: Boolean = false;
+
   onload() {
     // this.gameTimer.initTimer(this, 'txt_timer')
   }
   start() {
     if (window["no_timer"]) {
-      cc.find("front_panel/txt_timer", this.node).opacity = 0;
+      this.node_timer.opacity = 0;
     }
-    this.gameTimer.initTimer(this, "txt_timer");
-    //init game timer
+    this.gameTimer.initTimer(new cc.Component(), (cont) => {
+      this.node_timer.getComponent(cc.Label).string = cont;
+    });
     this.gameTimer.isMin = false;
+
     this.gameTimer.resetTimer();
 
     // this.avt_L = this.node
@@ -67,7 +76,8 @@ export default class Rank0TJ extends cc.Component {
     //   .getChildByName("avt_R")
     //   .getComponent(cc.Sprite);
 
-    this.is_ww3 = window["panel_name"] == "benxi_ww3";
+    // this.is_ww3 = window["panel_name"] == "benxi_ww3";
+    // this.is_ww3 = window["panel_name"] == "ww3";
 
     this.node_hint_score_L = cc.find("hint_score_L", this.node);
     this.hint_score_L = this.node_hint_score_L.getComponent(cc.Animation);
@@ -91,7 +101,7 @@ export default class Rank0TJ extends cc.Component {
 
     this.setPlayer(false, { name: "" });
     this.setPlayer(true, { name: "" });
-    if (this.is_ww3) {
+    if (this.is_ww3_panel) {
       //邀请赛
       this.node_hint_score_L.active = false;
       this.node_hint_score_R.active = false;
@@ -107,12 +117,13 @@ export default class Rank0TJ extends cc.Component {
         this.hint_foul_L.play("foul_hint");
       }
       this.initWS_ww3();
-      auto_doc(get_blood_map_url, res => {
+      auto_doc(get_blood_map_url, (res) => {
+        cc.log("auto_doc get_blood_map_url");
         if (res && res.length == 1) {
           let doc = res[0];
           cc.log("bloodmap", doc);
           on_get_blood_map_doc(doc, this);
-          this.set_timer(doc);
+          // this.set_timer(doc);
         }
       });
     } else {
@@ -187,8 +198,8 @@ export default class Rank0TJ extends cc.Component {
   }
 
   get_basescore2() {
-    get_basescore(data => {
-      setTimeout(_ => {
+    get_basescore((data) => {
+      setTimeout((_) => {
         this.get_basescore2();
       }, 1000);
 
@@ -230,8 +241,8 @@ export default class Rank0TJ extends cc.Component {
       this.player_name_L.string = player.name;
     }
     if (player.avatar) {
-      let sp = isR ? "avt_R" : "avt_L";
-      loadImg64(sp, player.avatar, true);
+      // let sp = isR ? "avt_R" : "avt_L";
+      // loadImg64(sp, player.avatar, true);
     }
   }
 

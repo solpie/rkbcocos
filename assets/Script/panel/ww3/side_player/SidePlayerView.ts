@@ -101,7 +101,7 @@ export default class SidePlayerView extends cc.Component {
         get_player(player_id, data => {
             let url = data[0].avatar
             cc.log('load avt', url)
-            loadImg64ByNode(sp, data[0].avatar)
+            // loadImg64ByNode(sp, data[0].avatar)
         })
     }
     initWS() {

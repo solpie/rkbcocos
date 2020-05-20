@@ -9549,8 +9549,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 107,
-      "height": 97
+      "width": 108,
+      "height": 98
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9758,7 +9758,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 108,
-      "height": 97
+      "height": 98
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -10885,6 +10885,11 @@
       "__id__": 217
     },
     "_enabled": true,
+    "node_timer": {
+      "__id__": 253
+    },
+    "node_blood_bar_blue": null,
+    "node_blood_bar_red": null,
     "_id": "99CTKVzgVEl7p4n9SxNTEr"
   },
   {
