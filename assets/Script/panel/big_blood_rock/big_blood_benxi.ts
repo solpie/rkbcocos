@@ -7,7 +7,7 @@ const { ccclass, property } = cc._decorator;
 declare let _c_;
 declare let io;
 // let baseUrl = 'http://rtmp.icassi.us:8092/img/player/0602/'
-let bar_width = 248
+// let bar_width = 367
 let bar_L_init = 0
 let bar_R_init = 0
 @ccclass
@@ -38,15 +38,16 @@ export default class BigBloodRock extends cc.Component {
         cc.log('Big blood benxi on loaded')
     }
     start() {
-
         let _Label = (name) => {
             return cc.find(name, this.node).getComponent(cc.Label)
         }
         let _Sp = (name) => {
             return cc.find(name, this.node).getComponent(cc.Sprite)
         }
+
         this.timeout_L = cc.find('txt_timeout_L', this.node).getComponent(cc.Label)
         this.timeout_R = cc.find('txt_timeout_R', this.node).getComponent(cc.Label)
+
         this.timeout_L.string = '0'
         this.timeout_R.string = '0'
 
@@ -69,12 +70,12 @@ export default class BigBloodRock extends cc.Component {
         this.avt_half_R = cc.find('avt_R', this.node).getComponent(cc.Sprite)
 
         if (!CC_BUILD) {
-            loadImg64ByNode(this.avt_half_L, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
-            loadImg64ByNode(this.avt_half_R, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
+            // loadImg64ByNode(this.avt_half_L, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
+            // loadImg64ByNode(this.avt_half_R, 'http://rtmp.icassi.us:8092/img/player/0926/p1_half.png')
         }
         // let blood = _Label('player_bar_benxi_R1/txt_player_blood')
         // blood.string = '9'
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 5; i++) {
             let idx = (i + 1)
             let blood_L = _Label(`player_bar_benxi_L${idx}/txt_player_blood`)
             let blood_R = _Label(`player_bar_benxi_R${idx}/txt_player_blood`)
@@ -97,12 +98,12 @@ export default class BigBloodRock extends cc.Component {
                 bar_L_init = bar_L.x
                 bar_R_init = bar_R.x
             }
-            if (!CC_BUILD) {
-                blood_L.string = '9'
-                blood_R.string = '9'
-                bar_L.x = bar_L_init + (1 - 3 / 9) * bar_width
-                bar_R.x = bar_R_init + (1 - 3 / 9) * bar_width
-            }
+            // if (!CC_BUILD) {
+            //     blood_L.string = '9'
+            //     blood_R.string = '9'
+            //     bar_L.x = bar_L_init + (1 - 3 / 9) * bar_width
+            //     bar_R.x = bar_R_init + (1 - 3 / 9) * bar_width
+            // }
         }
         auto_doc(get_blood_map_url, res => {
             if (res && res.length == 1) {

@@ -2,11 +2,13 @@
 const { ccclass, property } = cc._decorator;
 const route = {
     // 'ww3': 'worldwar3'
-     'bblood': 'big_blood_rock'
-    , 'bscore': 'big_score'
+    //  'bblood': 'big_blood_rock'
+     'bscore': 'big_score'
     , 'rank0': 'rank0'
     , '3v3': '3v3'
     , '5v5': 'TJ_5v5'
+    , 'bblood': 'TJ_ww3_big_blood'
+    
     , 'gfx': 'gfx2'
     , 'gfx2': 'gfx2'
     , 'football': 'football'

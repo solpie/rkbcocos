@@ -1,0 +1,1 @@
+export const BIG_BLOOD_BAR_WIDTH = 367

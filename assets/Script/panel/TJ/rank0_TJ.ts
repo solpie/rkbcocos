@@ -5,6 +5,7 @@ import {
   get_basescore,
   get_blood_map_url,
   loadImg64,
+  getWsUrl,
 } from "../../web";
 import { setText } from "../../__c";
 import { on_get_blood_map_doc } from "./ww3doc_TJ";
@@ -157,16 +158,18 @@ export default class Rank0TJ extends cc.Component {
     this.gameTimer.setTimeBySec(sec);
   }
   initWS_ww3() {
-    // let ws = getWsUrl();
-    // io(ws)
-    //   .on("connect", _ => {
-    //     cc.log("socketio.....localWS");
-    //   })
-    //   .on(WSEvent.sc_setPlayer, data => {})
-    //   .on(WSEvent.sc_timerEvent, data => {
-    //     cc.log("sc_timerEvent", data);
-    //     this.gameTimer.setTimerEvent(data);
-    //   });
+    let ws = getWsUrl();
+    io(ws)
+      .on("connect", (_) => {
+        cc.log("socketio.....localWS");
+      })
+      .on("LIVE_TIMER_EVENT", (data) => {
+        if (data["param"]) {
+          const jd = JSON.parse(data["param"]);
+          cc.log("LIVE_TIMER_EVENT", jd);
+          this.gameTimer.setTimerEvent(jd);
+        }
+      });
   }
   _set_blood(data) {
     let player_L = data.vsPlayerArr[0];

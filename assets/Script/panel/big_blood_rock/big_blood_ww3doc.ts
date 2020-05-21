@@ -2,7 +2,9 @@ import { setText } from "../../__c";
 import { SideBloodView } from "../ww3/side_blood/SideBloodView";
 import BigBloodRock from "./big_blood_benxi";
 import { loadImg64ByNode, loadImgOnly, get_loaded_count } from "../../web";
-let bar_width = 248;
+import { BIG_BLOOD_BAR_WIDTH } from './Const';
+// BIG_BLOOD_BAR_WIDTH
+let bar_width = BIG_BLOOD_BAR_WIDTH;
 let bar_L_init = 0;
 let bar_R_init = 0;
 declare let _c_;
@@ -20,9 +22,10 @@ function set_row_player(
     let p = player_arr[i];
     let pid = p.player_id;
     total_blood += p.blood;
-    if (pid == player_id_pass) {
-      continue;
-    }
+    //忽略当前球员
+    // if (pid == player_id_pass) {
+    //   continue;
+    // }
 
     let player_row;
     if (is_left) {
@@ -49,9 +52,9 @@ function set_row_player(
 let is_loaded = false;
 export function on_blood_map_doc_big_blood(doc, bigBloodRock: BigBloodRock) {
   let cur_game_idx = doc.cur_game_idx;
-  let player_name_L = doc.cur_player_name_L;
-  let player_name_R = doc.cur_player_name_R;
-  cc.log("cur game idx", cur_game_idx, player_name_L);
+  let cur_player_name_L = doc.cur_player_name_L;
+  let cur_player_name_R = doc.cur_player_name_R;
+  cc.log("cur game idx", cur_game_idx, cur_player_name_L);
   let rec = doc.bloodmap[cur_game_idx];
   if (rec) {
     let team_L = rec.team_L;
@@ -62,13 +65,13 @@ export function on_blood_map_doc_big_blood(doc, bigBloodRock: BigBloodRock) {
     let half_avatar_arr = [];
 
     for (let p of team_L) {
-      if (p.name == player_name_L) {
+      if (p.name == cur_player_name_L) {
         leftPlayer = p;
       }
       if (!is_loaded) half_avatar_arr.push(p.avatar_half);
     }
     for (let p of team_R) {
-      if (p.name == player_name_R) {
+      if (p.name == cur_player_name_R) {
         rightPlayer = p;
       }
       if (!is_loaded) half_avatar_arr.push(p.avatar_half);
