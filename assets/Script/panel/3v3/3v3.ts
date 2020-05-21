@@ -4,6 +4,8 @@ import { WSEvent } from "../../api";
 import { getWsUrl, loadImg64, get_basescore_com } from "../../web";
 import { BaseGame } from "../ww3/ww3_op";
 import { TimerStack } from "../../com/TimerStack";
+import { HboxView } from "./../utils/HboxView";
+import { ToggleView } from "./../utils/ToggleView";
 
 const { ccclass, property } = cc._decorator;
 declare let io;
@@ -25,12 +27,34 @@ export default class Game3v3 extends cc.Component {
   @property(cc.Node) //
   node_timer: cc.Node = null;
 
-  @property(cc.Node) //
-  node_foul_bar_blue: cc.Node = null;
+  //   @property(cc.Node) //
+  //   node_foul_bar_blue: cc.Node = null;
+
+  //   @property(cc.Node) //
+  //   node_foul_bar_red: cc.Node = null;
 
   @property(cc.Node) //
-  node_foul_bar_red: cc.Node = null;
+  node_foul_notice_L: cc.Node = null;
 
+  @property(cc.Node) //
+  node_foul_notice_R: cc.Node = null;
+
+  @property(cc.Node) //
+  node_game_process_num: cc.Node = null;
+
+  @property(cc.Node) //
+  node_game_process_flag: cc.Node = null;
+
+  @property(cc.Node) //
+  node_foul_dot_L: cc.Node = null;
+
+  @property(cc.Node) //
+  node_foul_dot_R: cc.Node = null;
+
+  foul_dot_view_L: HboxView;
+  foul_dot_view_R: HboxView;
+  foul_notice_view_L: ToggleView;
+  foul_notice_view_R: ToggleView;
   col_map = {
     "1": cc.color(1, 159, 247),
     "2": cc.color(2, 205, 128),
@@ -50,6 +74,27 @@ export default class Game3v3 extends cc.Component {
       this.node_timer.getComponent(cc.Label).string = cont;
     });
     this.gameTimer.isMin = false;
+
+    this.foul_dot_view_L = new HboxView({
+      node: this.node_foul_dot_L,
+      basename: "dot_",
+      len: 5,
+    });
+
+    this.foul_dot_view_R = new HboxView({
+      node: this.node_foul_dot_R,
+      basename: "dot_",
+      len: 5,
+    });
+
+    this.foul_notice_view_L = new ToggleView({
+      node: this.node_foul_notice_L,
+      path_arr: ["flag_tech_foul", "flag_volate"],
+    });
+    this.foul_notice_view_R = new ToggleView({
+      node: this.node_foul_notice_R,
+      path_arr: ["flag_tech_foul", "flag_volate"],
+    });
     //   this.node_foul_dot.getComponent(cc.Sprite).spriteF
   }
   isLoadOP = false;
@@ -83,11 +128,13 @@ export default class Game3v3 extends cc.Component {
 
     this.initWS();
     // _c_.emit(ccType.Node, { name: 'bg2_4v4', active: false })
+
+    // this.set4v4Icon({ is4v4: true })
+    this.auto_basescore();
+
     if (!CC_BUILD) {
       this.test();
     }
-    // this.set4v4Icon({ is4v4: true })
-    this.auto_basescore();
   }
 
   last_timestamp = -1;
@@ -135,7 +182,20 @@ export default class Game3v3 extends cc.Component {
   test() {
     let url = "http://rtmp.icassi.us:8092/img/player/0323/p1.png";
     loadImg64("player_info_avt", url);
+    this.node_game_process_num.getComponent(cc.Label).string = "2";
+    this.node_game_process_flag.getComponent(cc.Label).string = "ND";
+    this.foul_notice_view_L.show_child("flag_volate");
+    this.foul_notice_view_R.show_child("flag_volate");
+      setTimeout((_) => {
+    this.foul_notice_view_L.show_child("");
+    this.foul_notice_view_R.show_child("");
+        
+      // this.auto_basescore();
+      //   this.foul_dot_view_L.show_num_children(3);
+      //   this.foul_dot_view_R.show_num_children(2);
+    }, 3000);
   }
+
   foul_num_pos_x = [-38, 0, 42, 80, 113, 156];
   foulToFT: number = 5;
   setFoul_L(foul, foulToFT?) {
@@ -148,7 +208,8 @@ export default class Game3v3 extends cc.Component {
     if (foul < 0) {
       foul = 0;
     }
-    this.node_foul_bar_blue.x = this.foul_num_pos_x[foul];
+    this.foul_dot_view_L.show_num_children(foul);
+    // this.node_foul_bar_blue.x = this.foul_num_pos_x[foul];
   }
 
   setFoul_R(foul, foulToFT?) {
@@ -162,7 +223,7 @@ export default class Game3v3 extends cc.Component {
     if (foul < 0) {
       foul = 0;
     }
-    this.node_foul_bar_red.x = this.foul_num_pos_x[foul];
+    this.foul_dot_view_R.show_num_children(foul);
   }
 
   setScore(data) {
@@ -197,6 +258,7 @@ export default class Game3v3 extends cc.Component {
       }
     }
   }
+
   set_timer(doc, is_cache = false) {
     // timer_stack.set_stack(doc.timer_stack);
     // let sec;
@@ -225,60 +287,5 @@ export default class Game3v3 extends cc.Component {
           this.gameTimer.setTimerEvent(jd);
         }
       });
-    //   .on(WSEvent.sc_update_basescore, (data) => {
-    //     cc.log("sc_update_basescore", data);
-    //     this.set_basescore(data);
-    //   })
-    //   .on(WSEvent.sc_timerEvent, (data) => {
-    //     cc.log("sc_timerEvent", data);
-    //     this.gameTimer.setTimerEvent(data);
-    //   })
-    //   .on(WSEvent.sc_setFoul, (data) => {
-    //     cc.log("sc_setFoul", data);
-    //     this.setFoul_L(data.lFoul);
-    //     this.setFoul_R(data.rFoul);
-    //   })
-    //   .on(WSEvent.sc_set_player, (data) => {
-    //     cc.log("sc_setPlayer", data);
-    //     this.set_player(data);
-    //   })
-    //   .on(WSEvent.sc_updateScore, (data) => {
-    //     cc.log("sc_updateScore", data);
-    //     if (this.delay > 0 && window["isDelay"]) {
-    //       setTimeout(() => {
-    //         this.setScore(data);
-    //       }, this.delay);
-    //     } else this.setScore(data);
-    //   })
-    //   .on(WSEvent.sc_updateFoul, (data) => {
-    //     cc.log("sc_updateFoul", data);
-    //     if (this.delay > 0 && window["isDelay"]) {
-    //       //main.js
-    //       setTimeout(() => {
-    //         this.setFoul_L(data.lFoul);
-    //         this.setFoul_R(data.rFoul);
-    //       }, this.delay);
-    //     } else {
-    //       this.setFoul_L(data.lFoul);
-    //       this.setFoul_R(data.rFoul);
-    //     }
-    //   })
-    //   .on(WSEvent.sc_set_4v4_icon, (data) => {
-    //     cc.log("sc_set_4v4_icon", data);
-    //     this.set4v4Icon(data);
-    //   })
-    //   .on(WSEvent.sc_set_delay, (data) => {
-    //     cc.log("sc_set_delay", data);
-    //     if (data.delay >= 0) {
-    //       this.delay = data.delay * 1000;
-    //     }
-    //   })
-
-    //   .on(WSEvent.sc_sync_game, (data) => {
-    //     cc.log("sc_sync_game", data);
-    //     if (data.id != this.id) {
-    //       // this.setBaseGame(data)
-    //     }
-    //   });
   }
 }
