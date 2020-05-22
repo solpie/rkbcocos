@@ -2,18 +2,18 @@ import { setText } from "../../__c";
 import { SideBloodView } from "../ww3/side_blood/SideBloodView";
 import BigBloodRock from "./big_blood_benxi";
 import { loadImg64ByNode, loadImgOnly, get_loaded_count } from "../../web";
-import { BIG_BLOOD_BAR_WIDTH } from './Const';
+import { BIG_BLOOD_BAR_WIDTH } from "./Const";
 // BIG_BLOOD_BAR_WIDTH
 let bar_width = BIG_BLOOD_BAR_WIDTH;
 let bar_L_init = 0;
 let bar_R_init = 0;
 declare let _c_;
-function set_row_player(
+const set_row_player = (
   player_arr,
   cur_player,
   is_left,
   bigBloodRock: BigBloodRock
-) {
+) => {
   let player_id_pass = cur_player.player_id;
 
   let row_idx = 0,
@@ -48,7 +48,9 @@ function set_row_player(
   } else {
     bigBloodRock.total_blood_R.string = total_blood + "";
   }
-}
+};
+
+////
 let is_loaded = false;
 export function on_blood_map_doc_big_blood(doc, bigBloodRock: BigBloodRock) {
   let cur_game_idx = doc.cur_game_idx;
@@ -68,13 +70,13 @@ export function on_blood_map_doc_big_blood(doc, bigBloodRock: BigBloodRock) {
       if (p.name == cur_player_name_L) {
         leftPlayer = p;
       }
-      if (!is_loaded) half_avatar_arr.push(p.avatar_half);
+      // if (!is_loaded) half_avatar_arr.push(p.avatar);
     }
     for (let p of team_R) {
       if (p.name == cur_player_name_R) {
         rightPlayer = p;
       }
-      if (!is_loaded) half_avatar_arr.push(p.avatar_half);
+      // if (!is_loaded) half_avatar_arr.push(p.avatar);
     }
 
     bigBloodRock.cur_blood_L.string = leftPlayer.blood;
@@ -97,20 +99,37 @@ export function on_blood_map_doc_big_blood(doc, bigBloodRock: BigBloodRock) {
       sbv.set_player({ lTeam: team_L, rTeam: team_R });
     }
 
-    if (!is_loaded) {
-      for (let url of half_avatar_arr) {
-        loadImgOnly(url);
-      }
-      if (half_avatar_arr.length == get_loaded_count()) {
-        is_loaded = true;
-        cc.log("on_blood_map_doc_big_blood", "load done!");
-      } else return;
-    }
+    // if (!is_loaded) {
+    //   for (let url of half_avatar_arr) {
+    //     loadImgOnly(url);
+    //   }
+    //   if (half_avatar_arr.length == get_loaded_count()) {
+    //     is_loaded = true;
+    //     cc.log("on_blood_map_doc_big_blood", "load done!");
+    //   } else return;
+    // }
+    //load 半身照 加载
+    console.log("avatar_half", leftPlayer);
+   
     if (leftPlayer.avatar_half) {
-      loadImg64ByNode(bigBloodRock.avt_half_L, leftPlayer.avatar_half, true);
+      cc.loader.loadRes(
+        "player/" + leftPlayer.player_id,
+        cc.SpriteFrame,
+        (err, spriteFrame) => {
+          bigBloodRock.avt_half_L.spriteFrame = spriteFrame;
+        }
+      );
+      // loadImg64ByNode(bigBloodRock.avt_half_L, leftPlayer.avatar_half, true);
     }
     if (rightPlayer.avatar_half) {
-      loadImg64ByNode(bigBloodRock.avt_half_R, rightPlayer.avatar_half, true);
+      cc.loader.loadRes(
+        "player/" + rightPlayer.player_id,
+        cc.SpriteFrame,
+        (err, spriteFrame) => {
+          bigBloodRock.avt_half_R.spriteFrame = spriteFrame;
+        }
+      );
+      // loadImg64ByNode(bigBloodRock.avt_half_R, rightPlayer.avatar_half, true);
     }
   }
 }

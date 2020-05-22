@@ -72,16 +72,16 @@
         "__id__": 3
       },
       {
-        "__id__": 337
+        "__id__": 336
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 338
+        "__id__": 337
       },
       {
-        "__id__": 339
+        "__id__": 338
       }
     ],
     "_prefab": null,
@@ -147,13 +147,13 @@
         "__id__": 216
       },
       {
-        "__id__": 324
+        "__id__": 323
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 336
+        "__id__": 335
       }
     ],
     "_prefab": null,
@@ -181,7 +181,7 @@
       "array": [
         0,
         0,
-        719.1223609538707,
+        718.990528198162,
         0,
         0,
         0,
@@ -7423,7 +7423,7 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 323
+      "__id__": 334
     },
     "_opacity": 255,
     "_color": {
@@ -7527,7 +7527,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 322
+      "__id__": 333
     },
     "_opacity": 255,
     "_color": {
@@ -10897,117 +10897,32 @@
     "node_blood_bar_blue": null,
     "node_blood_bar_red": null,
     "is_ww3_panel": true,
+    "label_team_L": {
+      "__id__": 322
+    },
+    "label_team_R": {
+      "__id__": 327
+    },
+    "label_blood_L": {
+      "__id__": 324
+    },
+    "label_blood_R": {
+      "__id__": 329
+    },
     "_id": "99CTKVzgVEl7p4n9SxNTEr"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 216
-    },
-    "asset": {
-      "__uuid__": "fce121ba-8ce2-44bf-b7d2-b31057da9119"
-    },
-    "fileId": "d2zxUg6OpOd5LKg3GIhfST",
-    "sync": false
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 216
-    },
-    "asset": {
-      "__uuid__": "fce121ba-8ce2-44bf-b7d2-b31057da9119"
-    },
-    "fileId": "b6qInD7/xCVIWUDY7YZCKO",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "top",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 3
-    },
-    "_children": [
-      {
-        "__id__": 325
-      },
-      {
-        "__id__": 327
-      },
-      {
-        "__id__": 330
-      },
-      {
-        "__id__": 332
-      }
-    ],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 335
-      }
-    ],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "5eY++RZNBD4bTkh4fNIJ0S"
   },
   {
     "__type__": "cc.Node",
     "_name": "txt_team_L",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 324
+      "__id__": 323
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 326
+        "__id__": 332
       }
     ],
     "_prefab": null,
@@ -11059,52 +10974,91 @@
     "_id": "299cmE9KZBDr/QiaaWtH6R"
   },
   {
-    "__type__": "cc.Label",
-    "_name": "",
+    "__type__": "cc.Node",
+    "_name": "top",
     "_objFlags": 0,
-    "node": {
-      "__id__": 325
+    "_parent": {
+      "__id__": 3
     },
-    "_enabled": true,
-    "_materials": [
+    "_children": [
       {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+        "__id__": 322
+      },
+      {
+        "__id__": 324
+      },
+      {
+        "__id__": 327
+      },
+      {
+        "__id__": 329
       }
     ],
-    "_useOriginalSize": false,
-    "_string": "唐日辉",
-    "_N$string": "唐日辉",
-    "_fontSize": 40,
-    "_lineHeight": 44,
-    "_enableWrapText": false,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Microsoft Yahei",
-    "_N$overflow": 2,
-    "_N$cacheMode": 0,
-    "_id": "8c8+2SD6VETrrZOJGdZK2p"
+    "_active": true,
+    "_components": [],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "5eY++RZNBD4bTkh4fNIJ0S"
   },
   {
     "__type__": "cc.Node",
     "_name": "txt_blood_L",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 324
+      "__id__": 323
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 328
+        "__id__": 325
       },
       {
-        "__id__": 329
+        "__id__": 326
       }
     ],
     "_prefab": null,
@@ -11160,7 +11114,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 327
+      "__id__": 324
     },
     "_enabled": true,
     "_materials": [
@@ -11194,7 +11148,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 327
+      "__id__": 324
     },
     "_enabled": true,
     "cc_type": "",
@@ -11205,13 +11159,13 @@
     "_name": "txt_team_R",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 324
+      "__id__": 323
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 331
+        "__id__": 328
       }
     ],
     "_prefab": null,
@@ -11267,7 +11221,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 330
+      "__id__": 327
     },
     "_enabled": true,
     "_materials": [
@@ -11299,16 +11253,16 @@
     "_name": "txt_blood_R",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 324
+      "__id__": 323
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 333
+        "__id__": 330
       },
       {
-        "__id__": 334
+        "__id__": 331
       }
     ],
     "_prefab": null,
@@ -11364,7 +11318,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 332
+      "__id__": 329
     },
     "_enabled": true,
     "_materials": [
@@ -11398,33 +11352,65 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 332
+      "__id__": 329
     },
     "_enabled": true,
     "cc_type": "",
     "_id": "19yCOYtoJCSacU/8dj4jUL"
   },
   {
-    "__type__": "ccc6cdjm4VGZaygREu7mlxv",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 324
+      "__id__": 322
     },
     "_enabled": true,
-    "label_team_L": {
-      "__id__": 326
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_useOriginalSize": false,
+    "_string": "唐日辉",
+    "_N$string": "唐日辉",
+    "_fontSize": 40,
+    "_lineHeight": 44,
+    "_enableWrapText": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Microsoft Yahei",
+    "_N$overflow": 2,
+    "_N$cacheMode": 0,
+    "_id": "8c8+2SD6VETrrZOJGdZK2p"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 216
     },
-    "label_team_R": {
-      "__id__": 331
+    "asset": {
+      "__uuid__": "fce121ba-8ce2-44bf-b7d2-b31057da9119"
     },
-    "label_blood_L": {
-      "__id__": 328
+    "fileId": "d2zxUg6OpOd5LKg3GIhfST",
+    "sync": false
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 216
     },
-    "label_blood_R": {
-      "__id__": 333
+    "asset": {
+      "__uuid__": "fce121ba-8ce2-44bf-b7d2-b31057da9119"
     },
-    "_id": "fbloAmcBFMm5muvN2adUVU"
+    "fileId": "b6qInD7/xCVIWUDY7YZCKO",
+    "sync": false
   },
   {
     "__type__": "cc.Camera",

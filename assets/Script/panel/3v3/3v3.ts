@@ -126,6 +126,8 @@ export default class Game3v3 extends cc.Component {
     this.team_name_L = cc.find("txt_team_L", this.node); //.getComponent(cc.Label)
     this.team_name_R = cc.find("txt_team_R", this.node); //.getComponent(cc.Label)
 
+    this.foul_notice_view_L.show_child("");
+    this.foul_notice_view_R.show_child("");
     this.initWS();
     // _c_.emit(ccType.Node, { name: 'bg2_4v4', active: false })
 
@@ -184,16 +186,16 @@ export default class Game3v3 extends cc.Component {
     loadImg64("player_info_avt", url);
     this.node_game_process_num.getComponent(cc.Label).string = "2";
     this.node_game_process_flag.getComponent(cc.Label).string = "ND";
-    this.foul_notice_view_L.show_child("flag_volate");
-    this.foul_notice_view_R.show_child("flag_volate");
-      setTimeout((_) => {
-    this.foul_notice_view_L.show_child("");
-    this.foul_notice_view_R.show_child("");
-        
-      // this.auto_basescore();
-      //   this.foul_dot_view_L.show_num_children(3);
-      //   this.foul_dot_view_R.show_num_children(2);
-    }, 3000);
+    // this.foul_notice_view_L.show_child("flag_volate");
+    // this.foul_notice_view_R.show_child("flag_volate");
+    // setTimeout((_) => {
+    //   this.foul_notice_view_L.show_child("");
+    //   this.foul_notice_view_R.show_child("");
+
+    //   // this.auto_basescore();
+    //   //   this.foul_dot_view_L.show_num_children(3);
+    //   //   this.foul_dot_view_R.show_num_children(2);
+    // }, 3000);
   }
 
   foul_num_pos_x = [-38, 0, 42, 80, 113, 156];
@@ -279,6 +281,35 @@ export default class Game3v3 extends cc.Component {
     io(ws)
       .on("connect", (_) => {
         cc.log("socketio.....localWS");
+      })
+      .on("LIVE_FOUL_NOTICE", (data) => {
+        //   cc.log("socketio.....localWS");
+        if (data["param"]) {
+          const jd = JSON.parse(data["param"]);
+          cc.log("LIVE_FOUL_NOTICE", jd);
+          /// todo
+          let notice_view: ToggleView = this["foul_notice_view_" + jd.LR];
+          notice_view.show_child("flag_" + jd.type);
+          notice_view.play_anim("rotx");
+          setTimeout(() => {
+            notice_view.play_anim("rotx_out");
+          }, 1.5 * 1000);
+        }
+      })
+      .on("LIVE_1ST_EVENT", (data) => {
+        //   cc.log("socketio.....localWS");
+        if (data["param"]) {
+          const jd = JSON.parse(data["param"]);
+          cc.log("LIVE_1ST_EVENT", jd);
+          /// todo
+          if (jd.num === 1) {
+            this.node_game_process_num.getComponent(cc.Label).string = "1";
+            this.node_game_process_flag.getComponent(cc.Label).string = "ST";
+          } else if (jd.num === 2) {
+            this.node_game_process_num.getComponent(cc.Label).string = "2";
+            this.node_game_process_flag.getComponent(cc.Label).string = "ND";
+          }
+        }
       })
       .on("LIVE_TIMER_EVENT", (data) => {
         if (data["param"]) {

@@ -7,12 +7,18 @@ export function on_get_blood_map_doc(doc, rank0: Rank0TJ) {
   let cur_game_idx = doc.cur_game_idx;
   let player_name_L = doc.cur_player_name_L;
   let player_name_R = doc.cur_player_name_R;
-  cc.log("cur game idx", cur_game_idx, player_name_L);
+  // cc.log("cur game idx", cur_game_idx, player_name_L);
+  // cc.log("on_get_blood_map_doc", doc);
+  rank0.label_team_L.getComponent(cc.Label).string = doc.team_L;
+  rank0.label_team_R.getComponent(cc.Label).string = doc.team_R;
   let rec = doc.bloodmap[cur_game_idx];
   if (rec) {
     let team_L = rec.team_L;
     let team_R = rec.team_R;
+    let team_blood_L = 0,
+      team_blood_R = 0;
     for (let p of team_L) {
+      team_blood_L += p.blood;
       if (p.name == player_name_L) {
         rank0.setPlayer(0, p);
         cc.log("on_get_blood_map_doc player L", p);
@@ -30,6 +36,7 @@ export function on_get_blood_map_doc(doc, rank0: Rank0TJ) {
     }
 
     for (let p of team_R) {
+      team_blood_R += p.blood;
       if (p.name == player_name_R) {
         rank0.setPlayer(1, p);
         let rightPlayer = p;
@@ -38,7 +45,6 @@ export function on_get_blood_map_doc(doc, rank0: Rank0TJ) {
         setText("txt_score_R", blood);
         if (blood < 0) blood = 0;
         if (blood > rightPlayer.init_blood) blood = rightPlayer.init_blood;
-
         rank0.blood_bar_R.y =
           rank0.BAR_INIT_Y_R -
           (1 - blood / rightPlayer.init_blood) * rank0.BAR_HEIGHT;
@@ -46,9 +52,12 @@ export function on_get_blood_map_doc(doc, rank0: Rank0TJ) {
       }
     }
 
+    //team blood set
+    rank0.label_blood_L.getComponent(cc.Label).string = team_blood_L + "";
+    rank0.label_blood_R.getComponent(cc.Label).string = team_blood_R + "";
     let sbv: SideBloodView = _c_["SideBloodView"];
     if (sbv) {
-      sbv.set_player({ lTeam: team_L, rTeam: team_R });
+      // sbv.set_player({ lTeam: team_L, rTeam: team_R });
     }
   }
 }

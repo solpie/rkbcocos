@@ -54,6 +54,18 @@ export default class Rank0TJ extends cc.Component {
   @property(Boolean) //
   is_ww3_panel: Boolean = false;
 
+  @property(cc.Node) //
+  label_team_L: cc.Node = null;
+
+  @property(cc.Node) //
+  label_team_R: cc.Node = null;
+
+  @property(cc.Node) //
+  label_blood_L: cc.Node = null;
+
+  @property(cc.Node) //
+  label_blood_R: cc.Node = null;
+
   onload() {
     // this.gameTimer.initTimer(this, 'txt_timer')
   }
@@ -259,6 +271,7 @@ export default class Rank0TJ extends cc.Component {
   last_score_L = -1;
   last_score_R = -1;
   set_score(doc) {
+    cc.log("set_score", doc);
     setText("txt_score_L", doc.score_L);
     setText("txt_score_R", doc.score_R);
     if (this.last_score_L != doc.score_L) this.hint_score_L.play("foul_hint");
