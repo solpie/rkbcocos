@@ -109,9 +109,10 @@ export function on_blood_map_doc_big_blood(doc, bigBloodRock: BigBloodRock) {
     //   } else return;
     // }
     //load 半身照 加载
-    console.log("avatar_half", leftPlayer);
-   
+
     if (leftPlayer.avatar_half) {
+    console.log("avatar_half", leftPlayer);
+
       cc.loader.loadRes(
         "player/" + leftPlayer.player_id,
         cc.SpriteFrame,
@@ -122,6 +123,7 @@ export function on_blood_map_doc_big_blood(doc, bigBloodRock: BigBloodRock) {
       // loadImg64ByNode(bigBloodRock.avt_half_L, leftPlayer.avatar_half, true);
     }
     if (rightPlayer.avatar_half) {
+      console.log("avatar_half", rightPlayer);
       cc.loader.loadRes(
         "player/" + rightPlayer.player_id,
         cc.SpriteFrame,
